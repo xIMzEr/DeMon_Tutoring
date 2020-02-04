@@ -10,7 +10,9 @@ namespace DeMon_Tutoring_Classes
 {
     class clsDataConnection
     {
-
+        //Testing branches
+        int branch = 0;
+        int branch2 = 15;
         //connection object used to connect to the database
         SqlConnection connectionToDB = new SqlConnection();
         //data adapter used to transfer data to and from the database
