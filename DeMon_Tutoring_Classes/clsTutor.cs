@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DeMon_Tutoring_Classes
 {
-    class clsTutor
+
+    public class clsTutor
     {
     }
 }
