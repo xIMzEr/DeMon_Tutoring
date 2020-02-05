@@ -16,5 +16,20 @@ namespace DeMon_Tutoring_Testing
             Assert.IsNotNull(aTutor);
    
         }
+
+        [TestMethod]
+        public void ActiveTutorOk()
+        {
+            //create instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //create some test data to assign to tutor
+            Boolean TestData = true;
+            //assign the data to the tutor
+            aTutor.Active = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(aTutor.Active, TestData);
+        }
+
+
     }
 }

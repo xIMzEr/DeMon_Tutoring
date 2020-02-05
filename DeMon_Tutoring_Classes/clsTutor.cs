@@ -9,5 +9,6 @@ namespace DeMon_Tutoring_Classes
 
     public class clsTutor
     {
+        public bool Active { get; set; }
     }
 }
