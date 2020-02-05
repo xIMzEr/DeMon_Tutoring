@@ -30,6 +30,19 @@ namespace DeMon_Tutoring_Testing
             Assert.AreEqual(aTutor.Active, TestData);
         }
 
+        [TestMethod]
+        public void DateAddedTutor()
+        {
+            //create instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //create some test data to assign to tutor
+            DateTime TestData = DateTime.Now.Date;
+            //assign the data to the tutor
+            aTutor.DateAdded = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(aTutor.DateAdded, TestData);
+        }
+
 
     }
 }
