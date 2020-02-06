@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Tutor</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -32,11 +32,9 @@
             <asp:CheckBox ID="Available" runat="server" />
         </p>
         <p>
-            <asp:Button ID="btnOK" runat="server" Text="OK" Width="64px" />
+            <asp:Button ID="btnOK" runat="server" OnClick="BtnOK_Click" Text="OK" Width="64px" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" Width="64px" />
         </p>
-    <p>
-        &nbsp;</p>
     </form>
 </body>
 </html>
