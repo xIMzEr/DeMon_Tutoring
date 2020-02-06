@@ -12,7 +12,7 @@ public partial class aTutor : System.Web.UI.Page
     protected void BtnOk_Click(object sender, EventArgs e)
     {
         //create instance of the class we want to create
-         clsTutor aTutor = new clsTutor();
+         //clsTutor aTutor = new clsTutor();
         //capture the first name
 
     }

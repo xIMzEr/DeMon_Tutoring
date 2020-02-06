@@ -18,5 +18,13 @@ namespace DeMon_Tutoring_Classes
         public string Subject { get; set; }
         public int TotalNumberOfSubjects { get; set; }
         public string Password { get; set; }
+
+
+        public void ClsTutor(String fn, String ln)
+        {
+            FirstName = fn;
+            LastName = ln;
+        }
+
     }
 }
