@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class Testing\Staffing_Tests\tstStaffing.cs" />
     <Compile Include="Database Testing\Staffing Testing\tstStaff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
