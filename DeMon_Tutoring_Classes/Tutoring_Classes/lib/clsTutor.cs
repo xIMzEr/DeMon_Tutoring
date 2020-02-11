@@ -9,15 +9,14 @@ namespace DeMon_Tutoring_Classes
 
     public class clsTutor
     {
-        public bool Active { get; set; }
-        public DateTime DateAdded { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public bool Availability { get; set; }
-        public string Subject { get; set; }
-        public int TotalNumberOfSubjects { get; set; }
-        public string Password { get; set; }
+        private bool Active { get; set; }
+        private DateTime DateAdded { get; set; }
+        private string FirstName { get; set; }
+        private string LastName { get; set; }
+        private string Email { get; set; }
+        private bool Availability { get; set; }
+        private string Subject { get; set; }
+        private string Password { get; set; }
 
 
         public void ClsTutor(String fn, String ln)
