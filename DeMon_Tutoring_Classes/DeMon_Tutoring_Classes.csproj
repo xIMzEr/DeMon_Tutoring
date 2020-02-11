@@ -42,13 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDataConnection.cs" />
-    <Compile Include="clsTutor.cs" />
+    <Compile Include="Tutoring_Classes\lib\clsTutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Staffing_Classes\lib\Name.cs" />
     <Compile Include="Staffing_Classes\lib\Staffing.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Staffing_Classes\tests\" />
+    <Folder Include="Tutoring_Classes\test\" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
