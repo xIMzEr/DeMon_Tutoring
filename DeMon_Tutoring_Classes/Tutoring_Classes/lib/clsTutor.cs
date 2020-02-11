@@ -8,7 +8,8 @@ namespace DeMon_Tutoring_Classes
 {
 
     public class clsTutor
-    {
+    {   
+        //Fields
         private bool Active { get; set; }
         private DateTime DateAdded { get; set; }
         private string FirstName { get; set; }
@@ -19,10 +20,16 @@ namespace DeMon_Tutoring_Classes
         private string Password { get; set; }
 
 
-        public void ClsTutor(String fn, String ln)
+        //Constructors
+        public void ClsTutor(String firstn, String lastn, String mail, String sub, String pass, Boolean available, DateTime date)
         {
-            FirstName = fn;
-            LastName = ln;
+            FirstName = firstn;
+            LastName = lastn;
+            Email = mail;
+            Availability = available;
+            Subject = sub;
+            Password = pass;
+            DateAdded = date;
         }
 
     }
