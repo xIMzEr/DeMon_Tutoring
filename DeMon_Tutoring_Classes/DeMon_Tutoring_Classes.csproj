@@ -47,9 +47,6 @@
     <Compile Include="Staffing_Classes\lib\Name.cs" />
     <Compile Include="Staffing_Classes\lib\Staffing.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Staffing_Classes\tests\" />
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
