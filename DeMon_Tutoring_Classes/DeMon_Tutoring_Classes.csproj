@@ -43,6 +43,11 @@
   <ItemGroup>
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Staffing_Classes\lib\Name.cs" />
+    <Compile Include="Staffing_Classes\lib\Staffing.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Staffing_Classes\tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
