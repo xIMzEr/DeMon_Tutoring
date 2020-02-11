@@ -49,5 +49,8 @@
   <ItemGroup>
     <Folder Include="Staffing_Classes\tests\" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="clsTutor\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
