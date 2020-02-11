@@ -34,6 +34,70 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         }
 
 
+        //Methods
+        //get methods
+        public int getId()
+        {
+            return this.tutorId;
+        }
+
+        public string getEmail()
+        {
+            return this.tutorEmail;
+        }
+
+        public bool getAvailability()
+        {
+            return this.tutorAvailabe;
+        }
+
+        public string getSubject()
+        {
+            return this.tutorSubject;
+        }
+
+        public string getPassword()
+        {
+            return this.tutorPassword;
+        }
+
+        public DateTime getDateAdded()
+        {
+            return this.tutorDateAdded;
+        }
+
+        //set methods
+        public int setId(int id)
+        {
+            return this.tutorId = id;
+        }
+
+        public string setEmail(string email)
+        {
+            return this.tutorEmail = email;
+        }
+
+        public bool setAvailability(bool available)
+        {
+            return this.tutorAvailabe = available;
+        }
+
+        public string setSubject(string subject)
+        {
+            return this.tutorSubject = subject;
+        }
+
+        public string setPassword(string pass)
+        {
+            return this.tutorPassword = pass; ;
+        }
+
+        public DateTime setDateAdded(DateTime date)
+        {
+            return this.tutorDateAdded = date;
+        }
+
+
         public string toString()
         {
             return "Tutor ID: " + this.tutorId + ", Tutor Name: " + this.tutorName +
