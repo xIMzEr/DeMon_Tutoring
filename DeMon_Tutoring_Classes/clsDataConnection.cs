@@ -10,6 +10,7 @@ namespace DeMon_Tutoring_Classes
 {
     class clsDataConnection
     {
+     
         //connection object used to connect to the database
         SqlConnection connectionToDB = new SqlConnection();
         //data adapter used to transfer data to and from the database
@@ -222,4 +223,4 @@ namespace DeMon_Tutoring_Classes
             }
         }
     }
-}
+}//this closes the namespace!
