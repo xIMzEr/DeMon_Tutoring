@@ -8,7 +8,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="height: 192px">
+            <asp:Label ID="lblFirstName" runat="server" Text="Label"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="lblLastName" runat="server" Text="Label"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="lblEmail" runat="server" Text="Label"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="lblNumber" runat="server"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="lblDOB" runat="server" BorderStyle="Dotted" Text="Label" Width="449px"></asp:Label>
         </div>
     </form>
 </body>

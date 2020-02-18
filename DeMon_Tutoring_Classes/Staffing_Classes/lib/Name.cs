@@ -49,6 +49,25 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             this.lastName = name[1];
         }
 
+        public string getFirstName()
+        {
+            return this.firstName;
+        }
+
+        public string getLastName()
+        {
+            return this.lastName;
+        }
+
+        public void setFirstName(String fn)
+        {
+            this.firstName = fn;
+        }
+
+        public void setLastName(String ln)
+        {
+            this.lastName = ln;
+        }
 
     }
 }

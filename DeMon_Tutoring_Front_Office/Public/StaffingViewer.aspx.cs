@@ -13,9 +13,15 @@ public partial class Public_StaffingViewer : System.Web.UI.Page
         Staffing staff = new Staffing();
 
         //Get the data from the session object
-        staff = (Staffing)Session["AStaff"];
+        staff = (Staffing)Session["staff"];
 
-        //Display the email for this entry
-        Response.Write(staff.getEmail());
+        Response.Write("/b LOGIN SUCCESSFUL");
+
+        //Display what text is in each field
+        lblFirstName.Text = staff.getName().getFirstName();
+        lblLastName.Text = staff.getName().getLastName();
+        lblEmail.Text = staff.getEmail();
+        lblNumber.Text = staff.getNumber();
+        lblDOB.Text = staff.getDOB();
     }
 }

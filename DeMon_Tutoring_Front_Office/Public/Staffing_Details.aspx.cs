@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DeMon_Tutoring_Classes.Staffing_Classes.lib;
-
-public partial class Public_Staffing : System.Web.UI.Page
+public partial class Public_Staffing_Details : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -14,24 +15,40 @@ public partial class Public_Staffing : System.Web.UI.Page
         //get the data from the session object
         staff = (Staffing)Session["staff"];
         //Display the email for this staff
-        Response.Write(staff.getEmail());
+       
+        //Response.Write(staff.getEmail());
     }
 
     protected void OkButton_Click(object sender, EventArgs e)
     {
+
+
+
         //Create a new instance of staff
         Staffing staff = new Staffing();
         //Capture the Staff name
-        staff.setName(new Name(Request.Form["txtFirstName"], Request.Form["txtLastName"]));
+        staff.setName(new Name(txtFirstName.Text, txtLastName.Text));
         //Capture the email
-        staff.setEmail(Request.Form["txtEmail"]);
+        staff.setEmail(txtEmail.Text);
         //Capture the staff
-        staff.setNumber(Request.Form["txtNumber"]);
+        staff.setNumber(txtNumber.Text);
         //Capture the staff DOB
-        staff.setDOB(Request.Form["txtDOB"]);
+        staff.setDOB(txtDOB.Text);
         //store the email in the session object
         Session["staff"] = staff;
         //redirect to the aTutor page
         Response.Redirect("staffingViewer.aspx");
+    }
+
+    public int RandomNumber(int min, int max)
+    {
+        Random random = new Random();
+        return random.Next(min, max);
+    }
+
+    protected void Party_Click(object sender, EventArgs e)
+    {
+        OkButton.BackColor = Color.FromArgb(RandomNumber(0, 100), RandomNumber(0,50), RandomNumber(0, 100));
+        OkButton.ForeColor = Color.FromArgb(RandomNumber(0, 100), RandomNumber(0, 50), RandomNumber(0, 100));
     }
 }
