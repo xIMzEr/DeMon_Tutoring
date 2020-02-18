@@ -13,14 +13,16 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
         private Name staffName { get; set;}
         private string staffEmail { get; set; }
         private string staffNumber { get; set; }
+        private string staffDOB { get; set; }
      
         //Constructors
-        public Staffing(int sID, Name sName, string sEmail, string sNum)
+        public Staffing(int sID, Name sName, string sEmail, string sNum, string sDOB)
         {
             staffID = sID;
             staffName = sName;
             staffEmail = sEmail;
             staffNumber = sNum;
+            staffDOB = sDOB;
         }
 
        public Staffing()
@@ -29,13 +31,14 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             staffName = null;
             staffEmail = " ";
             staffNumber = " ";
+            staffDOB = " ";
         }
 
         //Methods
         public string toString()
         {
             return "Staff ID: " + this.staffID + ", Staff Name: " + this.staffName +
-                ", Staff Email: " + this.staffEmail + ", Staff Number: " + this.staffNumber;
+                ", Staff Email: " + this.staffEmail + ", Staff Number: " + this.staffNumber + ", Staff DOB: " + this.staffDOB;
         }
 
         public void setID(int ID)
@@ -58,6 +61,11 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             this.staffNumber = number;
         }
 
+        public void setDOB(string DOB)
+        {
+            this.staffDOB = DOB;
+        }
+
         public int getID()
         {
             return this.staffID;
@@ -78,6 +86,10 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             return this.staffNumber;
         }
 
+        public string getDOB()
+        {
+            return this.staffDOB;
+        }
 
     }
 }
