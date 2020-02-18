@@ -18,7 +18,18 @@ namespace DeMon_Tutoring_Classes
 
         private string LastName { get; set; }
 
+        private DateTime DateOfBirth { get; set; }
 
+        private string Enail { get; set; }
 
+        private string PhoneNumber { get; set; }
+
+        private string Password { get; set; }
+
+        private string CardNo { get; set; }
+
+        private DateTime CardDate { get; set; }
+
+        private bool StudentStatus { get; set; }
     }
 }
