@@ -8,6 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DeMon_Tutoring_Front_Office", "DeMon_Tutoring_Front_Office\", "{A02279DB-BCED-4C27-B1DD-7C19ACFA8F4B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{5aabd3e3-94da-40aa-9670-a2bd2ea46cc0}|DeMon_Tutoring_Classes.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_1076"
 		Debug.AspNetCompiler.PhysicalPath = "DeMon_Tutoring_Front_Office\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1076\"
