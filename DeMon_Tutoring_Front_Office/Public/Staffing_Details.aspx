@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="font-weight: 700">
+        <div style="font-weight: 700" id="div">
             Staff First Name<br />
             <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
             <br />
@@ -25,9 +25,8 @@
             <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="OkButton" runat="server" OnClick="OkButton_Click" Text="Ok" />
-            <asp:Button ID="CancelButton" runat="server" Text="Cancel" />
-            <asp:Button ID="Party" runat="server" OnClick="Party_Click" Text="PARTY BUTTON!" />
+            <asp:Button ID="OkButton" runat="server" OnClick="OkButton_Click" Text="Ok" BackColor="#33CCFF" />
+            <asp:Button ID="CancelButton" runat="server" Text="Cancel" BackColor="#FF3300" OnClick="CancelButton_Click" />
         </div>
     </form>
 </body>

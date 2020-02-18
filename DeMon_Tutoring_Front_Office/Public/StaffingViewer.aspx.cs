@@ -15,7 +15,7 @@ public partial class Public_StaffingViewer : System.Web.UI.Page
         //Get the data from the session object
         staff = (Staffing)Session["staff"];
 
-        Response.Write("/b LOGIN SUCCESSFUL");
+        Response.Write("<b> LOGIN SUCCESSFUL </b>");
 
         //Display what text is in each field
         lblFirstName.Text = staff.getName().getFirstName();

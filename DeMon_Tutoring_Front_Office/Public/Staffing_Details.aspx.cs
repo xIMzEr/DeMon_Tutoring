@@ -17,6 +17,7 @@ public partial class Public_Staffing_Details : System.Web.UI.Page
         //Display the email for this staff
        
         //Response.Write(staff.getEmail());
+       
     }
 
     protected void OkButton_Click(object sender, EventArgs e)
@@ -46,9 +47,12 @@ public partial class Public_Staffing_Details : System.Web.UI.Page
         return random.Next(min, max);
     }
 
-    protected void Party_Click(object sender, EventArgs e)
+    protected void CancelButton_Click(object sender, EventArgs e)
     {
-        OkButton.BackColor = Color.FromArgb(RandomNumber(0, 100), RandomNumber(0,50), RandomNumber(0, 100));
-        OkButton.ForeColor = Color.FromArgb(RandomNumber(0, 100), RandomNumber(0, 50), RandomNumber(0, 100));
+        txtFirstName.Text = "";
+        txtLastName.Text = "";
+        txtEmail.Text = "";
+        txtNumber.Text = "";
+        txtDOB.Text = "";
     }
 }
