@@ -18,7 +18,6 @@
         </p>
     <p>
         Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
         </p>
     <p>
         Subject&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
