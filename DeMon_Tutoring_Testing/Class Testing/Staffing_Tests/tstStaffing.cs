@@ -22,7 +22,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
         {
             //create instance of the class we want to create
             Staffing s2 = new Staffing();
-            //create some test data to assign to tutor
+            //create some test data to assign to staff
             int Test = 1;
             //assign the data to the Staff
             s2.setID(Test);
@@ -60,7 +60,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
         {
             //create instance of the class we want to create
             Staffing s2 = new Staffing();
-            //create some test data to assign to tutor
+            //create some test data to assign to staff
             string Test = "01706844505";
             //assign the data to the Staff
             s2.setNumber(Test);
