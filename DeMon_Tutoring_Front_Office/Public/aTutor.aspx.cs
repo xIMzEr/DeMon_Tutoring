@@ -24,9 +24,10 @@ public partial class aTutor : System.Web.UI.Page
             //create instance of tutor
             clsTutor aTutor = new clsTutor();
             //capture the tutor name
-            aTutor.setName(new Name(txtFirstName.Text, txtLastName.Text));
+           // aTutor.setName(new Name(txtFirstName.Text, txtLastName.Text));
+            // txtFirstName
             //capture the email
-            aTutor.setEmail(txtEmail.Text);
+           // aTutor.setEmail(txtEmail.Text);
 
 
             //store the email in the session object
