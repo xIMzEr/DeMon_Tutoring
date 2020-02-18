@@ -95,18 +95,6 @@ namespace DeMon_Tutoring_Testing
             Assert.AreEqual(aTutor.Subject, TestData);
         }
 
-        [TestMethod]
-        public void ActiveTotalNumberOfSubjectsTutor()
-        {
-            //create instance of the class we want to create
-            clsTutor aTutor = new clsTutor();
-            //create some test data to assign to tutor
-            int TestData = 1;
-            //assign the data to the tutor
-            aTutor.TotalNumberOfSubjects = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(aTutor.TotalNumberOfSubjects, TestData);
-        }
 
         [TestMethod]
         public void ActivePasswordTutor()
@@ -120,6 +108,20 @@ namespace DeMon_Tutoring_Testing
             //test to see that the two values are the same
             Assert.AreEqual(aTutor.Password, TestData);
         }
+
+        [TestMethod]
+        public void DateAddedTutorOK()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //create some test data to assign to the property
+            DateTime TestData = DateTime.Now.Date;
+            //assign the data to the property
+            aTutor.DateAdded = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(aTutor.DateAdded, TestData);
+        }
+
 
 
 
