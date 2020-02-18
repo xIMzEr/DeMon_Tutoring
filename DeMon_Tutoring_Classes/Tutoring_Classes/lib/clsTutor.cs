@@ -10,8 +10,8 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
        public class clsTutor
     {   
         //Fields
-        protected bool active { get; set; }
-        protected int tutorId { get; set; }
+        private bool active { get; set; }
+        private int tutorId { get; set; }
         protected Name tutorName { get; set; }
         protected string tutorEmail { get; set; }
         protected bool tutorAvailabe { get; set; }
@@ -50,6 +50,10 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         {
             return this.tutorId;
         }
+        public Name getName()
+        {
+            return this.tutorName;
+        }
 
         public string getEmail()
         {
@@ -80,6 +84,11 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         public int setId(int id)
         {
             return this.tutorId = id;
+        }
+
+        public Name setName(Name name)
+        {
+            return this.tutorName = name;
         }
 
         public string setEmail(string email)

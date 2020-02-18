@@ -38,36 +38,25 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create some test data to assign to tutor
             int TestData = 1;
             //assign the data to the tutor
-            aTutor.tutorId = TestData;
+            aTutor.setId(TestData);
             //test to see that the two values are the same
-            Assert.AreEqual(aTutor.tutorId, TestData);
+            Assert.AreEqual(aTutor.getId(), TestData);
         }
 
         [TestMethod]
-        public void ActiveFirstNameTutor()
+        public void ActiveNameTutor()
         {
             //create instance of the class we want to create
             clsTutor aTutor = new clsTutor();
             //create some test data to assign to tutor
             string TestData = "Bob";
             //assign the data to the tutor
-            aTutor.firstName = TestData;
+            aTutor.setName = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aTutor.firstName, TestData);
         }
 
-        [TestMethod]
-        public void ActiveLastNameTutor()
-        {
-            //create instance of the class we want to create
-            clsTutor aTutor = new clsTutor();
-            //create some test data to assign to tutor
-            string TestData = "Stevens";
-            //assign the data to the tutor
-            aTutor.lastName = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(aTutor.lastName, TestData);
-        }
+
 
         [TestMethod]
         public void ActiveEmailTutor()
