@@ -52,7 +52,7 @@
     <Compile Include="Class Testing\Staffing_Tests\tstStaffing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tstTutor.cs" />
-    <Compile Include="tstCustomer.cs" />
+    <Compile Include="Class Testing\Customer_Tests\tstCustomer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
