@@ -31,7 +31,18 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             tutorPassword = password;
             tutorDateAdded = date;
         }
-        
+
+        public clsTutor()
+        {
+            tutorId = 0;
+            tutorName = null;
+            tutorEmail = "";
+            tutorAvailabe = true;
+            tutorSubject = "";
+            tutorPassword = "";
+            tutorDateAdded = DateTime.Today;
+        }
+
         //Methods
 
         //get methods
