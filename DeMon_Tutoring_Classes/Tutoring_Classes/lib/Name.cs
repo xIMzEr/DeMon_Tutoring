@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeMon_Tutoring_Classes.Tutoring_Classes
 {
-    class Name
+    public class Name
     {
         //Fields
         private string firstName { get; set; }

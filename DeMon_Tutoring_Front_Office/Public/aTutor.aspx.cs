@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
+using DeMon_Tutoring_Classes;
 
 
 
@@ -13,9 +13,9 @@ using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
         protected void Page_Load(object sender, EventArgs e)
         {
         //create a new instance of clsTutor
-        ClsTutor aTutor = new ClsTutor();
+        clsTutor aTutor = new clsTutor();
         //get the data from the session object
-        aTutor = (ClsTutor)Session["aTutor"];
+        aTutor = (clsTutor)Session["aTutor"];
         //display the tutor ID for this entry
         Response.Write(aTutor.tutorId);
         }

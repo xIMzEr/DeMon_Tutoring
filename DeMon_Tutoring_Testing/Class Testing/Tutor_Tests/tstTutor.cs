@@ -1,8 +1,8 @@
 ﻿using System;
-using DeMon_Tutoring_Classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
 
-namespace DeMon_Tutoring_Testing
+namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
 {
     [TestClass]
     public class tstTutor

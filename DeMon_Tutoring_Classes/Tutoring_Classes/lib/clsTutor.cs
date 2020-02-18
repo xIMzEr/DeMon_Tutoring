@@ -7,34 +7,33 @@ using System.Threading.Tasks;
 namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 {
 
-     class clsTutor
+       public class clsTutor
     {   
         //Fields
-        private bool active { get; set; }
-
-        private int tutorId { get; set; }
-        private Name tutorName { get; set; }
-        private string tutorEmail { get; set; }
-        private bool tutorAvailabe { get; set; }
-        private string tutorSubject { get; set; }
-        private string tutorPassword { get; set; }
-        private DateTime tutorDateAdded { get; set; }
+        protected bool active { get; set; }
+        protected int tutorId { get; set; }
+        protected Name tutorName { get; set; }
+        protected string tutorEmail { get; set; }
+        protected bool tutorAvailabe { get; set; }
+        protected string tutorSubject { get; set; }
+        protected string tutorPassword { get; set; }
+        protected DateTime tutorDateAdded { get; set; }
 
 
         //Constructors
-        public void Tutor(int id, Name name, String email, String subj, String pass, Boolean available, DateTime date)
+        public clsTutor(int id, Name name, String email, String subject, String password, Boolean available, DateTime date)
         {
             tutorId = id;
             tutorName = name;
             tutorEmail = email;
             tutorAvailabe = available;
-            tutorSubject = subj;
-            tutorPassword = pass;
+            tutorSubject = subject;
+            tutorPassword = password;
             tutorDateAdded = date;
         }
-
-
+        
         //Methods
+
         //get methods
         public int getId()
         {

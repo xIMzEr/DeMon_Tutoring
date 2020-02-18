@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using DeMon_Tutoring_Classes;
 
-namespace DeMon_Tutoring_Testing
+namespace Test Framework
 {
     [TestClass]
     public class tstCustomer
