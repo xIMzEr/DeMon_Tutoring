@@ -22,7 +22,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 
 
         //Constructors
-        public void ClsTutor(int id, Name name, String email, String subj, String pass, Boolean available, DateTime date)
+        public void Tutor(int id, Name name, String email, String subj, String pass, Boolean available, DateTime date)
         {
             tutorId = id;
             tutorName = name;
