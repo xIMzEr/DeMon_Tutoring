@@ -18,7 +18,6 @@
         </p>
     <p>
         Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
         </p>
     <p>
         Subject&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -26,7 +25,7 @@
         </p>
     <p>
         Date Added
-        <asp:TextBox ID="txtDateAdded" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtDateAdded" runat="server" Width="111px"></asp:TextBox>
         </p>
         <p>
             <asp:CheckBox ID="Available" runat="server" />
