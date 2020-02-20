@@ -28,13 +28,13 @@ public partial class Public_Staffing_Details : System.Web.UI.Page
         //Create a new instance of staff
         Staffing staff = new Staffing();
         //Capture the Staff name
-        staff.setName(new Name(txtFirstName.Text, txtLastName.Text));
+        staff.staffName = new Name(txtFirstName.Text, txtLastName.Text);
         //Capture the email
-        staff.setEmail(txtEmail.Text);
+        staff.staffEmail = txtEmail.Text;
         //Capture the staff
-        staff.setNumber(txtNumber.Text);
+        staff.staffNumber = txtNumber.Text;
         //Capture the staff DOB
-        staff.setDOB(txtDOB.Text);
+        staff.staffDOB = txtDOB.Text;
         //store the email in the session object
         Session["staff"] = staff;
         //redirect to the aTutor page
