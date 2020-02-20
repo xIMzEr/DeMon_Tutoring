@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeMon_Tutoring_Classes.Tutoring_Classes
+namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 {
     public class Name
     {
