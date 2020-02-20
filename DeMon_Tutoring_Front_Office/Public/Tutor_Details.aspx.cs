@@ -12,27 +12,37 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //create a new instance of clsTutor
-        clsTutor Tutor = new clsTutor();
+        clsTutor tutor = new clsTutor();
         //get the data from the session object
-        Tutor = (clsTutor)Session["Tutor"];
+        tutor = (clsTutor)Session["tutor"];
         //display the tutor ID for this entry
-        Response.Write(Tutor.getId());
+        Response.Write(tutor.getId());
 
     }
 
     protected void btnRegister_Click(object sender, EventArgs e)
     {
         //create instance of tutor
-        clsTutor Tutor = new clsTutor();
+        clsTutor tutor = new clsTutor();
         //capture the tutor name
-        Tutor.setName(new Name(txtFirstName.Text, txtLastName.Text));
+        tutor.setName(new Name(txtFirstName.Text, txtLastName.Text));
         //capture the email
-        Tutor.setEmail(txtEmail.Text);
+        tutor.setEmail(txtEmail.Text);
+        //Capture the date created
+        tutor.setDateAdded(DateTime.Now);
 
 
         //store the email in the session object
-        Session["Tutor"] = Tutor;
+        Session["tutor"] = tutor;
         //redirect to the tutor viewer page
         Response.Redirect("TutorViewer.aspx");
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        txtFirstName.Text = "";
+        txtLastName.Text = "";
+        txtEmail.Text = "";
+        txtSubject.Text = "";
     }
 }

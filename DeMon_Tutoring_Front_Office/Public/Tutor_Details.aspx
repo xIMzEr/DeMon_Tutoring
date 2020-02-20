@@ -23,7 +23,7 @@
             <br />
             <br />
             <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" />
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
         </div>
     </form>
 </body>
