@@ -26,13 +26,15 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
     {
         //create instance of tutor
         clsTutor tutor = new clsTutor();
+
         //capture the tutor name
         tutor.setName(new Name(txtFirstName.Text, txtLastName.Text));
+
         //capture the email
         tutor.setEmail(txtEmail.Text);
+
         //Capture the date created
         tutor.setDateAdded(DateTime.Now);
-
 
         //store the email in the session object
         Session["tutor"] = tutor;

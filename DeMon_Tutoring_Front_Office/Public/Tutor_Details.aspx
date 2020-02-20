@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="lblTitle" runat="server" ForeColor="#990000" Text="Tutor Sign Up Form"></asp:Label>
+            <br />
+            <br />
             First Name<br />
             <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
             <br />
