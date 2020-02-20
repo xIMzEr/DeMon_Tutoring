@@ -18,10 +18,10 @@ public partial class Public_StaffingViewer : System.Web.UI.Page
         Response.Write("<b> LOGIN SUCCESSFUL </b>");
 
         //Display what text is in each field
-        lblFirstName.Text = staff.getName().getFirstName();
-        lblLastName.Text = staff.getName().getLastName();
-        lblEmail.Text = staff.getEmail();
-        lblNumber.Text = staff.getNumber();
-        lblDOB.Text = staff.getDOB();
+        lblFirstName.Text = staff.staffName.getFirstName();
+        lblLastName.Text = staff.staffName.getLastName();
+        lblEmail.Text = staff.staffEmail;
+        lblNumber.Text = staff.staffNumber;
+        lblDOB.Text = staff.staffDOB;
     }
 }
