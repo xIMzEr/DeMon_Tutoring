@@ -13,8 +13,10 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
     {
         //create a new instance of clsTutor
         clsTutor tutor = new clsTutor();
+
         //get the data from the session object
         tutor = (clsTutor)Session["tutor"];
+
         //display the tutor ID for this entry
         Response.Write(tutor.getId());
 
