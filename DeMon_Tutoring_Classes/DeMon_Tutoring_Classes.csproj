@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDataConnection.cs" />
+    <Compile Include="Customer_Classes\lib\Name.cs" />
+    <Compile Include="Customer_Classes\lib\clsCustomer.cs" />
     <Compile Include="Tutoring_Classes\lib\clsTutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Staffing_Classes\lib\Name.cs" />
