@@ -77,7 +77,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Boolean varibable to store the result of the validation
             Boolean Found = false;
             //Create some test data to use with the method
-            Int32 staffID = 3;
+            Int32 staffID = 4;
             //Invoke the method
             Found = staffT.Find(staffID);
             //Test to see if ther esult is correct
@@ -94,12 +94,12 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Bool to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 StaffID = 3;
+            Int32 StaffID = 4;
             //Invoke the method
             Found = staffT.Find(StaffID);
 
-            //Check the staffID
-            if(staffT.staffID != 3)
+            //Check the staffID against the test ID
+            if(staffT.staffID != 4)
             {
                 OK = false;
             }
@@ -118,11 +118,11 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Bool to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 StaffID = 3;
+            Int32 StaffID = 4;
             //Invoke the method
             Found = staffT.Find(StaffID);
 
-            //Check the staffID
+            //Grab the full name and compare it to what should be found
             if (staffT.staffName.getFullName() != staffN.getFullName())
             {
                 OK = false;
@@ -141,12 +141,58 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Bool to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 StaffID = 3;
+            Int32 StaffID = 4;
             //Invoke the method
             Found = staffT.Find(StaffID);
 
-            //Check the staffID
+            //Check the staffEmail value against what should be found
             if (staffT.staffEmail != "eugenefrisbee@gmail.com")
+            {
+                OK = false;
+            }
+            //test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffNumberFound()
+        {
+            //Create an instance of Staffing
+            Staffing staffT = new Staffing();
+            //Boolean varibable to store the result of the validation
+            Boolean Found = false;
+            //Bool to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //Create some test data to use with the method
+            Int32 StaffID = 4;
+            //Invoke the method
+            Found = staffT.Find(StaffID);
+
+            //Check the stafNumber value against what should be found
+            if (staffT.staffNumber != "07974133370")
+            {
+                OK = false;
+            }
+            //test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffDOBFound()
+        {
+            //Create an instance of Staffing
+            Staffing staffT = new Staffing();
+            //Boolean varibable to store the result of the validation
+            Boolean Found = false;
+            //Bool to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //Create some test data to use with the method
+            Int32 StaffID = 4;
+            //Invoke the method
+            Found = staffT.Find(StaffID);
+
+            //Check the stafDOB value against what should be found
+            if (staffT.staffDOB != "1000-08-09")
             {
                 OK = false;
             }
