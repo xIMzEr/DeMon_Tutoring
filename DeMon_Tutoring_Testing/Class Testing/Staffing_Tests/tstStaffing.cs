@@ -15,6 +15,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //test to see that it now exists
             Assert.IsNotNull(s1);
            
+           
         }
 
         [TestMethod]
@@ -25,9 +26,9 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //create some test data to assign to staff
             int Test = 1;
             //assign the data to the Staff
-            s2.setID(Test);
+            s2.staffID = Test;
             //test to see that the two values are the same
-            Assert.AreEqual(Test, s2.getID());
+            Assert.AreEqual(Test, s2.staffID);
         }
 
         [TestMethod]
@@ -37,9 +38,9 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             Name n1 = new Name("Jimmy", "McBro");
             Staffing s1 = new Staffing();
             //Insert the test name
-            s1.setName(n1);
+            s1.staffName = n1;
             //Compare if equal
-            Assert.AreEqual(n1, s1.getName());
+            Assert.AreEqual(n1, s1.staffName);
         }
 
         [TestMethod]
@@ -50,9 +51,9 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //create some test data to assign to tutor
             string Test = "myname@gmail.com";
             //assign the data to the Staff
-            s2.setEmail(Test);
+            s2.staffEmail = Test;
             //test to see that the two values are the same
-            Assert.AreEqual(Test, s2.getEmail());
+            Assert.AreEqual(Test, s2.staffEmail);
         }
 
         [TestMethod]
@@ -63,9 +64,140 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //create some test data to assign to staff
             string Test = "01706844505";
             //assign the data to the Staff
-            s2.setNumber(Test);
+            s2.staffNumber = Test;
             //test to see that the two values are the same
-            Assert.AreEqual(Test, s2.getNumber());
+            Assert.AreEqual(Test, s2.staffNumber);
+        }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //Create an instance of Staffing
+            Staffing staffT = new Staffing();
+            //Boolean varibable to store the result of the validation
+            Boolean Found = false;
+            //Create some test data to use with the method
+            Int32 staffID = 4;
+            //Invoke the method
+            Found = staffT.Find(staffID);
+            //Test to see if ther esult is correct
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestStaffIDFound()
+        {
+            //Create an instance of Staffing
+            Staffing staffT = new Staffing();
+            //Boolean varibable to store the result of the validation
+            Boolean Found = false;
+            //Bool to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //Create some test data to use with the method
+            Int32 StaffID = 4;
+            //Invoke the method
+            Found = staffT.Find(StaffID);
+
+            //Check the staffID against the test ID
+            if(staffT.staffID != 4)
+            {
+                OK = false;
+            }
+            //test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffNameFound()
+        {
+            //Create an instance of Staffing
+            Name staffN = new Name("Eugene", "Zuccerberg");
+            Staffing staffT = new Staffing();
+            //Boolean varibable to store the result of the validation
+            Boolean Found = false;
+            //Bool to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //Create some test data to use with the method
+            Int32 StaffID = 4;
+            //Invoke the method
+            Found = staffT.Find(StaffID);
+
+            //Grab the full name and compare it to what should be found
+            if (staffT.staffName.getFullName() != staffN.getFullName())
+            {
+                OK = false;
+            }
+            //test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffEmailFound()
+        {
+            //Create an instance of Staffing
+            Staffing staffT = new Staffing();
+            //Boolean varibable to store the result of the validation
+            Boolean Found = false;
+            //Bool to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //Create some test data to use with the method
+            Int32 StaffID = 4;
+            //Invoke the method
+            Found = staffT.Find(StaffID);
+
+            //Check the staffEmail value against what should be found
+            if (staffT.staffEmail != "eugenefrisbee@gmail.com")
+            {
+                OK = false;
+            }
+            //test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffNumberFound()
+        {
+            //Create an instance of Staffing
+            Staffing staffT = new Staffing();
+            //Boolean varibable to store the result of the validation
+            Boolean Found = false;
+            //Bool to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //Create some test data to use with the method
+            Int32 StaffID = 4;
+            //Invoke the method
+            Found = staffT.Find(StaffID);
+
+            //Check the stafNumber value against what should be found
+            if (staffT.staffNumber != "07974133370")
+            {
+                OK = false;
+            }
+            //test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffDOBFound()
+        {
+            //Create an instance of Staffing
+            Staffing staffT = new Staffing();
+            //Boolean varibable to store the result of the validation
+            Boolean Found = false;
+            //Bool to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //Create some test data to use with the method
+            Int32 StaffID = 4;
+            //Invoke the method
+            Found = staffT.Find(StaffID);
+
+            //Check the stafDOB value against what should be found
+            if (staffT.staffDOB != "1000-08-09")
+            {
+                OK = false;
+            }
+            //test to see if the result is correct
+            Assert.IsTrue(OK);
         }
     }
 }
