@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using DeMon_Tutoring_Classes.Customer_Classes.lib;
+using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 namespace DeMon_Tutoring_Testing
 {
     [TestClass]
@@ -22,7 +23,7 @@ namespace DeMon_Tutoring_Testing
             //create instance of the class we want to create
             clsCustomer aCustomer = new clsCustomer();
             //create some test data to assign to tutor
-            int TestData = 1;
+            bool TestData = true;
             //assign the data to the tutor
             aCustomer.Active = TestData;
             //test to see that the two values are the same
@@ -33,7 +34,7 @@ namespace DeMon_Tutoring_Testing
         public void ActiveCustomerOk()
         {
             //create instance of the class we want to create
-            clsTutor aCustomer = new clsCustomer();
+            clsCustomer aCustomer = new clsCustomer();
             //create some test data to assign to tutor
             Boolean TestData = true;
             //assign the data to the tutor
@@ -61,7 +62,7 @@ namespace DeMon_Tutoring_Testing
             //create instance of the class we want to create
             clsCustomer aCustomer = new clsCustomer();
             //create some test data to assign to tutor
-            DateTime TestData = 11 / 11 / 11;
+            string TestData = "11 / 11 / 11";
             //assign the data to the tutor
             aCustomer.DateOfBirth = TestData;
             //test to see that the two values are the same
@@ -130,7 +131,7 @@ namespace DeMon_Tutoring_Testing
             //create instance of the class we want to create
             clsCustomer aCustomer = new clsCustomer();
             //create some test data to assign to tutor
-            DateTime TestData = 11 / 11 / 11;
+            string TestData = "11 / 11 / 11";
             //assign the data to the tutor
             aCustomer.CardDate = TestData;
             //test to see that the two values are the same
