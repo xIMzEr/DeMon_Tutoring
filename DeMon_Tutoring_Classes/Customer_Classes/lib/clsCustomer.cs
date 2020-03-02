@@ -9,6 +9,7 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
 {
     class clsCustomer
     {
+        //Customer Fields
         private bool Active { get; set; }
         private int CustomerID { get; set; }
         private bool Customer { get; set; }
@@ -21,17 +22,19 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
         private DateTime CardDate { get; set; }
         private bool StudentStatus { get; set; }
 
-        public void clscustomer(int cID, Name name, DateTime dob, string email, string number, string pword, string cardNo, DateTime cardDate, bool studentStat)
+
+        //Customer Constructors
+        public void clscustomer(int cID, Name cName, DateTime cDob, string cEmail, string cNumber, string cPword, string cCardNo, DateTime cCardDate, Boolean cStudentStat)
         {
             CustomerID = cID;
-            CustomerName = name;
-            DateOfBirth = dob;
-            Email = email;
-            PhoneNumber = number;
-            Password = pword;
-            CardNo = cardNo;
-            CardDate = cardDate;
-            StudentStatus = studentStat;
+            CustomerName = cName;
+            DateOfBirth = cDob;
+            Email = cEmail;
+            PhoneNumber = cNumber;
+            Password = cPword;
+            CardNo = cCardNo;
+            CardDate = cCardDate;
+            StudentStatus = cStudentStat;
 
         }
 
@@ -48,8 +51,112 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
             StudentStatus = true;
         }
 
+        //Customer Set Methods
+        public void setID(int ID)
+        {
+            this.CustomerID = ID;
+        }
 
+        public void setName(Name name)
+        {
+            this.CustomerName = name;
+        }
 
+        public void setDOB(DateTime dob)
+        {
+            this.DateOfBirth = dob;
+        }
+        
+        public void setEmail(String email)
+        {
+            this.Email = email;
+        }
+
+        public void setPhoneNumber(String number)
+        {
+            this.PhoneNumber = number;
+        }
+
+        public void setPassword(String pword)
+        {
+            this.Password = pword;
+        }
+
+        public void setCardNo(String cardNo)
+        {
+            this.CardNo = cardNo;
+        }
+
+        public void setCardDate(DateTime cardDate)
+        {
+            this.CardDate = cardDate;
+        }
+
+        public void setStudentStatus(Boolean studentStat)
+        {
+            this.StudentStatus = studentStat;
+        }
+        
+        //Customer Get Methods
+
+        public int getID()
+        {
+            return this.CustomerID;
+        }
+
+        public Name getName()
+        {
+            return this.CustomerName;
+        }
+
+        public DateTime getDOB()
+        {
+            return this.DateOfBirth;
+        }
+
+        public String getEmail()
+        {
+            return this.Email;
+        }
+
+        public String getPhoneNumber()
+        {
+            return this.PhoneNumber;
+        }
+
+        public String getPassword()
+        {
+            return this.Password;
+        }
+
+        public String getCardNo()
+        {
+            return this.CardNo;
+        }
+
+        public DateTime getCardDate()
+        {
+            return this.CardDate;
+        }
+
+        public Boolean getStudentStatus()
+        {
+            return this.StudentStatus;
+        }
+
+        //ToString Method
+
+        public String toString()
+        {
+            return "CustomerID: " + this.CustomerID + ", CustomerName: " + this.CustomerName +
+                ", DateOfBirth: " + this.DateOfBirth + ", Email: " + this.Email + ", PhoneNumber: " + this.PhoneNumber +
+                ", Password: " + this.Password + ", CardNo: " + this.CardNo + ", CardDate: " + this.CardDate +
+                ", StudentStatus: " + this.StudentStatus;
+        }
 
     }
 }
+
+
+    
+
