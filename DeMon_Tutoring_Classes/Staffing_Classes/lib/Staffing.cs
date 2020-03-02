@@ -67,14 +67,40 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
 
         public bool Find(int sID)
         {
-            //Hardcoded object
-            mStaffID = 3;
-            mStaffName = new Name("Eugene", "Zuccerberg");
-            mStaffEmail = "eugenefrisbee@gmail.com";
-            mStaffNumber = "07974133370";
-            mStaffDOB = "1000-08-09";
-            //Will always pass the test
-            return true;
+            //Create a new instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //Add the parameter for the staffID to search for
+            DB.AddParameter("staffID", sID);
+            //Execute the stored procedure
+            DB.Execute("sproc_TblStaffing_FilterByStaffID");
+            //If one record is found (Only one or zero instances can exist)
+            if(DB.Count == 1)
+            {
+                //Copy the data from the database to the private data members
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mStaffName = new Name(Convert.ToString(DB.DataTable.Rows[0]["FirstName"]), Convert.ToString(DB.DataTable.Rows[0]["LastName"]));
+                mStaffNumber = Convert.ToString(DB.DataTable.Rows[0]["StaffNumber"]);
+                mStaffEmail = Convert.ToString(DB.DataTable.Rows[0]["StaffEmail"]);
+                mStaffDOB = Convert.ToString(DB.DataTable.Rows[0]["StaffDob"]);
+                //return that everything went ok
+                return true;
+            }
+            //If no records are found
+            else{
+                //return false indicating a problem
+                return false;
+            }
+
+
+            /**
+                        //Hardcoded object
+                        mStaffID = 3;
+                        mStaffName = new Name("Eugene", "Zuccerberg");
+                        mStaffEmail = "eugenefrisbee@gmail.com";
+                        mStaffNumber = "07974133370";
+                        mStaffDOB = "1000-08-09";
+                        //Always return true
+                        return true; **/
         }
 
     }
