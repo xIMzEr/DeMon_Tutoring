@@ -16,24 +16,46 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         //tutorId public property
         public int tutorId
         { get
-            {
-                //this line of code sends data out of the property
-                return mtutorId;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mtutorId = value;
-            }
-        }
+            {  return mtutorId; } set  { mtutorId = value; } }
 
-        protected Name tutorName { get; set; }
-        protected string tutorEmail { get; set; }
-        protected bool tutorAvailabe { get; set; }
-        protected string tutorSubject { get; set; }
-        protected string tutorPassword { get; set; }
-        protected DateTime tutorDateAdded { get; set; }
-        private bool active { get; set; }
+        //tutorName private member variable
+        private Name mtutorName;
+        //tutorName public property
+        public Name tutorName {
+            get { return mtutorName; } set { mtutorName = value; } }
+
+        //tutorEmail private member variable
+        private string mtutorEmail;
+        //tutorEmail public property
+        public string tutorEmail {
+            get { return mtutorEmail; } set { mtutorEmail = value; } }
+
+        //tutorAvailable private member variable
+        private bool mtutorAvailable;
+        //tutorAvailable public property
+        public bool tutorAvailabe {
+            get { return mtutorAvailable; } set { mtutorAvailable = value; } }
+
+        //tutorSubject private member variable
+        private string mtutorSubject;
+        //tutorSubject public property
+        public string tutorSubject {
+            get { return mtutorSubject; } set { mtutorSubject = value; } }
+
+        //tutorPassword private member variable
+        private string mtutorPassword;
+        //tutorPassword public property
+        public string tutorPassword {
+            get { return mtutorPassword; } set { mtutorPassword = value; } }
+
+        //dateAdded private member variable
+        private DateTime mtutorDateAdded;
+        //tutorDateAdded public property
+        public DateTime tutorDateAdded {
+            get { return mtutorDateAdded; } set { mtutorDateAdded = value; } }
+
+
+        public bool active { get; set; }
 
 
         //Constructors
@@ -66,6 +88,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         {
             //set the private data members to the test data value
             mtutorId = 1;
+            mtutorDateAdded = Convert.ToDateTime("16/9/2015");
             //always return true
             return true;
         }

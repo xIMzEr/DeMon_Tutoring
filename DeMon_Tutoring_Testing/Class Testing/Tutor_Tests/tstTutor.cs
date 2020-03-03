@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
-using DeMon_Tutoring_Classes.Tutoring_Classes;
 using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 
 namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
@@ -28,7 +27,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //assign the data to the tutor
             aTutor.setId(TestData);
             //test to see that the two values are the same
-            Assert.AreEqual(aTutor.getId(), TestData);
+            Assert.AreEqual(aTutor.tutorId, TestData);
         }
 
         [TestMethod]
@@ -41,7 +40,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //assign the data to the tutor
             aTutor.setName(TestData);
             //test to see that the two values are the same
-            Assert.AreEqual(aTutor.getName(), TestData);
+            Assert.AreEqual(aTutor.tutorName, TestData);
         }
 
 
@@ -56,7 +55,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //assign the data to the tutor
             aTutor.setEmail(TestData);
             //test to see that the two values are the same
-            Assert.AreEqual(aTutor.getEmail(), TestData);
+            Assert.AreEqual(aTutor.tutorEmail, TestData);
         }
 
         [TestMethod]
@@ -69,7 +68,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //assign the data to the tutor
             aTutor.setAvailability(TestData);
             //test to see that the two values are the same
-            Assert.AreEqual(aTutor.getAvailability(), TestData);
+            Assert.AreEqual(aTutor.tutorAvailabe, TestData);
         }
 
         [TestMethod]
@@ -82,7 +81,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //assign the data to the tutor
             aTutor.setSubject(TestData);
             //test to see that the two values are the same
-            Assert.AreEqual(aTutor.getSubject(), TestData);
+            Assert.AreEqual(aTutor.tutorSubject, TestData);
         }
 
 
@@ -96,7 +95,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //assign the data to the tutor
             aTutor.setPassword(TestData);
             //test to see that the two values are the same
-            Assert.AreEqual(aTutor.getPassword(), TestData);
+            Assert.AreEqual(aTutor.tutorPassword, TestData);
         }
 
         [TestMethod]
@@ -109,7 +108,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //assign the data to the property
             aTutor.setDateAdded(TestData);
             //test to see that the two values are the same
-            Assert.AreEqual(aTutor.getDateAdded(), TestData);
+            Assert.AreEqual(aTutor.tutorDateAdded, TestData);
         }
 
         [TestMethod]
@@ -142,6 +141,27 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Found = aTutor.Find(tutorId);
             //check the tutor id number
             if(aTutor.tutorId !=1)
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        public void TestDateAddedFound()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //create some test data to assign to use with the method
+            Int32 tutorId = 1;
+            //invoke the method
+            Found = aTutor.Find(tutorId);
+            //check the tutor id number
+            if (aTutor.tutorDateAdded != Convert.ToDateTime("16/09/2015"))
             {
                 Ok = false;
             }
