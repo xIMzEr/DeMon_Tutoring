@@ -124,8 +124,29 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //invoke the method
             Found = aTutor.Find(TestData);
             //test to see if the result is correct
-            Assert.isTrue(Found);
+            Assert.IsTrue(Found);
         }
 
+        [TestMethod]
+        public void TestTutorNotFound()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //create some test data to assign to use with the method
+            Int32 tutorId = 1;
+            //invoke the method
+            Found = aTutor.Find(tutorId);
+            //check the tutor id number
+            if(aTutor.tutorId !=1)
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
     }
 }

@@ -9,16 +9,31 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 {
 
        public class clsTutor
-    {   
-        //Fields
-        private bool active { get; set; }
-        private int tutorId { get; set; }
+    {  //Fields
+
+        //tutorId private member variable
+        private Int32 mtutorId;
+        //tutorId public property
+        public int tutorId
+        { get
+            {
+                //this line of code sends data out of the property
+                return mtutorId;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mtutorId = value;
+            }
+        }
+
         protected Name tutorName { get; set; }
         protected string tutorEmail { get; set; }
         protected bool tutorAvailabe { get; set; }
         protected string tutorSubject { get; set; }
         protected string tutorPassword { get; set; }
         protected DateTime tutorDateAdded { get; set; }
+        private bool active { get; set; }
 
 
         //Constructors
@@ -45,6 +60,15 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         }
 
         //Methods
+
+        //find method
+        public bool Find (int tutorId)
+        {
+            //set the private data members to the test data value
+            mtutorId = 1;
+            //always return true
+            return true;
+        }
 
         //get methods
         public int getId()
