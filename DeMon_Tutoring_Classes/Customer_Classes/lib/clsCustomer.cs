@@ -43,16 +43,15 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
             CustomerID = 0;
             CustomerName = null;
             DateOfBirth = " ";
-            Email = "";
-            PhoneNumber = "";
-            Password = "";
-            CardNo = "";
+            Email = " ";
+            PhoneNumber = " ";
+            Password = " ";
+            CardNo = " ";
             CardDate = " ";
             StudentStatus = true;
         }
 
         //ToString Method
-
         public string toString()
         {
             return "CustomerID: " + this.CustomerID + ", CustomerName: " + this.CustomerName +
