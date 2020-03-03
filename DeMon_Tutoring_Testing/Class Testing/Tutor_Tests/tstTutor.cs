@@ -160,8 +160,119 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Int32 tutorId = 1;
             //invoke the method
             Found = aTutor.Find(tutorId);
-            //check the tutor id number
+            //check the property
             if (aTutor.tutorDateAdded != Convert.ToDateTime("16/09/2015"))
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        public void TestNameAddedFound()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //Name tutorName = new Name("Bob", "Bob");
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //create some test data to assign to use with the method
+            Int32 tutorId = 1;
+            //invoke the method
+            Found = aTutor.Find(tutorId);
+
+            //get full name from class and compare with what should be the result
+            if (aTutor.tutorName.getFullName()!= "Bob Bob")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        public void TestEmailAddedFound()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //create some test data to assign to use with the method
+            Int32 tutorId = 1;
+            //invoke the method
+            Found = aTutor.Find(tutorId);
+
+            //get full name from class and compare with what should be the result
+            if (aTutor.tutorEmail != "bob@email.com")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        public void TestAvailableAddedFound()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //create some test data to assign to use with the method
+            Int32 tutorId = 1;
+            //invoke the method
+            Found = aTutor.Find(tutorId);
+
+            //get full name from class and compare with what should be the result
+            if (aTutor.tutorAvailabe != true)
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        public void TestPasswordAddedFound()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //create some test data to assign to use with the method
+            Int32 tutorId = 1;
+            //invoke the method
+            Found = aTutor.Find(tutorId);
+
+            //get full name from class and compare with what should be the result
+            if (aTutor.tutorPassword != "123")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        public void TestSubjectAddedFound()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //create some test data to assign to use with the method
+            Int32 tutorId = 1;
+            //invoke the method
+            Found = aTutor.Find(tutorId);
+
+            //get full name from class and compare with what should be the result
+            if (aTutor.tutorSubject != "Science")
             {
                 Ok = false;
             }

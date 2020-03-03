@@ -89,6 +89,13 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             //set the private data members to the test data value
             mtutorId = 1;
             mtutorDateAdded = Convert.ToDateTime("16/9/2015");
+            mtutorName = new Name ("Bob", "Bob");
+            mtutorEmail = "bob@email.com";
+            mtutorAvailable = true;
+            mtutorPassword = "123";
+            mtutorSubject = "Science";
+            
+            
             //always return true
             return true;
         }
