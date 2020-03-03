@@ -12,22 +12,23 @@ public partial class Public_Default : System.Web.UI.Page
     {
         //Create a new customer
         clsCustomer customer = new clsCustomer();
+        objStatus yes = new objStatus();
 
         //get data from session object
         customer = (clsCustomer)Session["customer"];
 
         Response.Write("<b> LOGIN SUCCESSFUL </b>");
 
-        lblFirstName.Text = customer.CustomerName.getFirstName();
-        lblLastName.Text = customer.CustomerName.getLastName();
-        lblDateOfBirth.text = customer.DateOfBirth;
-        lblEmail.Text = customer.Email;
-        lblPhoneNumber.Text = customer.PhoneNumber;
-        lblPassword.Text = customer.Password;
-        lblCardNo.Text = customer.CardNo;
-        lblCardDate.Text = customer.CardDate;
-        lblStudentStatus.Text = 
-
+        txtFirstName.Text = customer.CustomerName.getFirstName();
+        txtLastName.Text = customer.CustomerName.getLastName();
+        txtDateOfBirth.Text = customer.DateOfBirth;
+        txtEmail.Text = customer.Email;
+        txtPhoneNumber.Text = customer.PhoneNumber;
+        txtPassword.Text = customer.Password;
+        txtCardNo.Text = customer.CardNo;
+        txtCardDate.Text = customer.CardDate;
+        rdbYes.Text = objStatusTrue.objectStatusTrue;
 
     }
+
 }
