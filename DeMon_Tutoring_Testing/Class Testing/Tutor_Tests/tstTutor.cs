@@ -112,6 +112,22 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.AreEqual(aTutor.getDateAdded(), TestData);
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //create some test data to assign to the property
+            Int32 TestData = 1;
+            //invoke the method
+            Found = aTutor.Find(TestData);
+            //test to see if the result is correct
+            Assert.isTrue(Found);
+        }
+
+
 
 
 
