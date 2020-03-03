@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DeMon_Tutoring_Classes.Staffing_Classes.lib;
-public partial class Public_Staffing_Details : System.Web.UI.Page
+public partial class Private_Staffing_Find : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
