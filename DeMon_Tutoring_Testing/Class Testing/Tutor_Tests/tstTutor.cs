@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
 using DeMon_Tutoring_Classes.Tutoring_Classes;
+using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 
 namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
 {
@@ -15,7 +16,6 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             clsTutor aTutor = new clsTutor();
             //test to see that it now exists
             Assert.IsNotNull(aTutor);
-   
         }
 
         [TestMethod]
@@ -126,16 +126,6 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //test to see if the result is correct
             Assert.isTrue(Found);
         }
-
-
-
-
-
-
-
-
-
-
 
     }
 }
