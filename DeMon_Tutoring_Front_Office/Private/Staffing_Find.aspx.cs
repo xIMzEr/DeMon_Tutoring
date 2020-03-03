@@ -39,7 +39,16 @@ public partial class Private_Staffing_Find : System.Web.UI.Page
             txtLastName.Text = AStaff.staffName.getLastName();
             txtEmail.Text = AStaff.staffEmail;
             txtNumber.Text = AStaff.staffNumber;
-            txtDOB.Text = AStaff.staffDOB;
+            txtDOB.Text = AStaff.staffDOB.ToString();
         }
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        txtFirstName.Text = "";
+        txtLastName.Text = "";
+        txtEmail.Text = "";
+        txtNumber.Text = "";
+        txtDOB.Text = "";
     }
 }

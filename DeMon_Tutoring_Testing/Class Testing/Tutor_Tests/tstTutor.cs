@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
-using DeMon_Tutoring_Classes.Tutoring_Classes;
+using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 
 namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
 {

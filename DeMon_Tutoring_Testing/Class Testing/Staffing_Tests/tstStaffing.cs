@@ -7,6 +7,13 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
     [TestClass]
     public class tstStaffing
     {
+            //Test Data
+            string staffFN = "Eugene";
+            string staffLN = "Zuccerberg";
+            string staffEmail = "eugenefrisbee@gmail.com";
+            string staffNumber = "07974133370";
+            string staffDOB = "09/08/1995";
+      
         [TestMethod]
         public void AssertNotNull()
         {
@@ -77,7 +84,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Boolean varibable to store the result of the validation
             Boolean Found = false;
             //Create some test data to use with the method
-            Int32 staffID = 4;
+            Int32 staffID = 14;
             //Invoke the method
             Found = staffT.Find(staffID);
             //Test to see if ther esult is correct
@@ -94,12 +101,12 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Bool to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 StaffID = 4;
+            Int32 StaffID = 14;
             //Invoke the method
             Found = staffT.Find(StaffID);
 
             //Check the staffID against the test ID
-            if(staffT.staffID != 4)
+            if(staffT.staffID != 14)
             {
                 OK = false;
             }
@@ -118,7 +125,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Bool to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 StaffID = 4;
+            Int32 StaffID = 14;
             //Invoke the method
             Found = staffT.Find(StaffID);
 
@@ -141,7 +148,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Bool to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 StaffID = 4;
+            Int32 StaffID = 14;
             //Invoke the method
             Found = staffT.Find(StaffID);
 
@@ -164,7 +171,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Bool to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 StaffID = 4;
+            Int32 StaffID = 14;
             //Invoke the method
             Found = staffT.Find(StaffID);
 
@@ -187,17 +194,30 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Bool to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 StaffID = 4;
+            Int32 StaffID = 14;
             //Invoke the method
             Found = staffT.Find(StaffID);
 
             //Check the stafDOB value against what should be found
-            if (staffT.staffDOB != "1000-08-09")
+            if (staffT.staffDOB != Convert.ToDateTime("09/08/1995"))
             {
                 OK = false;
             }
             //test to see if the result is correct
             Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of staff
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOB);
+            //Test to see if the result is correct
+            Assert.AreEqual(Error, "");
         }
     }
 }

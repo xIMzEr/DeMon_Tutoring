@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DeMon_Tutoring_Classes;
 using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
+using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 
 public partial class Public_Tutor_Details : System.Web.UI.Page
 {
