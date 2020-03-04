@@ -51,6 +51,10 @@ namespace DeMon_Tutoring_Testing
             //create some test data to assign to tutor
             Name TestData = new Name("Dale", "Doback");
             //assign the data to the tutor
+          
+           // aCustomer.setName(TestData);
+            //test to see that the two values are the same
+            //Assert.AreEqual(aCustomer.getName(), TestData);
             aCustomer.CustomerName = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aCustomer.CustomerName, TestData);

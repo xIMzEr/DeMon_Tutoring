@@ -1,10 +1,10 @@
-﻿using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
 
 public partial class Public_TutorViewer : System.Web.UI.Page
 {
@@ -19,9 +19,9 @@ public partial class Public_TutorViewer : System.Web.UI.Page
         Response.Write("<b> LOGIN SUCCESSFUL </b>");
 
         //Display what text is in each field
-        lblFirstName.Text = tutor.getName().getFirstName();
-        lblLastName.Text = tutor.getName().getLastName();
-        lblEmail.Text = tutor.getEmail();
-        lblSubject.Text = tutor.getSubject();
+        lblFirstName.Text = tutor.tutorName.getFirstName();
+        lblLastName.Text = tutor.tutorName.getLastName();
+        lblEmail.Text = tutor.tutorEmail;
+        lblSubject.Text = tutor.tutorSubject;
     }
 }
