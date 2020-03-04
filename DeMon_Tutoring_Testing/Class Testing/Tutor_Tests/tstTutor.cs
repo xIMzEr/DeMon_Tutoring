@@ -308,12 +308,27 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             clsTutor aTutor = new clsTutor();
             //string variable to store any error messages
             String Error = "";
+
             //invoke the method
             Error = aTutor.Valid(tutorName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
 
+        [TestMethod]
+        public void TutorFirstNameLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorName = ""; //this should trigger an error
 
+            //invoke the method
+            Error = aTutor.Valid(tutorName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }
