@@ -95,6 +95,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             //if one record is found (there should be one or zero!)
             if(DB.Count ==  1)
             {
+                //copy data from the database to the private data members in this class
                 mtutorId = Convert.ToInt32(DB.DataTable.Rows[0]["TutorID"]);
                 mtutorName = new Name(Convert.ToString(DB.DataTable.Rows[0]["TutorFirstName"]), Convert.ToString(DB.DataTable.Rows[0]["TutorLastName"]));
                 mtutorEmail = Convert.ToString(DB.DataTable.Rows[0]["TutorEmail"]);

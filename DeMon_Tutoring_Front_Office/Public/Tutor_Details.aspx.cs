@@ -50,4 +50,31 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         txtEmail.Text = "";
         txtSubject.Text = "";
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create an instance of the tutor class
+        clsTutor aTutor = new clsTutor();
+        //variable to store the primary key
+        Int32 tutorId;
+        //variable to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        tutorId = Convert.ToInt32(txtTutorId.Text);
+        //find the record
+        Found = aTutor.Find(tutorId);
+        //if record is found
+        if (Found == true)
+        {
+            //display the values of the properties in the form
+            txtFirstName.Text = aTutor.tutorName.getFirstName();
+            txtLastName.Text = aTutor.tutorName.getLastName();
+            txtEmail.Text = aTutor.tutorEmail;
+            txtSubject.Text = aTutor.tutorSubject;
+            txtAvailibility.Text = aTutor.tutorAvailabe.ToString();
+            txtDateAdded.Text = aTutor.tutorDateAdded.ToString();
+
+        }
+
+    }
 }
