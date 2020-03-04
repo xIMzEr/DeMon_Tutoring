@@ -117,12 +117,22 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 
 
         //function for the public validation method
-        public string Valid(string tutorName, string tutorEmail, string tutorSubject, string tutorAvailable, string tutorDateAdded)
+        public string Valid(string tutorFirstName, string tutorLastName, string tutorEmail, string tutorSubject, string tutorAvailable, string tutorDateAdded)
         //accepts 5 parameters for validation
         //the function returns a string containing any error messages
         //if no erros are found then a blank string is returned
         {
-            return "";
+            
+            //create a string variable to store the rror
+            String Error = "";
+            //if the tutorName field is blank
+            if(tutorFirstName.Length == 0)
+            {
+                //record the error in the variable
+                Error = Error + "The first name may not be blank: ";
+            }
+            //return any error messages
+            return Error;
         }
 
 

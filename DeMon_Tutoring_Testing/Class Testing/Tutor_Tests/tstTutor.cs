@@ -10,7 +10,9 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
     {
         //good test data
         //creating some test data to pass to the validation method
-        string tutorName = "Hi, hi";
+
+        string tutorFirstName = "Bob";
+        string tutorLastName = "Bobeth";
         string tutorEmail = "email@email.com";
         string tutorSubject = "Computing";
         string tutorAvailable = "True";
@@ -310,7 +312,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             String Error = "";
 
             //invoke the method
-            Error = aTutor.Valid(tutorName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -323,10 +325,10 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //string variable to store any error messages
             String Error = "";
             //creating some test data to pass the method
-            string tutorName = ""; //this should trigger an error
+            string tutorFirstName = ""; //this should trigger an error
 
             //invoke the method
-            Error = aTutor.Valid(tutorName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }

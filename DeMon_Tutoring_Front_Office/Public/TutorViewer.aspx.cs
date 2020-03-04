@@ -1,11 +1,10 @@
-﻿using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DeMon_Tutoring_Classes.Staffing_Classes.lib;
+using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
 
 public partial class Public_TutorViewer : System.Web.UI.Page
 {
