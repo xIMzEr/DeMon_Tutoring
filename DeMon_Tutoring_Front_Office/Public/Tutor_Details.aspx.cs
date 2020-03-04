@@ -19,7 +19,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         tutor = (clsTutor)Session["tutor"];
 
         //display the tutor ID for this entry
-        Response.Write(tutor.getId());
+        Response.Write(tutor.tutorId);
 
     }
 
@@ -29,13 +29,13 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         clsTutor tutor = new clsTutor();
 
         //capture the tutor name
-        tutor.setName(new Name(txtFirstName.Text, txtLastName.Text));
+        tutor.tutorName = new Name(txtFirstName.Text, txtLastName.Text);
 
         //capture the email
-        tutor.setEmail(txtEmail.Text);
+        tutor.tutorEmail = (txtEmail.Text);
 
         //Capture the date created
-        tutor.setDateAdded(DateTime.Now);
+        tutor.tutorDateAdded = DateTime.Now;
 
         //store the email in the session object
         Session["tutor"] = tutor;
@@ -49,6 +49,8 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         txtLastName.Text = "";
         txtEmail.Text = "";
         txtSubject.Text = "";
+        txtAvailibility.Text = "";
+        txtDateAdded.Text = "";
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
