@@ -128,8 +128,13 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             //if the tutorName field is blank
             if(tutorFirstName.Length == 0)
             {
-                //record the error in the variable
+                //record the error
                 Error = Error + "The first name may not be blank: ";
+            }
+            if(tutorFirstName.Length > 15)
+            {
+                //record the error
+                Error = Error + "The first name must be less than 15 characters: ";
             }
             //return any error messages
             return Error;
