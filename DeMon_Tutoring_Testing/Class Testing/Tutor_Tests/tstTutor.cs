@@ -8,6 +8,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
     [TestClass]
     public class tstTutor
     {
+        // testing of tutor class creation------------------
         [TestMethod]
         public void InstanceOk()
         {
@@ -17,8 +18,9 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.IsNotNull(aTutor);
         }
 
+        //testing the setting and retrieval of data ---------------------
         [TestMethod]
-        public void ActiveIdTutor()
+        public void TestIdTutor()
         {
             //create instance of the class we want to create
             clsTutor aTutor = new clsTutor();
@@ -31,7 +33,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         }
 
         [TestMethod]
-        public void ActiveNameTutor()
+        public void TestNameTutor()
         {
             //create instance of the class we want to create
             clsTutor aTutor = new clsTutor();
@@ -46,7 +48,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
 
 
         [TestMethod]
-        public void ActiveEmailTutor()
+        public void TestEmailTutor()
         {
             //create instance of the class we want to create
             clsTutor aTutor = new clsTutor();
@@ -59,7 +61,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         }
 
         [TestMethod]
-        public void ActiveAvailabilityTutor()
+        public void TestAvailabilityTutor()
         {
             //create instance of the class we want to create
             clsTutor aTutor = new clsTutor();
@@ -72,7 +74,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         }
 
         [TestMethod]
-        public void ActiveSubjectTutor()
+        public void TestSubjectTutor()
         {
             //create instance of the class we want to create
             clsTutor aTutor = new clsTutor();
@@ -86,7 +88,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
 
 
         [TestMethod]
-        public void ActivePasswordTutor()
+        public void TestPasswordTutor()
         {
             //create instance of the class we want to create
             clsTutor aTutor = new clsTutor();
@@ -99,7 +101,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         }
 
         [TestMethod]
-        public void DateAddedTutorOK()
+        public void TestDateAddedTutor()
         {
             //create an instance of the class we want to create
             clsTutor aTutor = new clsTutor();
@@ -110,6 +112,9 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //test to see that the two values are the same
             Assert.AreEqual(aTutor.tutorDateAdded, TestData);
         }
+
+
+        //find method tests------------------------------
 
         [TestMethod]
         public void FindMethodOK()
@@ -139,6 +144,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Int32 tutorId = 1;
             //invoke the method
             Found = aTutor.Find(tutorId);
+
             //check the tutor id number
             if(aTutor.tutorId !=1)
             {
@@ -160,6 +166,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Int32 tutorId = 1;
             //invoke the method
             Found = aTutor.Find(tutorId);
+
             //check the property
             if (aTutor.tutorDateAdded != Convert.ToDateTime("16/09/2015"))
             {
@@ -205,7 +212,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //invoke the method
             Found = aTutor.Find(tutorId);
 
-            //get full name from class and compare with what should be the result
+            //get email from class and compare with expected result
             if (aTutor.tutorEmail != "bob@email.com")
             {
                 Ok = false;
@@ -227,7 +234,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //invoke the method
             Found = aTutor.Find(tutorId);
 
-            //get full name from class and compare with what should be the result
+            //get availability from class and compare with expected result
             if (aTutor.tutorAvailabe != true)
             {
                 Ok = false;
@@ -249,7 +256,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //invoke the method
             Found = aTutor.Find(tutorId);
 
-            //get full name from class and compare with what should be the result
+            //get password from class and compare with what the result should be
             if (aTutor.tutorPassword != "123")
             {
                 Ok = false;
@@ -271,7 +278,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //invoke the method
             Found = aTutor.Find(tutorId);
 
-            //get full name from class and compare with what should be the result
+            //get subject from class and compare with expected result
             if (aTutor.tutorSubject != "Science")
             {
                 Ok = false;
