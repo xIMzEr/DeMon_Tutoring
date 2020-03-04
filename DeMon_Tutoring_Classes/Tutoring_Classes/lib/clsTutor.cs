@@ -83,21 +83,34 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 
         //Methods
 
-        //find method
+        //FIND method
         public bool Find (int tutorId)
         {
-            //set the private data members to the test data value
-            mtutorId = 1;
-            mtutorDateAdded = Convert.ToDateTime("16/9/2015");
-            mtutorName = new Name ("Bob", "Bob");
-            mtutorEmail = "bob@email.com";
-            mtutorAvailable = true;
-            mtutorPassword = "123";
-            mtutorSubject = "Science";
-            
-            
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //adding paramater for the tutor id to search for
+            DB.AddParameter("@tutorId", tutorId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblTutor_FilterByTutorID");
+            //if one record is found (there should be one or zero!)
+            if(DB.Count ==  1)
+            {
+                mtutorId = Convert.ToInt32(DB.DataTable.Rows[0]["TutorID"]);
+                mtutorName = new Name(Convert.ToString(DB.DataTable.Rows[0]["TutorFirstName"]), Convert.ToString(DB.DataTable.Rows[0]["TutorLastName"]));
+                mtutorEmail = Convert.ToString(DB.DataTable.Rows[0]["TutorEmail"]);
+                mtutorAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["TutorAvailability"]);
+                mtutorSubject = Convert.ToString(DB.DataTable.Rows[0]["TutorSubject"]);
+                mtutorPassword = Convert.ToString(DB.DataTable.Rows[0]["TutorPassword"]);
+                mtutorDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["TutorDateAdded"]);
+                //return that everything worked
+                return true;
+            }
+            //else if no record is found
+            else
+            {
+                //return false indicating problem
+                return false;
+            }
         }
 
         //get methods
