@@ -14,7 +14,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         //tutorId private member variable
         private Int32 mtutorId;
         //tutorId public property
-        public int tutorId
+        public Int32 tutorId
         { get
             {  return mtutorId; } set  { mtutorId = value; } }
 
@@ -59,7 +59,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 
 
         //Constructors
-        public clsTutor(int id, Name name, String email, String subject, String password, Boolean available, DateTime date)
+        public clsTutor(Int32 id, Name name, String email, String subject, String password, Boolean available, DateTime date)
         {
             tutorId = id;
             tutorName = name;
@@ -84,7 +84,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         //Methods
 
         //FIND method
-        public bool Find (int tutorId)
+        public bool Find (Int32 tutorId)
         {
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
