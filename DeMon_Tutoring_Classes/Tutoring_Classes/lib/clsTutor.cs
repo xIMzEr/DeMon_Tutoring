@@ -112,80 +112,20 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
                 //return false indicating problem
                 return false;
             }
+            
         }
 
-        //get methods
-        /*
-        public int getId()
+
+        //function for the public validation method
+        public string Valid(string tutorName, string tutorEmail, string tutorSubject, string tutorAvailable, string tutorDateAdded)
+        //accepts 5 parameters for validation
+        //the function returns a string containing any error messages
+        //if no erros are found then a blank string is returned
         {
-            return this.tutorId;
-        }
-        public Name getName()
-        {
-            return this.tutorName;
+            return "";
         }
 
-        public string getEmail()
-        {
-            return this.tutorEmail;
-        }
 
-        public bool getAvailability()
-        {
-            return this.tutorAvailabe;
-        }
-
-        public string getSubject()
-        {
-            return this.tutorSubject;
-        }
-
-        public string getPassword()
-        {
-            return this.tutorPassword;
-        }
-
-        public DateTime getDateAdded()
-        {
-            return this.tutorDateAdded;
-        }
-
-        //set methods
-        public int setId(int id)
-        {
-            return this.tutorId = id;
-        }
-
-        public Name setName(Name name)
-        {
-            return this.tutorName = name;
-        }
-
-        public string setEmail(string email)
-        {
-            return this.tutorEmail = email;
-        }
-
-        public bool setAvailability(bool available)
-        {
-            return this.tutorAvailabe = available;
-        }
-
-        public string setSubject(string subject)
-        {
-            return this.tutorSubject = subject;
-        }
-
-        public string setPassword(string pass)
-        {
-            return this.tutorPassword = pass; ;
-        }
-
-        public DateTime setDateAdded(DateTime date)
-        {
-            return this.tutorDateAdded = date;
-        }
-        */
 
 
         //To string method
@@ -197,5 +137,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
                 ", Tutor Availability: " + this.tutorAvailabe +
                 ", Tutor Date Added: " + this.tutorDateAdded;
         }
+
+        
     }
 }

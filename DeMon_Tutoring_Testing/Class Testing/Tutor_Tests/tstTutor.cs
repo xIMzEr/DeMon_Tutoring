@@ -8,6 +8,14 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
     [TestClass]
     public class tstTutor
     {
+        //good test data
+        //creating some test data to pass to the validation method
+        string tutorName = "Hi, hi";
+        string tutorEmail = "email@email.com";
+        string tutorSubject = "Computing";
+        string tutorAvailable = "True";
+        string tutorDateAdded = DateTime.Now.Date.ToString();
+
         // testing of tutor class creation------------------
         [TestMethod]
         public void InstanceOk()
@@ -154,6 +162,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.IsTrue(Ok);
         }
 
+        [TestMethod]
         public void TestDateAddedFound()
         {
             //create an instance of the class we want to create
@@ -176,6 +185,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.IsTrue(Ok);
         }
 
+        [TestMethod]
         public void TestNameAddedFound()
         {
             //create an instance of the class we want to create
@@ -199,6 +209,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.IsTrue(Ok);
         }
 
+        [TestMethod]
         public void TestEmailAddedFound()
         {
             //create an instance of the class we want to create
@@ -221,6 +232,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.IsTrue(Ok);
         }
 
+        [TestMethod]
         public void TestAvailableAddedFound()
         {
             //create an instance of the class we want to create
@@ -243,6 +255,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.IsTrue(Ok);
         }
 
+        [TestMethod]
         public void TestPasswordAddedFound()
         {
             //create an instance of the class we want to create
@@ -265,6 +278,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.IsTrue(Ok);
         }
 
+        [TestMethod]
         public void TestSubjectAddedFound()
         {
             //create an instance of the class we want to create
@@ -286,5 +300,20 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //test to see that the result is correct
             Assert.IsTrue(Ok);
         }
+
+        [TestMethod]
+        public void ValidationMethodOk()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //invoke the method
+            Error = aTutor.Valid(tutorName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
     }
 }
