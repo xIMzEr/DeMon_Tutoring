@@ -9,14 +9,37 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
     public class Staffing
     {
         //Fields
-        private int staffID { get; set; }
-        private Name staffName { get; set;}
-        private string staffEmail { get; set; }
-        private string staffNumber { get; set; }
-        private string staffDOB { get; set; }
+        //private member of StaffID
+        private Int32 mStaffID;
+        //public staffID
+        public int staffID {
+            get { return mStaffID; } set { mStaffID = value; } }
+
+        //private member variable of StaffID
+        private Name mStaffName;
+        //public staffName
+        public Name staffName {
+            get { return mStaffName; } set { mStaffName = value; } }
+
+        //private member variable of staffEmail
+        private string mStaffEmail;
+        //public staffEmail
+        public string staffEmail {
+            get { return mStaffEmail; } set { mStaffEmail = value; } }
+
+        //private member variable of staffNumber
+        private string mStaffNumber;
+        //public staffNumber
+        public string staffNumber {
+            get { return mStaffNumber; } set { mStaffNumber = value; } }
+
+        //private member variable of staffDOB
+        private DateTime mStaffDOB;
+        public DateTime staffDOB {
+            get { return mStaffDOB; } set { mStaffDOB = value; } }
      
         //Constructors
-        public Staffing(int sID, Name sName, string sEmail, string sNum, string sDOB)
+        public Staffing(int sID, Name sName, string sEmail, string sNum, DateTime sDOB)
         {
             staffID = sID;
             staffName = sName;
@@ -31,7 +54,7 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             staffName = null;
             staffEmail = " ";
             staffNumber = " ";
-            staffDOB = " ";
+            staffDOB = DateTime.Now.Date;
         }
 
         //Methods
@@ -41,54 +64,52 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
                 ", Staff Email: " + this.staffEmail + ", Staff Number: " + this.staffNumber + ", Staff DOB: " + this.staffDOB;
         }
 
-        public void setID(int ID)
+
+        public bool Find(int sID)
         {
-            this.staffID = ID;
+            //Create a new instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //Add the parameter for the staffID to search for
+            DB.AddParameter("staffID", sID);
+            //Execute the stored procedure
+            DB.Execute("sproc_TblStaffing_FilterByStaffID");
+            //If one record is found (Only one or zero instances can exist)
+            if(DB.Count == 1)
+            {
+                //Copy the data from the database to the private data members
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mStaffName = new Name(Convert.ToString(DB.DataTable.Rows[0]["FirstName"]), Convert.ToString(DB.DataTable.Rows[0]["LastName"]));
+                mStaffNumber = Convert.ToString(DB.DataTable.Rows[0]["StaffNumber"]);
+                mStaffEmail = Convert.ToString(DB.DataTable.Rows[0]["StaffEmail"]);
+                mStaffDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffDob"]);
+                //return that everything went ok
+                return true;
+            }
+            //If no records are found
+            else{
+                //return false indicating a problem
+                return false;
+            }
+
+
+            /**
+                        //Hardcoded object
+                        mStaffID = 3;
+                        mStaffName = new Name("Eugene", "Zuccerberg");
+                        mStaffEmail = "eugenefrisbee@gmail.com";
+                        mStaffNumber = "07974133370";
+                        mStaffDOB = "1000-08-09";
+                        //Always return true
+                        return true; **/
         }
 
-        public void setName(Name name)
+        //function for public validation method
+        public string Valid( string staffFN, string staffLN, string staffEmail, string staffNumber, string staffDOB)
+            //this function accepts 5 parameters for validation
+            //the function returns a string containing any error message
+            //if no errors found then a blank string is returned 
         {
-            this.staffName = name;
-        }
-
-        public void setEmail(string email)
-        {
-            this.staffEmail = email;
-        }
-
-        public void setNumber(string number)
-        {
-            this.staffNumber = number;
-        }
-
-        public void setDOB(string DOB)
-        {
-            this.staffDOB = DOB;
-        }
-
-        public int getID()
-        {
-            return this.staffID;
-        }
-
-        public Name getName()
-        {
-            return this.staffName;
-        }
-
-        public string getEmail()
-        {
-            return this.staffEmail;
-        }
-
-        public string getNumber()
-        {
-            return this.staffNumber;
-        }
-
-        public string getDOB()
-        {
-            return this.staffDOB;
+            return "";
         }
 
     }

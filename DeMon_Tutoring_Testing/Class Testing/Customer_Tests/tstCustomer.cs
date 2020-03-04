@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DeMon_Tutoring_Classes;
-
-namespace Test Framework
+using DeMon_Tutoring_Classes.Customer_Classes.lib;
+using DeMon_Tutoring_Classes.Staffing_Classes.lib;
+namespace DeMon_Tutoring_Testing
 {
     [TestClass]
     public class tstCustomer
@@ -23,7 +23,7 @@ namespace Test Framework
             //create instance of the class we want to create
             clsCustomer aCustomer = new clsCustomer();
             //create some test data to assign to tutor
-            int TestData = 1;
+            bool TestData = true;
             //assign the data to the tutor
             aCustomer.Active = TestData;
             //test to see that the two values are the same
@@ -34,7 +34,7 @@ namespace Test Framework
         public void ActiveCustomerOk()
         {
             //create instance of the class we want to create
-            clsTutor aCustomer = new clsCustomer();
+            clsCustomer aCustomer = new clsCustomer();
             //create some test data to assign to tutor
             Boolean TestData = true;
             //assign the data to the tutor
@@ -43,9 +43,9 @@ namespace Test Framework
             Assert.AreEqual(aCustomer.Active, TestData);
 
         }
-
+      
         [TestMethod]
-        public void ActiveFirstNameOk()
+        public void ActiveNameCustomer()
         {
             //create instance of the class we want to create
             clsCustomer aCustomer = new clsCustomer();
@@ -61,15 +61,15 @@ namespace Test Framework
         [TestMethod]
         public void ActiveLastNameOk()
         {
-            //create instance of the class we want to create
-            clsTutor aCustomer = new clsCustomer();
-            //create some test data to assign to tutor
-            String TestData = "Doback";
+            Name TestData = new Name("Dale", "Doback");
             //assign the data to the tutor
-            aCustomer.LastName = TestData;
+          
+           // aCustomer.setName(TestData);
             //test to see that the two values are the same
-            Assert.AreEqual(aCustomer.LastName, TestData);
-
+            //Assert.AreEqual(aCustomer.getName(), TestData);
+            aCustomer.CustomerName = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(aCustomer.CustomerName, TestData);
         }
 
         [TestMethod]
@@ -78,7 +78,7 @@ namespace Test Framework
             //create instance of the class we want to create
             clsCustomer aCustomer = new clsCustomer();
             //create some test data to assign to tutor
-            DateTime TestData = 11/11/11;
+            string TestData = "11 / 11 / 11";
             //assign the data to the tutor
             aCustomer.DateOfBirth = TestData;
             //test to see that the two values are the same
@@ -147,7 +147,7 @@ namespace Test Framework
             //create instance of the class we want to create
             clsCustomer aCustomer = new clsCustomer();
             //create some test data to assign to tutor
-            DateTime TestData = 11/11/11;
+            string TestData = "11 / 11 / 11";
             //assign the data to the tutor
             aCustomer.CardDate = TestData;
             //test to see that the two values are the same
