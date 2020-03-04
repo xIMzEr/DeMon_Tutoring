@@ -34,7 +34,7 @@ public partial class Public_Staffing_Details : System.Web.UI.Page
         //Capture the staff
         staff.staffNumber = txtNumber.Text;
         //Capture the staff DOB
-        staff.staffDOB = txtDOB.Text;
+        staff.staffDOB = Convert.ToDateTime(txtDOB.Text) ;
         //store the email in the session object
         Session["staff"] = staff;
         //redirect to the aTutor page

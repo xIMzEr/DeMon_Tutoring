@@ -34,12 +34,12 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             get { return mStaffNumber; } set { mStaffNumber = value; } }
 
         //private member variable of staffDOB
-        private string mStaffDOB;
-        public string staffDOB {
+        private DateTime mStaffDOB;
+        public DateTime staffDOB {
             get { return mStaffDOB; } set { mStaffDOB = value; } }
      
         //Constructors
-        public Staffing(int sID, Name sName, string sEmail, string sNum, string sDOB)
+        public Staffing(int sID, Name sName, string sEmail, string sNum, DateTime sDOB)
         {
             staffID = sID;
             staffName = sName;
@@ -54,7 +54,7 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             staffName = null;
             staffEmail = " ";
             staffNumber = " ";
-            staffDOB = " ";
+            staffDOB = DateTime.Now.Date;
         }
 
         //Methods
@@ -81,7 +81,7 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
                 mStaffName = new Name(Convert.ToString(DB.DataTable.Rows[0]["FirstName"]), Convert.ToString(DB.DataTable.Rows[0]["LastName"]));
                 mStaffNumber = Convert.ToString(DB.DataTable.Rows[0]["StaffNumber"]);
                 mStaffEmail = Convert.ToString(DB.DataTable.Rows[0]["StaffEmail"]);
-                mStaffDOB = Convert.ToString(DB.DataTable.Rows[0]["StaffDob"]);
+                mStaffDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffDob"]);
                 //return that everything went ok
                 return true;
             }
@@ -101,6 +101,15 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
                         mStaffDOB = "1000-08-09";
                         //Always return true
                         return true; **/
+        }
+
+        //function for public validation method
+        public string Valid( string staffFN, string staffLN, string staffEmail, string staffNumber, string staffDOB)
+            //this function accepts 5 parameters for validation
+            //the function returns a string containing any error message
+            //if no errors found then a blank string is returned 
+        {
+            return "";
         }
 
     }

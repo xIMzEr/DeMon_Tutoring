@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer_Classes\lib\objStatus.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="Customer_Classes\lib\clsCustomer.cs" />
     <Compile Include="Tutoring_Classes\lib\clsTutor.cs" />

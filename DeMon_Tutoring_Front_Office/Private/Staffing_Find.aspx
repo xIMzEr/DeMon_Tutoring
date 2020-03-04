@@ -12,6 +12,7 @@
             StaffID<br />
             <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
             <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+            <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
             <br />
             Staff First Name<br />
             <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
