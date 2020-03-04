@@ -27,7 +27,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create some test data to assign to tutor
             int TestData = 1;
             //assign the data to the tutor
-            aTutor.setId(TestData);
+            aTutor.tutorId = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aTutor.tutorId, TestData);
         }
@@ -40,7 +40,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create some test data to assign to tutor
             Name TestData = new Name("Bob, Bob");
             //assign the data to the tutor
-            aTutor.setName(TestData);
+            aTutor.tutorName = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aTutor.tutorName, TestData);
         }
@@ -55,7 +55,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create some test data to assign to tutor
             string TestData = "bobstevens@123.kdas.com";
             //assign the data to the tutor
-            aTutor.setEmail(TestData);
+            aTutor.tutorEmail = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aTutor.tutorEmail, TestData);
         }
@@ -68,7 +68,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create some test data to assign to tutor
             Boolean TestData = true;
             //assign the data to the tutor
-            aTutor.setAvailability(TestData);
+            aTutor.tutorAvailabe = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aTutor.tutorAvailabe, TestData);
         }
@@ -81,7 +81,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create some test data to assign to tutor
             string TestData = "Chemistry";
             //assign the data to the tutor
-            aTutor.setSubject(TestData);
+            aTutor.tutorSubject = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aTutor.tutorSubject, TestData);
         }
@@ -95,7 +95,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create some test data to assign to tutor
             string TestData = "abc123";
             //assign the data to the tutor
-            aTutor.setPassword(TestData);
+            aTutor.tutorPassword = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aTutor.tutorPassword, TestData);
         }
@@ -108,7 +108,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            aTutor.setDateAdded(TestData);
+            aTutor.tutorDateAdded = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aTutor.tutorDateAdded, TestData);
         }

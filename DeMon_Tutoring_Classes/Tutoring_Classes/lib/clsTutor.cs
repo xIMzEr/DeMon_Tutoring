@@ -115,6 +115,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         }
 
         //get methods
+        /*
         public int getId()
         {
             return this.tutorId;
@@ -184,6 +185,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         {
             return this.tutorDateAdded = date;
         }
+        */
 
 
         //To string method
