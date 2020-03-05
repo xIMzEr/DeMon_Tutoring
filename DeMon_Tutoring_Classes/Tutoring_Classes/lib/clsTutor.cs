@@ -126,6 +126,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             String Error = "";
             //create a temporary variable to store date values
             DateTime DateTemp;
+            //First Name tests---------------
             //if the tutorName field is blank
             if(tutorFirstName.Length == 0)
             {
@@ -137,12 +138,28 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
                 //record the error
                 Error = Error + "The first name must be less than 15 characters: ";
             }
-            //copy the dateAdded value to the DateTemp variable
-            DateTemp = Convert.ToDateTime(tutorDateAdded);
-            if(DateTemp < DateTime.Now.Date)
+            //tutorDateAdded tests ----------------
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(tutorDateAdded);
+                //check to see if date is in the past
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if date is in the future
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
             {
                 //record the error
-                Error = Error + "The date cannot be in the past";
+                Error = Error + "The date was not a valid date: ";
             }
             //return any error messages
             return Error;
