@@ -447,6 +447,134 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void DateAddedExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating test variable to store test date
+            DateTime TestDate;
+            //set date to today
+            TestDate = DateTime.Now.Date;
+            //change the date to less by 100 years
+            TestDate = TestDate.AddYears(-100); // this should fail
+            //have to convert date to string
+            string tutorDateAdded = TestDate.ToString();
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating test variable to store test date
+            DateTime TestDate;
+            //set date to today
+            TestDate = DateTime.Now.Date;
+            //change the date to today -1 day
+            TestDate = TestDate.AddDays(-1); // this should fail
+            //have to convert date to string
+            string tutorDateAdded = TestDate.ToString();
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating test variable to store test date
+            DateTime TestDate;
+            //set date to today
+            TestDate = DateTime.Now.Date;// this should pass
+            //have to convert date to string
+            string DateAdded = TestDate.ToString();
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating test variable to store test date
+            DateTime TestDate;
+            //set date to today
+            TestDate = DateTime.Now.Date;
+            //change the date today's date plus 1 day
+            TestDate = TestDate.AddDays(1); // this should fail
+            //have to convert date to string
+            string tutorDateAdded = TestDate.ToString();
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating test variable to store test date
+            DateTime TestDate;
+            //set date to today
+            TestDate = DateTime.Now.Date;
+            //change the date to today plus 100 years
+            TestDate = TestDate.AddYears(100);
+            //have to convert date to string
+            string tutorDateAdded = TestDate.ToString();
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating test variable to store test date
+            string tutorDateAdded = "this is not a valid date";
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+
+
+
 
 
     }
