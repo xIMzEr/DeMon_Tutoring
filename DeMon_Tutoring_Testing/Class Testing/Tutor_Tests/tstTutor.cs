@@ -447,6 +447,31 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void TutorDateAddedExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating test variable to store test date
+            DateTime TestDate;
+            //set date to today
+            TestDate = DateTime.Now.Date;
+            //change the date to less by 100 years
+            TestDate = TestDate.AddYears(-100);
+            //have to convert date to string
+            string DateAdded = TestDate.ToString();
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+
+
 
 
     }

@@ -83,7 +83,6 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 
         //Methods
 
-        //FIND method
         public bool Find (Int32 tutorId)
         {
             //create an instance of the data connection
@@ -116,7 +115,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         }
 
 
-        //function for the public validation method
+        //The public validation method
         public string Valid(string tutorFirstName, string tutorLastName, string tutorEmail, string tutorSubject, string tutorAvailable, string tutorDateAdded)
         //accepts 5 parameters for validation
         //the function returns a string containing any error messages
@@ -125,6 +124,8 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             
             //create a string variable to store the rror
             String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
             //if the tutorName field is blank
             if(tutorFirstName.Length == 0)
             {
@@ -135,6 +136,13 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             {
                 //record the error
                 Error = Error + "The first name must be less than 15 characters: ";
+            }
+            //copy the dateAdded value to the DateTemp variable
+            DateTemp = Convert.ToDateTime(tutorDateAdded);
+            if(DateTemp < DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date cannot be in the past";
             }
             //return any error messages
             return Error;
