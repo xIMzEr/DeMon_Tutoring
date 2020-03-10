@@ -8,7 +8,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
     [TestClass]
     public class tstTutor
     {
-        //good test data
+        //good Test Data
         //creating some test data to pass to the validation method
 
         string tutorFirstName = "Bob";
@@ -448,6 +448,136 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         }
 
         [TestMethod]
+        public void TutorLastNameLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorLastName = ""; //this should trigger an error
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorLastNameMin()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorLastName = "a"; //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorLastNameMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorLastName = "aa"; //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorLastNameMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorLastName = "abcdefghijklmn"; //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorLastNameMax()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorLastName = "abcdefghijklmno"; //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorLastNameMid()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorLastName = "abcdefgh"; //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorLastNameMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorLastName = "";
+            tutorLastName = tutorLastName.PadRight(16, 'a');//this should fail
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorLastNameExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorFirstName = "";
+            tutorFirstName = tutorFirstName.PadRight(500, 'a'); //this should fail
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
         public void DateAddedExtremeMin()
         {
             //create an instance of the class we want to create
@@ -570,9 +700,6 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
 
 
 
