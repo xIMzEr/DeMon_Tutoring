@@ -22,9 +22,9 @@ namespace DeMon_Tutoring_Testing
         {
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to tutor
+            //create some test data to assign to Customer
             bool TestData = true;
-            //assign the data to the tutor
+            //assign the data to the Customer
             aCustomer.Active = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aCustomer.Active, TestData);
@@ -35,41 +35,27 @@ namespace DeMon_Tutoring_Testing
         {
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to tutor
+            //create some test data to assign to Customer
             Boolean TestData = true;
-            //assign the data to the tutor
+            //assign the data to the Customer
             aCustomer.Active = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aCustomer.Active, TestData);
 
         }
       
-        [TestMethod]
-        public void ActiveNameCustomer()
-        {
-            //create instance of the class we want to create
-            ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to tutor
-            String TestData = "Dale";
-            //assign the data to the tutor
-           // aCustomer.FirstName = TestData;
-            //test to see that the two values are the same
-           // Assert.AreEqual(aCustomer.FirstName, TestData);
-
-        }
 
         [TestMethod]
-        public void ActiveLastNameOk()
+        public void CustomerNameOk()
         {
-            Name TestData = new Name("Dale", "Doback");
-            //assign the data to the tutor
-          
-           // aCustomer.setName(TestData);
-            //test to see that the two values are the same
-            //Assert.AreEqual(aCustomer.getName(), TestData);
-            //aCustomer.CustomerName = TestData;
-            //test to see that the two values are the same
-           // Assert.AreEqual(aCustomer.CustomerName, TestData);
+            //Create an instance of name and Customer
+            Name n1 = new Name("Dale", "Doback");
+            ClsCustomer s1 = new ClsCustomer();
+            //Insert the test name
+            s1. CustomerName = n1;
+            //Compare if equal
+            Assert.AreEqual(n1, s1.CustomerName);
+
         }
 
         [TestMethod]
@@ -77,9 +63,9 @@ namespace DeMon_Tutoring_Testing
         {
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to tutor
+            //create some test data to assign to Customer
             string TestData = "11 / 11 / 11";
-            //assign the data to the tutor
+            //assign the data to the Customer
             aCustomer.DateOfBirth = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aCustomer.DateOfBirth, TestData);
@@ -91,9 +77,9 @@ namespace DeMon_Tutoring_Testing
         {
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to tutor
+            //create some test data to assign to Customer
             String TestData = "DaleDo@Gmail.co.uk";
-            //assign the data to the tutor
+            //assign the data to the Customer
             aCustomer.Email = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aCustomer.Email, TestData);
@@ -105,9 +91,9 @@ namespace DeMon_Tutoring_Testing
         {
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to tutor
+            //create some test data to assign to Customer
             String TestData = "07784533627";
-            //assign the data to the tutor
+            //assign the data to the Customer
             aCustomer.PhoneNumber = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aCustomer.PhoneNumber, TestData);
@@ -119,9 +105,9 @@ namespace DeMon_Tutoring_Testing
         {
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to tutor
+            //create some test data to assign to Customer
             String TestData = "Password123";
-            //assign the data to the tutor
+            //assign the data to the Customer
             aCustomer.Password = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aCustomer.Password, TestData);
@@ -133,9 +119,9 @@ namespace DeMon_Tutoring_Testing
         {
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to tutor
+            //create some test data to assign to Customer
             String TestData = "3554 3773 2281 1839";
-            //assign the data to the tutor
+            //assign the data to the Customer
             aCustomer.CardNo = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aCustomer.CardNo, TestData);
@@ -146,9 +132,9 @@ namespace DeMon_Tutoring_Testing
         {
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to tutor
+            //create some test data to assign to Customer
             string TestData = "11 / 11 / 11";
-            //assign the data to the tutor
+            //assign the data to the Customer
             aCustomer.CardDate = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aCustomer.CardDate, TestData);
@@ -159,9 +145,9 @@ namespace DeMon_Tutoring_Testing
         {
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to tutor
+            //create some test data to assign to Customer
             string TestData = "yes";
-            //assign the data to the tutor
+            //assign the data to the Customer
             aCustomer.StudentStatus = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aCustomer.StudentStatus, TestData);
