@@ -701,6 +701,140 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void TutorEmailLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorEmail = "aa"; //this should trigger an error
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorEmailMin()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorFirstName = "aaa";//this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorEmailMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorEmail = "abcd"; //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorEmailMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorEmail = ""; //this should pass
+            tutorEmail = tutorEmail.PadRight(29, 'a'); //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorEmailMax()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorEmail = ""; //this should pass
+            tutorEmail = tutorEmail.PadRight(30, 'a'); //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorEmailMid()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorEmail = ""; //this should pass
+            tutorEmail = tutorEmail.PadRight(15, 'a'); //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorEmailMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorEmail = "";
+            tutorEmail = tutorEmail.PadRight(31, 'a');//this should fail
+
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorEmailExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorEmail = "";
+            tutorFirstName = tutorFirstName.PadRight(300, 'a'); //this should fail
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
 
 
 
