@@ -827,7 +827,141 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             String Error = "";
             //creating some test data to pass the method
             string tutorEmail = "";
-            tutorFirstName = tutorFirstName.PadRight(300, 'a'); //this should fail
+            tutorEmail = tutorEmail.PadRight(300, 'a'); //this should fail
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorSubjectLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorSubject = "aa"; //this should trigger an error
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorSubjectMin()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorSubject = "aaa";//this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorSubjectMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorEmail = "abcd"; //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorSubjectMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorSubject = ""; //this should pass
+            tutorSubject = tutorSubject.PadRight(14, 'a'); //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorSubjectMax()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorSubject = ""; //this should pass
+            tutorSubject = tutorSubject.PadRight(15, 'a'); //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorSubjectMid()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorSubject = ""; //this should pass
+            tutorSubject = tutorSubject.PadRight(7, 'a'); //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorSubjectMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorSubject = "";
+            tutorSubject = tutorSubject.PadRight(16, 'a');//this should fail
+
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorSubjectExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorSubject = "";
+            tutorSubject = tutorSubject.PadRight(300, 'a'); //this should fail
 
             //invoke the method
             Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
