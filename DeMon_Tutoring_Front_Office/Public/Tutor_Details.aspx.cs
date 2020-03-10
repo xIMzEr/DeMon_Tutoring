@@ -19,7 +19,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         tutor = (clsTutor)Session["tutor"];
 
         //display the tutor ID for this entry
-        Response.Write(tutor.getId());
+        Response.Write(tutor.tutorId);
 
     }
 
@@ -29,13 +29,13 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         clsTutor tutor = new clsTutor();
 
         //capture the tutor name
-        tutor.setName(new Name(txtFirstName.Text, txtLastName.Text));
+        tutor.tutorName = new Name(txtFirstName.Text, txtLastName.Text);
 
         //capture the email
-        tutor.setEmail(txtEmail.Text);
+        tutor.tutorEmail = (txtEmail.Text);
 
         //Capture the date created
-        tutor.setDateAdded(DateTime.Now);
+        tutor.tutorDateAdded = DateTime.Now;
 
         //store the email in the session object
         Session["tutor"] = tutor;
@@ -49,5 +49,34 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         txtLastName.Text = "";
         txtEmail.Text = "";
         txtSubject.Text = "";
+        txtAvailibility.Text = "";
+        txtDateAdded.Text = "";
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create an instance of the tutor class
+        clsTutor aTutor = new clsTutor();
+        //variable to store the primary key
+        Int32 tutorId;
+        //variable to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        tutorId = Convert.ToInt32(txtTutorId.Text);
+        //find the record
+        Found = aTutor.Find(tutorId);
+        //if record is found
+        if (Found == true)
+        {
+            //display the values of the properties in the form
+            txtFirstName.Text = aTutor.tutorName.getFirstName();
+            txtLastName.Text = aTutor.tutorName.getLastName();
+            txtEmail.Text = aTutor.tutorEmail;
+            txtSubject.Text = aTutor.tutorSubject;
+            txtAvailibility.Text = aTutor.tutorAvailabe.ToString();
+            txtDateAdded.Text = aTutor.tutorDateAdded.ToString();
+
+        }
+
     }
 }

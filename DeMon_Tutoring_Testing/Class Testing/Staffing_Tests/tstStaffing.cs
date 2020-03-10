@@ -12,7 +12,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             string staffLN = "Zuccerberg";
             string staffEmail = "eugenefrisbee@gmail.com";
             string staffNumber = "07974133370";
-            string staffDOB = "09/08/1995";
+            DateTime DOBConv = Convert.ToDateTime("09/08/1995");
+            string staffDOB = DOBConv.ToString();
       
         [TestMethod]
         public void AssertNotNull()
