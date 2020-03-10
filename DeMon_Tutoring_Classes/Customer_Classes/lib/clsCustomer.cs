@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DeMon_Tutoring_Classes.Customer_Classes.lib
 {
-    public class clsCustomer
+    public class ClsCustomer
     {
         //Customer Fields
         public Boolean Active { get; set; }
@@ -20,11 +20,11 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
         public string Password { get; set; }
         public string CardNo { get; set; }
         public string CardDate { get; set; }
-        public Boolean StudentStatus { get; set; }
+        public string StudentStatus { get; set; }
 
 
         //Customer Constructors
-        public void clscustomer(int cID, Name cName, string cDob, string cEmail, string cNumber, string cPword, string cCardNo, string cCardDate, Boolean cStudentStat)
+        public ClsCustomer(int cID, Name cName, string cDob, string cEmail, string cNumber, string cPword, string cCardNo, string cCardDate, string cStudentStat)
         {
             CustomerID = cID;
             CustomerName = cName;
@@ -38,7 +38,7 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
 
         }
 
-        public clsCustomer()
+        public ClsCustomer()
         {
             CustomerID = 0;
             CustomerName = null;
@@ -48,8 +48,9 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
             Password = " ";
             CardNo = " ";
             CardDate = " ";
-            StudentStatus = true;
+            StudentStatus = " ";
         }
+
 
         //ToString Method
         public string toString()
@@ -60,6 +61,10 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
                 ", StudentStatus: " + this.StudentStatus;
         }
 
+        public bool FindID(int cID)
+        {
+            return true; 
+        }
     }
 }
 

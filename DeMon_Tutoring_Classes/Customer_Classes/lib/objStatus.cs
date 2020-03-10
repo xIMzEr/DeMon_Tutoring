@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace DeMon_Tutoring_Classes
 {
-    public class objStatus
+    public class ObjStatus
     {
 
         private bool objectStatusTrue { get; set; }
         private bool objectStatusFalse { get; set; }
 
-        public objStatus()
+        public ObjStatus()
         {       
             objectStatusTrue = true;
             objectStatusFalse = false;
         }
 
-        public objStatus(string statTrue, string statFalse)
+        public ObjStatus(string statTrue, string statFalse)
         {
             if (statTrue == "1" )
             {
