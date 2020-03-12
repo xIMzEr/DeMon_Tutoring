@@ -152,5 +152,43 @@ namespace DeMon_Tutoring_Testing
             //test to see that the two values are the same
             Assert.AreEqual(aCustomer.StudentStatus, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOk()
+        {
+            //create new instance of customer
+            ClsCustomer aCustomer = new ClsCustomer();
+            //boolean variable to store result of method
+            Boolean Found = false;
+            //create test data 
+            int cID = 3456;
+            //invoke method
+            Found = aCustomer.Find(cID);
+            //test to see if result is correct
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestIdNotFound()
+        {
+            ClsCustomer aCustomer = new ClsCustomer();
+
+            Boolean Found = false;
+
+            Boolean Ok = true;
+
+            int cID = 728;
+
+            Found = aCustomer.Find(cID);
+
+            if(aCustomer.CustomerID != 728)
+            {
+                Ok = false;
+            }
+            Assert.IsTrue(Ok);
+
+        }
+
+
     }
 }
