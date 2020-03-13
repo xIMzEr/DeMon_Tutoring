@@ -15,8 +15,9 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         readonly string tutorLastName = "Bobeth";
         readonly string tutorEmail = "email@email.com";
         readonly string tutorSubject = "Computing";
-        readonly string tutorAvailable = "True";
+        readonly string tutorAvailable = "true";
         readonly string tutorDateAdded = DateTime.Now.Date.ToString();
+        readonly string tutorPassword = "12345678910";
 
         // testing of tutor class creation------------------
         [TestMethod]
@@ -312,7 +313,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             String Error = "";
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -328,7 +329,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorFirstName = ""; //this should trigger an error
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -344,7 +345,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorFirstName = "a"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -360,7 +361,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorFirstName = "aa"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -376,7 +377,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorFirstName = "abcdefghijklmn"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -392,7 +393,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorFirstName = "abcdefghijklmno"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -408,7 +409,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorFirstName = "abcdefgh"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -425,7 +426,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorFirstName = tutorFirstName.PadRight(16, 'a');//this should fail
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -442,13 +443,13 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorFirstName = tutorFirstName.PadRight(500, 'a'); //this should fail
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
-        public void TutorLastNameLessOne()
+        public void TutorLastNameMinLessOne()
         {
             //create an instance of the class we want to create
             clsTutor aTutor = new clsTutor();
@@ -458,7 +459,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorLastName = ""; //this should trigger an error
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -474,7 +475,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorLastName = "a"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -490,7 +491,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorLastName = "aa"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -506,7 +507,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorLastName = "abcdefghijklmn"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -522,7 +523,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorLastName = "abcdefghijklmno"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -538,7 +539,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorLastName = "abcdefgh"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -555,7 +556,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorLastName = tutorLastName.PadRight(16, 'a');//this should fail
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -572,7 +573,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorFirstName = tutorFirstName.PadRight(500, 'a'); //this should fail
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -594,7 +595,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorDateAdded = TestDate.ToString();
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -616,7 +617,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorDateAdded = TestDate.ToString();
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -636,7 +637,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string DateAdded = TestDate.ToString();
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -658,7 +659,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorDateAdded = TestDate.ToString();
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -680,7 +681,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorDateAdded = TestDate.ToString();
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -696,7 +697,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorDateAdded = "this is not a valid date";
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -712,7 +713,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorEmail = "aa"; //this should trigger an error
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -728,7 +729,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorFirstName = "aaa";//this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -744,7 +745,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorEmail = "abcd"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -761,7 +762,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorEmail = tutorEmail.PadRight(29, 'a'); //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -778,7 +779,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorEmail = tutorEmail.PadRight(30, 'a'); //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -795,7 +796,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorEmail = tutorEmail.PadRight(15, 'a'); //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -813,7 +814,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
 
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -830,13 +831,13 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorEmail = tutorEmail.PadRight(300, 'a'); //this should fail
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
-        public void TutorSubjectLessOne()
+        public void TutorSubjectMinLessOne()
         {
             //create an instance of the class we want to create
             clsTutor aTutor = new clsTutor();
@@ -846,7 +847,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorSubject = "aa"; //this should trigger an error
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -862,7 +863,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorSubject = "aaa";//this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -878,7 +879,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             string tutorEmail = "abcd"; //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -895,7 +896,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorSubject = tutorSubject.PadRight(14, 'a'); //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -912,7 +913,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorSubject = tutorSubject.PadRight(15, 'a'); //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -929,7 +930,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorSubject = tutorSubject.PadRight(7, 'a'); //this should pass
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
@@ -947,7 +948,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
 
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -964,7 +965,141 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             tutorSubject = tutorSubject.PadRight(300, 'a'); //this should fail
 
             //invoke the method
-            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded);
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorPasswordMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorPassword = "1234567"; //this should trigger an error
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorPasswordMin()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorPassword = "12345678";//this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorPasswordMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorPassword = "123456789"; //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorPasswordMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorPassword = ""; //this should pass
+            tutorPassword = tutorPassword.PadRight(29, 'a'); //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorPasswordMax()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorPassword = ""; //this should pass
+            tutorPassword = tutorPassword.PadRight(30, 'a'); //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorPasswordMid()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorPassword = ""; //this should pass
+            tutorPassword = tutorPassword.PadRight(15, 'a'); //this should pass
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorPasswordMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorPassword = "";
+            tutorPassword = tutorPassword.PadRight(31, 'a');//this should fail
+
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TutorPasswordExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorPassword = "";
+            tutorPassword = tutorPassword.PadRight(300, 'a'); //this should fail
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }

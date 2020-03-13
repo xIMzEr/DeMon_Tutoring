@@ -137,7 +137,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 
 
         //The public validation method
-        public string Valid(string tutorFirstName, string tutorLastName, string tutorEmail, string tutorSubject, string tutorAvailable, string tutorDateAdded)
+        public string Valid(string tutorFirstName, string tutorLastName, string tutorEmail, string tutorSubject, string tutorAvailable, string tutorDateAdded, string tutorPassword)
         //accepts 5 parameters for validation
         //the function returns a string containing any error messages
         //if no erros are found then a blank string is returned
@@ -191,7 +191,6 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             }
 
 
-
             //Subject tests---------------
             if (tutorSubject.Length < 3)
             {
@@ -202,6 +201,20 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             {
                 //record the error
                 Error = Error + "The subject must be less than 15 characters: ";
+            }
+
+            //Password tests---------------
+            //check to see if password is shorter than min
+            if (tutorPassword.Length < 8)
+            {
+                //record the error
+                Error = Error + "The password may not be less than 8 characters: ";
+            }
+            //check to see if password is longer than min
+            if (tutorPassword.Length > 30)
+            {
+                //record the error
+                Error = Error + "The password must be less than 30 characters: ";
             }
 
             //tutorDateAdded tests ----------------
