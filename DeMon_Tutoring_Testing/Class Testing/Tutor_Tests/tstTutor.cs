@@ -6,17 +6,17 @@ using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
 {
     [TestClass]
-    public class tstTutor
+    public class TstTutor
     {
         //good Test Data
         //creating some test data to pass to the validation method
 
-        string tutorFirstName = "Bob";
-        string tutorLastName = "Bobeth";
-        string tutorEmail = "email@email.com";
-        string tutorSubject = "Computing";
-        string tutorAvailable = "True";
-        string tutorDateAdded = DateTime.Now.Date.ToString();
+        readonly string tutorFirstName = "Bob";
+        readonly string tutorLastName = "Bobeth";
+        readonly string tutorEmail = "email@email.com";
+        readonly string tutorSubject = "Computing";
+        readonly string tutorAvailable = "True";
+        readonly string tutorDateAdded = DateTime.Now.Date.ToString();
 
         // testing of tutor class creation------------------
         [TestMethod]
