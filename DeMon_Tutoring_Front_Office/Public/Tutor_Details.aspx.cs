@@ -13,34 +13,64 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //create a new instance of clsTutor
-        clsTutor tutor = new clsTutor();
+        clsTutor aTutor = new clsTutor();
 
         //get the data from the session object
-        tutor = (clsTutor)Session["tutor"];
+        aTutor = (clsTutor)Session["aTutor"];
 
         //display the tutor ID for this entry
-        Response.Write(tutor.tutorId);
+        Response.Write(aTutor.tutorId);
 
     }
 
     protected void btnRegister_Click(object sender, EventArgs e)
     {
         //create instance of tutor
-        clsTutor tutor = new clsTutor();
+        clsTutor aTutor = new clsTutor();
 
-        //capture the tutor name
-        tutor.tutorName = new Name(txtFirstName.Text, txtLastName.Text);
-
+        //capture the tutor first name
+        string tutorFirstName = txtFirstName.Text;
+        //capture the tutor last name
+        string tutorLastName = txtLastName.Text;
         //capture the email
-        tutor.tutorEmail = (txtEmail.Text);
+        string tutorEmail = txtEmail.Text;
+        //capture the subject
+        string tutorSubject = txtSubject.Text;
+        //capture the date added
+        string tutorDateAdded = txtDateAdded.Text;
+        //capture the password
+        string tutorPassword = txtPassword.Text;
 
-        //Capture the date created
-        tutor.tutorDateAdded = DateTime.Now;
+       
+        //variable to store error messages
+        string Error = "";
+        //validate the data
+        Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorDateAdded, tutorPassword);
+        if (Error == "")
+        {
+            //capture the name
+            aTutor.tutorName = new Name(tutorFirstName + tutorLastName);
+            //capture the email
+            aTutor.tutorEmail = tutorEmail;
+            //capture the subject
+            aTutor.tutorSubject = tutorSubject;
+            //capture the date added
+            aTutor.tutorDateAdded = Convert.ToDateTime(tutorDateAdded);
+            //capture the password
+            aTutor.tutorPassword = tutorPassword;
 
-        //store the email in the session object
-        Session["tutor"] = tutor;
-        //redirect to the tutor viewer page
-        Response.Redirect("TutorViewer.aspx");
+            //store the email in the session object
+            Session["aTutor"] = aTutor;
+            //redirect to the tutor viewer page
+            Response.Write("TutorViewer.aspx"); // maybe response.redirect
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
+
+        
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
@@ -51,6 +81,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         txtSubject.Text = "";
         txtAvailibility.Text = "";
         txtDateAdded.Text = "";
+        txtPassword.Text = "";
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -79,4 +110,5 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         }
 
     }
+
 }

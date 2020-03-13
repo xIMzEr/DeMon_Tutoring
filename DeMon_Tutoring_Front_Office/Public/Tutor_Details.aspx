@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="height: 468px; width: 292px">
+        <div style="height: 521px; width: 318px">
             <h1>
             <asp:Label ID="lblTitle" runat="server" ForeColor="#990000" Text="Tutor Sign Up Form" BackColor="#999999" BorderColor="Black" BorderStyle="Inset" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" Font-Underline="False" Height="30px" style="text-align: center; font-size: large" Width="272px"></asp:Label>
             </h1>
@@ -26,6 +26,9 @@
             Email<br />
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
             <br />
+            Password<br />
+            <asp:TextBox ID="txtPassword" runat="server" OnTextChanged="txtSubject0_TextChanged"></asp:TextBox>
+            <br />
             Subject<br />
             <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox>
             <br />
@@ -38,6 +41,9 @@
             <br />
             <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" ForeColor="#009900" />
             <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" ForeColor="#CC0000" />
+            <br />
+            <br />
+            <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
             <br />
             <br />
             <br />

@@ -137,7 +137,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 
 
         //The public validation method
-        public string Valid(string tutorFirstName, string tutorLastName, string tutorEmail, string tutorSubject, string tutorAvailable, string tutorDateAdded, string tutorPassword)
+        public string Valid(string tutorFirstName, string tutorLastName, string tutorEmail, string tutorSubject, string tutorDateAdded, string tutorPassword)
         //accepts 5 parameters for validation
         //the function returns a string containing any error messages
         //if no erros are found then a blank string is returned

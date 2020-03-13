@@ -15,9 +15,12 @@
             <br />
             <asp:Label ID="lblEmail" runat="server" Text="Label"></asp:Label>
             <br />
+            <asp:Label ID="lblPassword" runat="server" Text="Label"></asp:Label>
+            <br />
             <asp:Label ID="lblSubject" runat="server" Text="Label"></asp:Label>
             <br />
             <asp:Label ID="lblDateAdded" runat="server" Text="Label"></asp:Label>
+            <br />
         </div>
     </form>
 </body>
