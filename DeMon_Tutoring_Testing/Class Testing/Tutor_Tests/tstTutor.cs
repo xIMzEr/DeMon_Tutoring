@@ -193,7 +193,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         {
             //create an instance of the class we want to create
             clsTutor aTutor = new clsTutor();
-            //Name tutorName = new Name("Bob", "Bob");
+
             //boolean variable to store the result of the search
             Boolean Found = false;
             //boolean variable to record if data is OK (assumes that it is)

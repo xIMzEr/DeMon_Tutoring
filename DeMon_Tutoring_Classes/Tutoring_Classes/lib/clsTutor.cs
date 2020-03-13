@@ -14,7 +14,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         //tutorId private member variable
         private Int32 mtutorId;
         //tutorId public property
-        public int tutorId
+        public Int32 tutorId
         {
             get
             { return mtutorId; }
@@ -104,14 +104,15 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 
         //Methods
 
-        public bool Find(int tId)
+        public bool Find(int tutorId)
         {
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //adding paramater for the tutor id to search for
-            DB.AddParameter("@tutorId", tId);
+            DB.AddParameter("@tutorId", tutorId);
             //execute the stored procedure
             DB.Execute("sproc_tblTutor_FilterByTutorID");
+
             //if one record is found (there should be one or zero!)
             if (DB.Count == 1)
             {
