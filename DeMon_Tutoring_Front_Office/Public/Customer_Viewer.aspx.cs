@@ -10,10 +10,9 @@ public partial class Public_Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //Create a new customer
+
         ClsCustomer customer = new ClsCustomer();
       
-        
-
         //get data from session object
         customer = (ClsCustomer)Session["customer"];
         
@@ -28,8 +27,10 @@ public partial class Public_Default : System.Web.UI.Page
         txtPassword.Text = customer.Password;
         txtCardNo.Text = customer.CardNo;
         txtCardDate.Text = customer.CardDate;
+
         rdbYes.Text = customer.StudentStatus;
         rdbNo.Text = customer.StudentStatus;
+
     }
 
 }
