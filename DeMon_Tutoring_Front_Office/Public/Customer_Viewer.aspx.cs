@@ -4,20 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 using DeMon_Tutoring_Classes.Customer_Classes.lib;
 public partial class Public_Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         //Create a new customer
-        clsCustomer customer = new clsCustomer();
 
-        //objStatus yes = new objStatus();
-
-
+        ClsCustomer customer = new ClsCustomer();
+      
         //get data from session object
-        customer = (clsCustomer)Session["customer"];
+        customer = (ClsCustomer)Session["customer"];
+        
 
         Response.Write("<b> LOGIN SUCCESSFUL </b>");
 
@@ -30,8 +28,8 @@ public partial class Public_Default : System.Web.UI.Page
         txtCardNo.Text = customer.CardNo;
         txtCardDate.Text = customer.CardDate;
 
-        //rdbYes.Text = objStatusTrue.objectStatusTrue;
-
+        rdbYes.Text = customer.StudentStatus;
+        rdbNo.Text = customer.StudentStatus;
 
     }
 
