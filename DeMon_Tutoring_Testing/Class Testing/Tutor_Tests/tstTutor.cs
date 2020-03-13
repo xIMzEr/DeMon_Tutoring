@@ -8,7 +8,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
     [TestClass]
     public class TstTutor
     {
-        //good Test Data
+        //Good Test Data
         //creating some test data to pass to the validation method
 
         readonly string tutorFirstName = "Bob";
@@ -19,7 +19,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         readonly string tutorDateAdded = DateTime.Now.Date.ToString();
         readonly string tutorPassword = "12345678910";
 
-        // testing of tutor class creation------------------
+        //TESTING CLASS CREATION ----------------------------------------------------------------------------------------------
         [TestMethod]
         public void InstanceOk()
         {
@@ -29,7 +29,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.IsNotNull(aTutor);
         }
 
-        //testing the setting and retrieval of data ---------------------
+        //TESTING THE SETTING AND RETRIEVAL OF DATA ----------------------------------------------------------------------------------------------
         [TestMethod]
         public void TestIdTutor()
         {
@@ -104,7 +104,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create instance of the class we want to create
             clsTutor aTutor = new clsTutor();
             //create some test data to assign to tutor
-            string TestData = "abc123";
+            string TestData = "12345678910";
             //assign the data to the tutor
             aTutor.tutorPassword = TestData;
             //test to see that the two values are the same
@@ -125,7 +125,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         }
 
 
-        //find method tests------------------------------
+        //TESTING FIND METHOD ----------------------------------------------------------------------------------------------
 
         [TestMethod]
         public void FindMethodOK()
@@ -157,7 +157,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Found = aTutor.Find(tutorId);
 
             //check the tutor id number
-            if(aTutor.tutorId !=1)
+            if(aTutor.tutorId != 1)
             {
                 Ok = false;
             }
@@ -175,12 +175,12 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //boolean variable to record if data is OK (assumes that it is)
             Boolean Ok = true;
             //create some test data to assign to use with the method
-            Int32 tutorId = 3;
+            Int32 tutorId = 1;
             //invoke the method
             Found = aTutor.Find(tutorId);
 
             //check the property
-            if (aTutor.tutorDateAdded != Convert.ToDateTime("04/03/2020"))
+            if (aTutor.tutorDateAdded != Convert.ToDateTime("13/03/2020"))
             {
                 Ok = false;
             }
@@ -204,7 +204,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Found = aTutor.Find(tutorId);
 
             //get full name from class and compare with what should be the result
-            if (aTutor.tutorName.getFullName()!= "Bob Bob")
+            if (aTutor.tutorName.getFullName() != "Bob Bob")
             {
                 Ok = false;
             }
@@ -227,7 +227,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Found = aTutor.Find(tutorId);
 
             //get email from class and compare with expected result
-            if (aTutor.tutorEmail != "bob@email.com")
+            if (aTutor.tutorEmail != "bobstevens@123.kdas.com")
             {
                 Ok = false;
             }
@@ -273,7 +273,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Found = aTutor.Find(tutorId);
 
             //get password from class and compare with what the result should be
-            if (aTutor.tutorPassword != "123")
+            if (aTutor.tutorPassword != "12345678910")
             {
                 Ok = false;
             }
@@ -296,7 +296,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Found = aTutor.Find(tutorId);
 
             //get subject from class and compare with expected result
-            if (aTutor.tutorSubject != "Science")
+            if (aTutor.tutorSubject != "Chemistry")
             {
                 Ok = false;
             }
@@ -304,6 +304,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.IsTrue(Ok);
         }
 
+        //TESTING VALIDATION METHOD ----------------------------------------------------------------------------------------------
         [TestMethod]
         public void ValidationMethodOk()
         {
@@ -317,7 +318,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //test to see that result is correct
             Assert.AreEqual(Error, "");
         }
-
+        //TESTING VALIDATION FIRST NAME ----------------------------------------------------------------------------------------------
         [TestMethod]
         public void TutorFirstNameLessOne()
         {
@@ -358,7 +359,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //string variable to store any error messages
             String Error = "";
             //creating some test data to pass the method
-            string tutorFirstName = "aa"; //this should pass
+            string tutorFirstName = "ab"; //this should pass
 
             //invoke the method
             Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
@@ -374,7 +375,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //string variable to store any error messages
             String Error = "";
             //creating some test data to pass the method
-            string tutorFirstName = "abcdefghijklmn"; //this should pass
+            string tutorFirstName = "";
+            tutorFirstName = tutorFirstName.PadRight(14, 'a');
 
             //invoke the method
             Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
@@ -390,7 +392,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //string variable to store any error messages
             String Error = "";
             //creating some test data to pass the method
-            string tutorFirstName = "abcdefghijklmno"; //this should pass
+            string tutorFirstName = ""; //this should pass
+            tutorFirstName = tutorFirstName.PadRight(15, 'a');
 
             //invoke the method
             Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
@@ -406,7 +409,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //string variable to store any error messages
             String Error = "";
             //creating some test data to pass the method
-            string tutorFirstName = "abcdefgh"; //this should pass
+            string tutorFirstName = ""; //this should pass
+            tutorFirstName = tutorFirstName.PadRight(8, 'a');
 
             //invoke the method
             Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
@@ -447,6 +451,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
+
+        //TESTING VALIDATION LAST NAME----------------------------------------------------------------------------------------------
 
         [TestMethod]
         public void TutorLastNameMinLessOne()
@@ -504,7 +510,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //string variable to store any error messages
             String Error = "";
             //creating some test data to pass the method
-            string tutorLastName = "abcdefghijklmn"; //this should pass
+            string tutorLastName = ""; //this should pass
+            tutorLastName = tutorLastName.PadRight(14, 'a');
 
             //invoke the method
             Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
@@ -520,7 +527,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //string variable to store any error messages
             String Error = "";
             //creating some test data to pass the method
-            string tutorLastName = "abcdefghijklmno"; //this should pass
+            string tutorLastName = ""; //this should pass
+            tutorLastName = tutorLastName.PadRight(15, 'a');
 
             //invoke the method
             Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
@@ -536,7 +544,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //string variable to store any error messages
             String Error = "";
             //creating some test data to pass the method
-            string tutorLastName = "abcdefgh"; //this should pass
+            string tutorLastName = ""; //this should pass
+            tutorLastName = tutorLastName.PadRight(8, 'a');
 
             //invoke the method
             Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
@@ -569,14 +578,16 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //string variable to store any error messages
             String Error = "";
             //creating some test data to pass the method
-            string tutorFirstName = "";
-            tutorFirstName = tutorFirstName.PadRight(500, 'a'); //this should fail
+            string tutorLastName = "";
+            tutorLastName = tutorLastName.PadRight(500, 'a'); //this should fail
 
             //invoke the method
             Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
+
+        //TESTING VALIDATION DATEADDED ----------------------------------------------------------------------------------------------
 
         [TestMethod]
         public void DateAddedExtremeMin()
@@ -589,8 +600,10 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             DateTime TestDate;
             //set date to today
             TestDate = DateTime.Now.Date;
+
             //change the date to less by 100 years
             TestDate = TestDate.AddYears(-100); // this should fail
+
             //have to convert date to string
             string tutorDateAdded = TestDate.ToString();
 
@@ -611,8 +624,10 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             DateTime TestDate;
             //set date to today
             TestDate = DateTime.Now.Date;
+
             //change the date to today -1 day
             TestDate = TestDate.AddDays(-1); // this should fail
+
             //have to convert date to string
             string tutorDateAdded = TestDate.ToString();
 
@@ -633,6 +648,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             DateTime TestDate;
             //set date to today
             TestDate = DateTime.Now.Date;// this should pass
+
             //have to convert date to string
             string DateAdded = TestDate.ToString();
 
@@ -653,8 +669,10 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             DateTime TestDate;
             //set date to today
             TestDate = DateTime.Now.Date;
+
             //change the date today's date plus 1 day
             TestDate = TestDate.AddDays(1); // this should fail
+
             //have to convert date to string
             string tutorDateAdded = TestDate.ToString();
 
@@ -675,8 +693,10 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             DateTime TestDate;
             //set date to today
             TestDate = DateTime.Now.Date;
+
             //change the date to today plus 100 years
             TestDate = TestDate.AddYears(100);
+
             //have to convert date to string
             string tutorDateAdded = TestDate.ToString();
 
@@ -701,6 +721,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //test to see that result is correct
             Assert.AreNotEqual(Error, "");
         }
+
+        //TESTING VALIDATION EMAIL ----------------------------------------------------------------------------------------------
 
         [TestMethod]
         public void TutorEmailMinLessOne()
@@ -793,7 +815,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             String Error = "";
             //creating some test data to pass the method
             string tutorEmail = ""; //this should pass
-            tutorEmail = tutorEmail.PadRight(15, 'a'); //this should pass
+            tutorEmail = tutorEmail.PadRight(14, 'a'); //this should pass
 
             //invoke the method
             Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
@@ -836,6 +858,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.AreNotEqual(Error, "");
         }
 
+        //TESTING VALIDATION SUBJECT ----------------------------------------------------------------------------------------------
         [TestMethod]
         public void TutorSubjectMinLessOne()
         {
@@ -970,6 +993,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.AreNotEqual(Error, "");
         }
 
+        //TESTING VALIDATION PASSWORD ----------------------------------------------------------------------------------------------
         [TestMethod]
         public void TutorPasswordMinLessOne()
         {
@@ -1104,8 +1128,26 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.AreNotEqual(Error, "");
         }
 
+        public void TutorPasswordExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+            //string variable to store any error messages
+            String Error = "";
+            //creating some test data to pass the method
+            string tutorPassword = ""; // this should fail
+
+            //invoke the method
+            Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorAvailable, tutorDateAdded, tutorPassword);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+
+
 
 
 
     }
-}
+    }
