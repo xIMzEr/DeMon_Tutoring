@@ -91,7 +91,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 
         public clsTutor()
         {
-            tutorId = 0;
+            tutorId = 1;
             tutorName = null;
             tutorEmail = "";
             tutorAvailabe = true;

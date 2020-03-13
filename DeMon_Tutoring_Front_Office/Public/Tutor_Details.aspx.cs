@@ -12,12 +12,13 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        // THANKS TO SAM BECAUSE I DIDNT NEED THIS
         //create a new instance of clsTutor
-        clsTutor aTutor = new clsTutor();
+       // clsTutor aTutor = new clsTutor();
         //get the data from the session object
-        aTutor = (clsTutor)Session["aTutor"];
+        //0aTutor = (clsTutor)Session["aTutor"];
         //display the tutor ID for this entry
-        Response.Write(aTutor.tutorId);
+        //Response.Write(aTutor.tutorId);
 
     }
 
@@ -105,6 +106,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
             txtSubject.Text = aTutor.tutorSubject;
             txtAvailibility.Text = aTutor.tutorAvailabe.ToString();
             txtDateAdded.Text = aTutor.tutorDateAdded.ToString();
+            txtPassword.Text = aTutor.tutorPassword;
 
         }
 
