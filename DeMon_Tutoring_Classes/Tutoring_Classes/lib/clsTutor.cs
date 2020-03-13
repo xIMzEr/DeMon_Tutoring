@@ -127,7 +127,6 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             //create a temporary variable to store date values
             DateTime DateTemp;
             //First Name tests---------------
-            //if the tutorName field is blank
             if(tutorFirstName.Length == 0)
             {
                 //record the error
@@ -137,6 +136,39 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             {
                 //record the error
                 Error = Error + "The first name must be less than 15 characters: ";
+            }
+            //First Name tests---------------
+            if (tutorLastName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The last name may not be blank: ";
+            }
+            if (tutorLastName.Length > 15)
+            {
+                //record the error
+                Error = Error + "The last name must be less than 15 characters: ";
+            }
+            //Email tests---------------
+            if (tutorEmail.Length < 3)
+            {
+                //record the error
+                Error = Error + "The email may not be less than 3 characters: ";
+            }
+            if (tutorEmail.Length > 30)
+            {
+                //record the error
+                Error = Error + "The email must be less than 30 characters: ";
+            }
+            //Subject tests---------------
+            if (tutorSubject.Length < 3)
+            {
+                //record the error
+                Error = Error + "The subject may not be less than 3 characters ";
+            }
+            if (tutorSubject.Length > 15)
+            {
+                //record the error
+                Error = Error + "The subject must be less than 15 characters: ";
             }
             //tutorDateAdded tests ----------------
             try
