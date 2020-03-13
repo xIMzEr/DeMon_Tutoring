@@ -109,7 +109,40 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             //the function returns a string containing any error message
             //if no errors found then a blank string is returned 
         {
-            return "";
+            //String to store the error
+            String Error = "";
+            //If the firstName is bank
+            if(staffFN.Length == 0)
+            {
+                //Record the erorr
+                Error = Error + "The First Name may not be blank : ";
+            }
+            //If the first name is greater than 15 characters
+            if(staffFN.Length > 15)
+            {
+                //Record the error
+                Error += "The first name must be less than 16 characters : ";
+            }
+            try
+            {
+                DateTime dOBTemp = Convert.ToDateTime(staffDOB);
+                if (dOBTemp < DateTime.Now.Date.AddYears(-68))
+                {
+                    //Record the error
+                    Error += "The dob cannot be less than the retirement age";
+                }
+                if (dOBTemp > DateTime.Now.Date.AddYears(-18))
+                {
+                    //Record the error
+                    Error += "The dob cannot be more than 18 years old";
+                }
+            }
+            catch
+            {
+                //Record the error
+                Error += "The date was not a valid date";
+            }
+            return Error;
         }
 
     }

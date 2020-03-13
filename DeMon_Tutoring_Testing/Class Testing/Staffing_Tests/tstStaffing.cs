@@ -220,5 +220,331 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Test to see if the result is correct
             Assert.AreEqual(Error, "");
         }
+
+        [TestMethod]
+        public void StaffFirstNameMinLessOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to fail the method
+            string FirstName = "";
+            //Invoke the method
+            Error = aStaff.Valid(FirstName, staffLN, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffFirstNameMin()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string FirstName = "E";
+            //Invoke the method
+            Error = aStaff.Valid(FirstName, staffLN, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffFirstNameMinPlusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string FirstName = "Eu";
+            //Invoke the method
+            Error = aStaff.Valid(FirstName, staffLN, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffFirstNameMaxMinusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string FirstName = "Aaaaaaaaaaaaaa";
+            //Invoke the method
+            Error = aStaff.Valid(FirstName, staffLN, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffFirstNameMax()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string FirstName = "Aaaaaaaaaaaaaaa";
+            //Invoke the method
+            Error = aStaff.Valid(FirstName, staffLN, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffFirstNameMaxPlusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string FirstName = "AaaaaaaaaaaaaaaX";
+            //Invoke the method
+            Error = aStaff.Valid(FirstName, staffLN, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffFirstNameMid()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string FirstName = "Aaaaaaaa";
+            //Invoke the method
+            Error = aStaff.Valid(FirstName, staffLN, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffFirstNameExtremeMax()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string FirstName = "";
+            FirstName = FirstName.PadRight(500, 'a');
+            //Invoke the method
+            Error = aStaff.Valid(FirstName, staffLN, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedExtremeMin()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            DateTime TestDate;
+            //Set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //Change TestDate to the date + 100 years
+            TestDate = TestDate.AddYears(-100);
+            //Change to a string for the Valid Method
+            string staffDOBTest = TestDate.ToString();
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOBTest);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinMinusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            DateTime TestDate;
+            //Set the date to the Minimum Date
+            TestDate = DateTime.Now.Date;
+            //Remove 68 years as Min Date - 1 days
+            TestDate = TestDate.AddYears(-68).AddDays(-1);
+            //Change to a string for the Valid Method
+            string staffDOBTest = TestDate.ToString();
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOBTest);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            DateTime TestDate;
+            //Set the date to the Minimum Date
+            TestDate = DateTime.Now.Date;
+            //Remove 68 years as Min Date
+            TestDate = TestDate.AddYears(-68);
+            //Change to a string for the Valid Method
+            string staffDOBTest = TestDate.ToString();
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOBTest);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinAddOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            DateTime TestDate;
+            //Set the date to the Minimum Date
+            TestDate = DateTime.Now.Date;
+            //Remove 68 years as Min Date add 1 day
+            TestDate = TestDate.AddYears(-68).AddDays(1);
+            //Change to a string for the Valid Method
+            string staffDOBTest = TestDate.ToString();
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOBTest);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void DateAddedMaxMinusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            DateTime TestDate;
+            //Set the date to the Minimum Date
+            TestDate = DateTime.Now.Date;
+            //Remove 68 years as Min Date
+            TestDate = TestDate.AddYears(-18).AddDays(-1);
+            //Change to a string for the Valid Method
+            string staffDOBTest = TestDate.ToString();
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOBTest);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMax()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            DateTime TestDate;
+            //Set the date to the Minimum Date
+            TestDate = DateTime.Now.Date;
+            //Remove 68 years as Min Date
+            TestDate = TestDate.AddYears(-18);
+            //Change to a string for the Valid Method
+            string staffDOBTest = TestDate.ToString();
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOBTest);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMaxAddOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            DateTime TestDate;
+            //Set the date to the Minimum Date
+            TestDate = DateTime.Now.Date;
+            //Remove 68 years as Min Date
+            TestDate = TestDate.AddYears(-18).AddDays(1);
+            //Change to a string for the Valid Method
+            string staffDOBTest = TestDate.ToString();
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOBTest);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMid()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            DateTime TestDate;
+            //Set the date to the Minimum Date
+            TestDate = DateTime.Now.Date;
+            //Remove 68 years as Min Date
+            TestDate = TestDate.AddYears(-34);
+            //Change to a string for the Valid Method
+            string staffDOBTest = TestDate.ToString();
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOBTest);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            DateTime TestDate;
+            //Set the date to the Minimum Date
+            TestDate = DateTime.Now.Date;
+            //Remove 68 years as Min Date
+            TestDate = TestDate.AddYears(100);
+            //Change to a string for the Valid Method
+            string staffDOBTest = TestDate.ToString();
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOBTest);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DOBInvalidData()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //set StaffDOB to a non date data type
+            string staffDOBTest = "this is not a date";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOBTest);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }

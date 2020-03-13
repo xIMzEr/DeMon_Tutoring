@@ -12,7 +12,9 @@ public partial class Public_Default : System.Web.UI.Page
     {
         //Create a new customer
         clsCustomer customer = new clsCustomer();
+
         //objStatus yes = new objStatus();
+
 
         //get data from session object
         customer = (clsCustomer)Session["customer"];
@@ -27,7 +29,9 @@ public partial class Public_Default : System.Web.UI.Page
         txtPassword.Text = customer.Password;
         txtCardNo.Text = customer.CardNo;
         txtCardDate.Text = customer.CardDate;
+
         //rdbYes.Text = objStatusTrue.objectStatusTrue;
+
 
     }
 
