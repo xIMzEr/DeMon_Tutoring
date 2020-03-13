@@ -94,6 +94,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         Boolean Found = false;
         //get the primary key entered by the user
         tutorId = Convert.ToInt32(txtTutorId.Text);
+
         //find the record
         Found = aTutor.Find(tutorId);
         //if record is found

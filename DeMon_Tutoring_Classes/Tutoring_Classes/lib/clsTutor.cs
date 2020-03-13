@@ -7,7 +7,6 @@ using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 
 namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 {
-
     public class clsTutor
     {  //Fields
 
@@ -16,8 +15,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         //tutorId public property
         public Int32 tutorId
         {
-            get
-            { return mtutorId; }
+            get{ return mtutorId; }
             set { mtutorId = value; }
         }
 
@@ -75,8 +73,8 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             set { mtutorDateAdded = value; }
         }
 
-
-        public bool active { get; set; }
+        //NOT USED
+        //public bool active { get; set; }
 
 
         //Constructors
