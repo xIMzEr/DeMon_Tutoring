@@ -14,10 +14,8 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
     {
         //create a new instance of clsTutor
         clsTutor aTutor = new clsTutor();
-
         //get the data from the session object
         aTutor = (clsTutor)Session["aTutor"];
-
         //display the tutor ID for this entry
         Response.Write(aTutor.tutorId);
 

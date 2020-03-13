@@ -27,7 +27,7 @@
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
             <br />
             Password<br />
-            <asp:TextBox ID="txtPassword" runat="server" OnTextChanged="txtSubject0_TextChanged"></asp:TextBox>
+             <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
             <br />
             Subject<br />
             <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox>

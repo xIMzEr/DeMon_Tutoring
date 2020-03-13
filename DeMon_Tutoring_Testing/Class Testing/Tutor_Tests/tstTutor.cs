@@ -15,7 +15,6 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         readonly string tutorLastName = "Bobeth";
         readonly string tutorEmail = "email@email.com";
         readonly string tutorSubject = "Computing";
-        readonly string tutorAvailable = "true";
         readonly string tutorDateAdded = DateTime.Now.Date.ToString();
         readonly string tutorPassword = "12345678910";
 
