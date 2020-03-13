@@ -24,10 +24,14 @@ namespace DeMon_Tutoring_Testing
             ClsCustomer aCustomer = new ClsCustomer();
             //create some test data to assign to Customer
             bool TestData = true;
+
             //assign the data to the Customer
-            aCustomer.Active = TestData;
+
+            //YOU HAVE REMOVED THE ACTIVE FIELD FROM CUSTOMER
+
+            //aCustomer.Active = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aCustomer.Active, TestData);
+            //Assert.AreEqual(aCustomer.Active, TestData);
         }
 
         [TestMethod]
@@ -37,13 +41,16 @@ namespace DeMon_Tutoring_Testing
             ClsCustomer aCustomer = new ClsCustomer();
             //create some test data to assign to Customer
             Boolean TestData = true;
+
+            //YOU HAVE REMOVED THE ACTIVE FIELD FROM CUSTOMER X2
+
             //assign the data to the Customer
-            aCustomer.Active = TestData;
+            //aCustomer.Active = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aCustomer.Active, TestData);
+            //Assert.AreEqual(aCustomer.Active, TestData);
 
         }
-      
+
 
         [TestMethod]
         public void CustomerNameOk()
