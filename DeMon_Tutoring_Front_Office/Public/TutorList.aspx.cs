@@ -130,6 +130,7 @@ public partial class Public_TutorList : System.Web.UI.Page
         string email;
         string subject;
         string password;
+        string tutorId;
         //var to store the index
         Int32 Index = 0;
         //clear the list of existing items
@@ -146,9 +147,10 @@ public partial class Public_TutorList : System.Web.UI.Page
             email = Convert.ToString(AllTutors.TutorList[Index].tutorEmail);
             subject = Convert.ToString(AllTutors.TutorList[Index].tutorSubject);
             password = Convert.ToString(AllTutors.TutorList[Index].tutorPassword);
+            tutorId = Convert.ToString(AllTutors.TutorList[Index].tutorId);
 
             //set up a new object of class list item
-            ListItem NewItem = new ListItem(firstName + " " + lastName + " " + email + " " + subject + " " + password);
+            ListItem NewItem = new ListItem(firstName + " " + lastName + " " + email + " " + subject + " " + password, tutorId );
             //add new item to list
             lstTutorList.Items.Add(NewItem);
             Index++;
