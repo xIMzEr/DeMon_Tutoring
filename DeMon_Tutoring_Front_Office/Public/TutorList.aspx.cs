@@ -27,7 +27,8 @@ public partial class Public_TutorList : System.Web.UI.Page
         //set the name of the primary key
         lstTutorList.DataValueField = "tutorId";
         //set the data field to display
-        lstTutorList.DataTextField = "firstName";
+        lstTutorList.DataTextField = "tutorPassword";
+        //lstTutorList.DataTextField = "tutorEmail";
         //bind the data to the list
         lstTutorList.DataBind();
 
