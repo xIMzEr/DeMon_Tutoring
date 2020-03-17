@@ -27,7 +27,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
             else//this is a new record
             {
                 //set the date to todays date
-                txtDateAdded.Text = DateTime.Today.Date.ToString("dd/mm/yyyy");
+                txtDateAdded.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
             }
         }
     }
@@ -53,30 +53,17 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         //display subject
         txtSubject.Text = MyTutors.ThisTutor.tutorSubject;
         //display availability
-        txtAvailibility.Text = MyTutors.ThisTutor.tutorAvailabe.ToString();
+        //availability checkbox
+        chkAvailable.Checked = MyTutors.ThisTutor.tutorAvailabe;
         //display date added
-        txtDateAdded.Text = MyTutors.ThisTutor.tutorDateAdded.ToString("dd/mm/yyyy");
+        txtDateAdded.Text = MyTutors.ThisTutor.tutorDateAdded.ToString("dd/MM/yyyy");
         
     }
 
 
     protected void btnRegister_Click(object sender, EventArgs e)
     {
-        /*//create instance of tutor
-        clsTutor aTutor = new clsTutor();
-        //capture the tutor first name
-        string tutorFirstName = txtFirstName.Text;
-        //capture the tutor last name
-        string tutorLastName = txtLastName.Text;
-        //capture the email
-        string tutorEmail = txtEmail.Text;
-        //capture the subject
-        string tutorSubject = txtSubject.Text;
-        //capture the date added
-        string tutorDateAdded = txtDateAdded.Text;
-        //capture the password
-        string tutorPassword = txtPassword.Text;
-        */
+        
         clsTutorCollection AllTutors = new clsTutorCollection();
         //variable to store error messages
         string Error = "";
@@ -94,7 +81,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
                 AllTutors.ThisTutor.tutorSubject = txtSubject.Text;
                 AllTutors.ThisTutor.tutorDateAdded = Convert.ToDateTime(txtDateAdded.Text);
                 AllTutors.ThisTutor.tutorPassword = txtPassword.Text;
-                AllTutors.ThisTutor.tutorAvailabe = Convert.ToBoolean(txtAvailibility.Text);
+                AllTutors.ThisTutor.tutorAvailabe = chkAvailable.Checked;
                 //invoke the add method
                 AllTutors.Add();
             }
@@ -110,7 +97,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
                 AllTutors.ThisTutor.tutorSubject = txtSubject.Text;
                 AllTutors.ThisTutor.tutorDateAdded = Convert.ToDateTime(txtDateAdded.Text);
                 AllTutors.ThisTutor.tutorPassword = txtPassword.Text;
-                AllTutors.ThisTutor.tutorAvailabe = Convert.ToBoolean(txtAvailibility.Text);
+                AllTutors.ThisTutor.tutorAvailabe = chkAvailable.Checked;
                 //update the record with new data
                 AllTutors.Update();
             }
@@ -118,7 +105,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
             //redirect back to listpage
             Response.Redirect("TutorList.aspx");
         }
-        else
+        else//there are errors
         {
             //display the error message
             lblError.Text = Error;
@@ -154,7 +141,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
             txtLastName.Text = aTutor.tutorLastName;
             txtEmail.Text = aTutor.tutorEmail;
             txtSubject.Text = aTutor.tutorSubject;
-            txtAvailibility.Text = aTutor.tutorAvailabe.ToString();
+            chkAvailable.Checked = aTutor.tutorAvailabe;
             txtDateAdded.Text = aTutor.tutorDateAdded.ToString();
             txtPassword.Text = aTutor.tutorPassword;
 

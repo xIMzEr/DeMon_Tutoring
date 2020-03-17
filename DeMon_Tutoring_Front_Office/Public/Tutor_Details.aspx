@@ -33,17 +33,17 @@
             <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox>
             <br />
             Availibility<br />
-            <asp:TextBox ID="txtAvailibility" runat="server"></asp:TextBox>
+            <asp:CheckBox ID="chkAvailable" runat="server" Checked="True" Text="Availability" />
             <br />
             Date Added<br />
-            <asp:TextBox ID="txtDateAdded" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtDateAdded" runat="server" ReadOnly="True"></asp:TextBox>
             <br />
             <br />
             <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" ForeColor="#009900" />
             <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" ForeColor="#CC0000" />
             <br />
             <br />
-            <asp:Label ID="lblError" runat="server" Text="Label" Visible="False"></asp:Label>
+            <asp:Label ID="lblError" runat="server" Text="[]"></asp:Label>
             <br />
             <br />
             <br />

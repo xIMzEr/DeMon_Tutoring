@@ -29,11 +29,10 @@
         <br />
         <br />
         <asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" Text="Apply" />
-        <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
         <asp:Button ID="btnDisplayAll" runat="server" OnClick="btnDisplayAll_Click" Text="Display All" />
         <br />
         <br />
-        <asp:Label ID="lblError" runat="server" Text="[lblError]" Visible="False"></asp:Label>
+        <asp:Label ID="lblError" runat="server" Text="[lblError]"></asp:Label>
     </form>
 </body>
 </html>

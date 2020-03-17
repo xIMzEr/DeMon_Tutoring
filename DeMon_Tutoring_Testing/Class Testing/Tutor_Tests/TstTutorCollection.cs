@@ -34,11 +34,11 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //set its properties
             TestItem.tutorAvailabe = true;
             TestItem.tutorId = 1;
-            TestItem.tutorFirstName = "first";
-            TestItem.tutorLastName = "last";
-            TestItem.tutorEmail = "some@some.co.uk";
+            TestItem.tutorFirstName = "Bob";
+            TestItem.tutorLastName = "Bob";
+            TestItem.tutorEmail = "bobstevens@123.kdas.com";
             TestItem.tutorSubject = "Chemistry";
-            TestItem.tutorPassword = "12345678";
+            TestItem.tutorPassword = "12345678910";
             TestItem.tutorDateAdded = DateTime.Now.Date;
 
             //add the item to the test list
@@ -57,21 +57,21 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create an instance of the class we want to create
             clsTutorCollection AllTutors = new clsTutorCollection();
             //create some test data to assign to the property
-            clsTutor TestTutor = new clsTutor();
+            clsTutor TestItem = new clsTutor();
             //set the properties of the test object
-            TestTutor.tutorAvailabe = true;
-            TestTutor.tutorId = 1;
-            TestTutor.tutorFirstName = "first";
-            TestTutor.tutorLastName = "last";
-            TestTutor.tutorEmail = "some@some.co.uk";
-            TestTutor.tutorSubject = "Chemistry";
-            TestTutor.tutorPassword = "12345678";
-            TestTutor.tutorDateAdded = DateTime.Now.Date;
+            TestItem.tutorAvailabe = true;
+            TestItem.tutorId = 1;
+            TestItem.tutorFirstName = "Bob";
+            TestItem.tutorLastName = "Bob";
+            TestItem.tutorEmail = "bobstevens@123.kdas.com";
+            TestItem.tutorSubject = "Chemistry";
+            TestItem.tutorPassword = "12345678910";
+            TestItem.tutorDateAdded = DateTime.Now.Date;
 
             //assign the data to the property
-            AllTutors.ThisTutor = TestTutor;
+            AllTutors.ThisTutor = TestItem;
             //test to see that the two values are the same
-            Assert.AreEqual(AllTutors.ThisTutor, TestTutor);
+            Assert.AreEqual(AllTutors.ThisTutor, TestItem);
         }
 
         [TestMethod]
@@ -89,11 +89,11 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //set the properties of the test object
             TestItem.tutorAvailabe = true;
             TestItem.tutorId = 1;
-            TestItem.tutorFirstName = "first";
-            TestItem.tutorLastName = "last";
-            TestItem.tutorEmail = "some@some.co.uk";
+            TestItem.tutorFirstName = "Bob";
+            TestItem.tutorLastName = "Bob";
+            TestItem.tutorEmail = "bobstevens@123.kdas.com";
             TestItem.tutorSubject = "Chemistry";
-            TestItem.tutorPassword = "12345678";
+            TestItem.tutorPassword = "12345678910";
             TestItem.tutorDateAdded = DateTime.Now.Date;
 
             //add the item to the list
@@ -119,11 +119,11 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //set the properties of the test object
             TestItem.tutorAvailabe = true;
             TestItem.tutorId = 1;
-            TestItem.tutorFirstName = "first";
-            TestItem.tutorLastName = "last";
-            TestItem.tutorEmail = "some@some.co.uk";
+            TestItem.tutorFirstName = "Bob";
+            TestItem.tutorLastName = "Bob";
+            TestItem.tutorEmail = "bobstevens@123.kdas.com";
             TestItem.tutorSubject = "Chemistry";
-            TestItem.tutorPassword = "12345678";
+            TestItem.tutorPassword = "12345678910";
             TestItem.tutorDateAdded = DateTime.Now.Date;
 
             //set ThisTutor to the test data
@@ -152,11 +152,11 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //set the properties of the test object
             TestItem.tutorAvailabe = true;
             TestItem.tutorId = 1;
-            TestItem.tutorFirstName = "first";
-            TestItem.tutorLastName = "last";
-            TestItem.tutorEmail = "some@some.co.uk";
+            TestItem.tutorFirstName = "Bob";
+            TestItem.tutorLastName = "Bob";
+            TestItem.tutorEmail = "bobstevens@123.kdas.com";
             TestItem.tutorSubject = "Chemistry";
-            TestItem.tutorPassword = "12345678";
+            TestItem.tutorPassword = "12345678910";
             TestItem.tutorDateAdded = DateTime.Now.Date;
 
             //set ThisTutor to the test data
@@ -188,11 +188,11 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //set the properties of the test object
             TestItem.tutorAvailabe = true;
             TestItem.tutorId = 1;
-            TestItem.tutorFirstName = "first";
-            TestItem.tutorLastName = "last";
-            TestItem.tutorEmail = "some@some.co.uk";
+            TestItem.tutorFirstName = "Bob";
+            TestItem.tutorLastName = "Bob";
+            TestItem.tutorEmail = "bobstevens@123.kdas.com";
             TestItem.tutorSubject = "Chemistry";
-            TestItem.tutorPassword = "12345678";
+            TestItem.tutorPassword = "12345678910";
             TestItem.tutorDateAdded = DateTime.Now.Date;
 
             //set ThisTutor to the test data
@@ -224,7 +224,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create an instance of the filtered data
             clsTutorCollection FilteredTutors = new clsTutorCollection();
             //apply an email that doesn't exist
-            FilteredTutors.ReportBySubject("abc");
+            FilteredTutors.ReportBySubject("not a subject");
             //test to see that there are no records
             Assert.AreEqual(0, FilteredTutors.Count);
         }

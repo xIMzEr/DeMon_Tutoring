@@ -79,17 +79,7 @@ public partial class Public_TutorList : System.Web.UI.Page
 
     protected void btnApply_Click(object sender, EventArgs e)
     {
-        //create instance of the address collection
-        //lsTutorCollection Tutors = new clsTutorCollection();
-        //Tutors.ReportBySubject(txtFilter.Text);
-        //stTutorList.DataSource = Tutors.TutorList;
-
-        //set name of primary key
-        //lstTutorList.DataValueField = "tutorId";
-        //set name of field to show
-        //lstTutorList.DataTextField = "tutorSubject";
-        //bind the data to the list
-        // lstTutorList.DataBind();
+        
         Int32 RecordCount;
         RecordCount = DisplayTutors(txtFilter.Text);
         lblError.Text = RecordCount + " records found";
@@ -102,19 +92,7 @@ public partial class Public_TutorList : System.Web.UI.Page
         txtFilter.Text = "";
     }
 
-    protected void btnClear_Click(object sender, EventArgs e)
-    {
-        clsTutorCollection Tutors = new clsTutorCollection();
-        Tutors.ReportBySubject("");
-        //clear existing filter
-        txtFilter.Text = "";
-        lstTutorList.DataSource = Tutors.TutorList;
-        //set name of primary key
-        lstTutorList.DataValueField = "tutorId";
-        //set name of field to show
-        lstTutorList.DataTextField = "tutorSubject";
-        lstTutorList.DataBind();
-    }
+ 
 
     Int32 DisplayTutors(string SubjectFilter)
     {
@@ -150,7 +128,7 @@ public partial class Public_TutorList : System.Web.UI.Page
             tutorId = Convert.ToString(AllTutors.TutorList[Index].tutorId);
 
             //set up a new object of class list item
-            ListItem NewItem = new ListItem(firstName + " " + lastName + " " + email + " " + subject + " " + password, tutorId );
+            ListItem NewItem = new ListItem(firstName + " " + lastName + " | " + email + " | " + subject + " | " + password, tutorId );
             //add new item to list
             lstTutorList.Items.Add(NewItem);
             Index++;
