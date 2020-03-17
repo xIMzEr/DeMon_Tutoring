@@ -9,9 +9,9 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
 {
     public class ClsCustomer
     {
-        //Customer Fields
-      //  public Boolean Active { get; set; }
-        //private Boolean active { get; set; }
+        // Customer Fields
+        // public Boolean Active { get; set; }
+        // private Boolean active { get; set; }
         public int CustomerID
         { get { return mCustomerID; } set { mCustomerID = value; } }
         private Int32 mCustomerID { get; set; }
@@ -19,23 +19,23 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
         private Boolean mCustomer { get; set; }
         public Name CustomerName { get { return mCustomerName; } set { mCustomerName = value; } }
         private Name mCustomerName { get; set; }
-        public string DateOfBirth { get { return mDateOfBirth; } set { mDateOfBirth = value; } }
-        private string mDateOfBirth { get; set; }
+        public DateTime DateOfBirth { get { return mDateOfBirth; } set { mDateOfBirth = value; } }
+        private DateTime mDateOfBirth { get; set; }
         public string Email { get { return mEmail; } set { mEmail = value; } }
         private string mEmail { get; set; }
         public string PhoneNumber { get { return mPhoneNumber; } set { mPhoneNumber = value; } }
         private string mPhoneNumber { get; set; }
-        public string Password { get { return mPassword } set { mPassword = value; } }
+        public string Password { get { return mPassword; } set { mPassword = value; } }
         private string mPassword { get; set; }
         public string CardNo { get { return mCardNo; } set { mCardNo = value; } }
         private string mCardNo { get; set; }
-        public string CardDate { get { return mCardDate; } set { mCardDate = value; } }
-        private string mCardDate { get; set; }
+        public DateTime CardDate { get { return mCardDate; } set { mCardDate = value; } }
+        private DateTime mCardDate { get; set; }
         public string StudentStatus { get { return mStudentSatus; } set { mStudentSatus = value; } }
         private string mStudentSatus { get; set; }
 
         //Customer Constructors
-        public ClsCustomer(int cID, Name cName, string cDob, string cEmail, string cNumber, string cPword, string cCardNo, string cCardDate, string cStudentStat)
+        public ClsCustomer(int cID, Name cName, DateTime cDob, string cEmail, string cNumber, string cPword, string cCardNo, DateTime cCardDate, string cStudentStat)
         {
             CustomerID = cID;
             CustomerName = cName;
@@ -53,12 +53,12 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
         {
             CustomerID = 0;
             CustomerName = null;
-            DateOfBirth = " ";
+            DateOfBirth = DateTime.Today;
             Email = " ";
             PhoneNumber = " ";
             Password = " ";
             CardNo = " ";
-            CardDate = " ";
+            CardDate = DateTime.Today;
             StudentStatus = " ";
         }
 
@@ -72,6 +72,7 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
                 ", StudentStatus: " + this.StudentStatus;
         }
 
+        //the Find method to find a customer in the database
         public bool Find (Int32 CustomerID)
         {
             //creating an instance of the data connection
@@ -83,26 +84,118 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
             //when a record is found, should be one or none
             if (DB.Count == 1)
             {
-
+                //copies all data from database to the private data memebers in this class
                 mCustomerID = 728;
                 mCustomerName = new Name(Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]));
-                mDateOfBirth = Convert.ToString(DB.DataTable.Rows[0]["DateOfBirth"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
                 mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
                 mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
                 mPassword = Convert.ToString(DB.DataTable.Rows[0]["Password"]);
                 mCardNo = Convert.ToString(DB.DataTable.Rows[0]["CardNo"]);
-                mCardDate = Convert.ToString(DB.DataTable.Rows[0]["CardDate"]);
+                mCardDate = Convert.ToDateTime(DB.DataTable.Rows[0]["CardDate"]);
                 mStudentSatus = Convert.ToString(DB.DataTable.Rows[0]["StudentStatus"]);
 
+                //returns all info on the customer
                 return true;
 
             }
+            //if no record found 
             else
             {
+                //return false, meaning no one is there
                 return false;
             }
         }
 
+        public string Valid(string cFirstName, string cLastName, string cDateOfBirth, string cEmail, string cPhoneNumber, string cPassword, string cCardNo, string cCardDate)
+        {
+            //create string variable to store the error 
+            String Error = "";
+            //create a temporary variable to strore data values
+            DateTime DateTemp;
+            //if the first name is empty
+            if (cFirstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "First name cannot be blank";
+            }
+            //if first name is more than 25 characters
+            if (cFirstName.Length < 25)
+            {
+                //recrd the error
+                Error = Error + "First name cannot be more than 25 characters";
+
+            }
+            //if last name is empty
+            if (cLastName.Length == 0)
+            {
+                //record the error
+                Error = Error + "Last name cannot be blank ";
+            }
+            //if the last name is more than 25 characters 
+            if (cLastName.Length < 25)
+            {
+                //record the error
+                Error = Error + "Last name cannot be more than 25 characters";
+            }
+            //if the date of birth is less that 16 years
+            DateTemp = Convert.ToDateTime(cDateOfBirth);
+            if (DateTemp < DateTime.Now.Date.AddYears(-16))
+            {
+                //record the error
+                Error = Error + "Cannot be under 16 years old";
+            }
+            //if the email is blank
+            if (cEmail.Length == 0)
+            {
+                //record the error
+                Error = Error + "Email cannot be blank";
+            }
+            //if the email is more than 50 characters 
+            if (cEmail.Length < 50)
+            {
+                //record the error
+                Error = Error + "Email cannot be more than 50 characters";
+            }
+            //if phone number is not 11 characters
+            if (cPhoneNumber.Length != 11)
+            {
+                //record the error
+                Error = Error + "Phone number must be 11 digits";
+            }
+            //if password is blank
+            if (cPassword.Length == 0)
+            {
+                //record the error
+                Error = Error + "Password cannot be blank";
+            }
+            //if password is greater than 25
+            if (cPassword.Length < 25)
+            {
+                //records the error
+                Error = Error + "Password cannot be than 25 characters";
+            }
+            if (cCardNo.Length != 16)
+            {
+                //record the error
+                Error = Error + "Card number must be 16 digits";
+            }
+            //if the card date is more than 5 years in the future
+            DateTemp = Convert.ToDateTime(cCardDate);
+            if (DateTemp > DateTime.Now.Date.AddYears(+5))
+            {
+                //record the error
+                Error = Error + "Invalid card date";
+            }
+            //if the card date if in the past it has expired
+            DateTemp = Convert.ToDateTime(cCardDate);
+            if (DateTemp < DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "This card has expired";
+            }
+            return Error;
+        }
        
     }
 }

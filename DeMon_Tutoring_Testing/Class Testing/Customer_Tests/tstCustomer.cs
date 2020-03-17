@@ -7,6 +7,19 @@ namespace DeMon_Tutoring_Testing
     [TestClass]
     public class tstCustomer
     {
+
+        //test data for the validation method
+        string cFirstName = "John";
+        string cLastName = "Smith";
+        string cDateOfBirth = DateTime.Now.Date.AddYears(16).ToString();
+        string cEmail = "JohnS@Gmail.co.uk";
+        string cPhoneNumber = "07345673882";
+        string cPassword = "youcantseethis63";
+        string cCardNo = "0544044304450444";
+        string cCardDate = DateTime.Now.Date.ToString();
+
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -14,34 +27,6 @@ namespace DeMon_Tutoring_Testing
             ClsCustomer aCustomer = new ClsCustomer();
             //test to see that it now exist
             Assert.IsNotNull(aCustomer);
-
-        }
-
-        [TestMethod]
-        public void ActiveCustomerIDOk()
-        {
-            //create instance of the class we want to create
-            ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to Customer
-            bool TestData = true;
-            //assign the data to the Customer
-            aCustomer.Active = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(aCustomer.Active, TestData);
-        }
-
-        [TestMethod]
-        public void ActiveCustomerOk()
-        {
-            //create instance of the class we want to create
-            ClsCustomer aCustomer = new ClsCustomer();
-            //create some test data to assign to Customer
-            Boolean TestData = true;
-            //assign the data to the Customer
-            aCustomer.Active = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(aCustomer.Active, TestData);
-
         }
       
 
@@ -64,7 +49,7 @@ namespace DeMon_Tutoring_Testing
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
             //create some test data to assign to Customer
-            string TestData = "11 / 11 / 11";
+            DateTime TestData = DateTime.Today;
             //assign the data to the Customer
             aCustomer.DateOfBirth = TestData;
             //test to see that the two values are the same
@@ -133,7 +118,7 @@ namespace DeMon_Tutoring_Testing
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
             //create some test data to assign to Customer
-            string TestData = "11 / 11 / 11";
+            DateTime TestData = DateTime.Today;
             //assign the data to the Customer
             aCustomer.CardDate = TestData;
             //test to see that the two values are the same
@@ -171,24 +156,111 @@ namespace DeMon_Tutoring_Testing
         [TestMethod]
         public void TestIdNotFound()
         {
+            //Creates an instance of customer 
             ClsCustomer aCustomer = new ClsCustomer();
-
+            //boolean variable to store result method
             Boolean Found = false;
-
+            //boolean variable to record if data is OK (assumes that it is)
             Boolean Ok = true;
-
+            //creates some test data to assign to use with the method
             int cID = 728;
-
+            //invoke the method
             Found = aCustomer.Find(cID);
-
+            //checl the customer id number 
             if(aCustomer.CustomerID != 728)
             {
                 Ok = false;
             }
+            //test to check result is correct
             Assert.IsTrue(Ok);
-
         }
 
+        [TestMethod]
+        public void ValidMethod()
+        {
+            //creates an instamce of customer
+            ClsCustomer aCustomer = new ClsCustomer();
+            //string variable to store any error message
+            string Error = "";
+            //invoke method 
+            Error = aCustomer.Valid(cFirstName, cLastName, cDateOfBirth, cEmail, cPhoneNumber, cPassword, cCardNo, cCardDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
 
+        [TestMethod]
+        public void CustomerFirstNameEmpty()
+        {
+            //new instance of customer
+            ClsCustomer aCustomer = new ClsCustomer();
+            //string variable to store any error message
+            string Error = "";
+            //creating test data to pass the method
+            string cFirstName = "";
+            //invoke method
+            Error = aCustomer.Valid(cFirstName, cLastName, cDateOfBirth, cEmail, cPhoneNumber, cPassword, cCardNo, cCardDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerFirstNameMax()
+        {
+            //new instance of customer
+            ClsCustomer aCustomer = new ClsCustomer();
+            //string variable to store any error message
+            string Error = "";
+            //creating test data to pass the method
+            string cFirstName = "aaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke method
+            Error = aCustomer.Valid(cFirstName, cLastName, cDateOfBirth, cEmail, cPhoneNumber, cPassword, cCardNo, cCardDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameEmpty()
+        {
+            //new instance of customer
+            ClsCustomer aCustomer = new ClsCustomer();
+            //string variable to store any error message
+            string Error = "";
+            //create test data to pass the method 
+            string cLastName = "";
+            //invoke method
+            Error = aCustomer.Valid(cFirstName, cLastName, cDateOfBirth, cEmail, cPhoneNumber, cPassword, cCardNo, cCardDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void CustomerLastNameMax()
+        {
+            //new instance of customer
+            ClsCustomer aCustomer = new ClsCustomer();
+            //string variable to store any error message
+            string Error = "";
+            //create test data to pass the method
+            string cLastName = "aaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke method
+            Error = aCustomer.Valid(cFirstName, cLastName, cDateOfBirth, cEmail, cPhoneNumber, cPassword, cCardNo, cCardDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerDateOfBirthEmpty()
+        {
+            //new instance of customer
+            ClsCustomer aCustomer = new ClsCustomer();
+            //string variable to store any error message
+            string Error = "";
+            //create test data to pass the method 
+            string cDateOfBirth = "";
+            //invoke method
+            Error = aCustomer.Valid(cFirstName, cLastName, cDateOfBirth, cEmail, cPhoneNumber, cPassword, cCardNo, cCardDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }
