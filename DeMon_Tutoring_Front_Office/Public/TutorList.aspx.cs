@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,29 +17,56 @@ public partial class Public_TutorList : System.Web.UI.Page
         if (IsPostBack == false)
         {
             //update the list box
-            DisplayTutors();
+            //DisplayTutors();
 
             //populate the list and display the number of records found
-           //lblError.Text = DisplayTutors() + " records in the database";
+            lblError.Text = DisplayTutors("") + " records in the database";
 
         }
     }
 
-    void DisplayTutors()
+    Int32 DisplayTutors(string SubjectFilter)
     {
+        //this function accepts one parameter, populates the list box with data from the middle layer class
+        //returns a single value, the number of records found
+
         //create an instance of the tutor collection
-        DeMon_Tutoring_Classes.Tutoring_Classes.lib.clsTutorCollection Tutors = new DeMon_Tutoring_Classes.Tutoring_Classes.lib.clsTutorCollection();
-        //set the data source to the list of counties in the collection
-        lstTutorList.DataSource = Tutors.TutorList;
-        //set the name of the primary key
-        lstTutorList.DataValueField = "tutorId";
-        //set the data field to display
-        lstTutorList.DataTextField = "tutorEmail";
+        clsTutorCollection AllTutors = new clsTutorCollection();
+        //var to store the count of records
+        Int32 RecordCount;
+        string firstName;
+        string lastName;
+        string email;
+        string subject;
+        string password;
+        //var to store the index
+        Int32 Index = 0;
+        //clear the list of existing items
+        lstTutorList.Items.Clear();
+        //call the filter by subject method
+        AllTutors.ReportBySubject(SubjectFilter);
+        //get the count of records found
+        RecordCount = AllTutors.Count;
+        //loop through each record found using the index to point to each record in the data table
+        while (Index < RecordCount)
+        {
+            firstName = Convert.ToString(AllTutors.TutorList[Index].tutorFirstName);
+            lastName = Convert.ToString(AllTutors.TutorList[Index].tutorLastName);
+            email = Convert.ToString(AllTutors.TutorList[Index].tutorEmail);
+            subject = Convert.ToString(AllTutors.TutorList[Index].tutorSubject);
+            password = Convert.ToString(AllTutors.TutorList[Index].tutorPassword);
 
-        //bind the data to the list
-        lstTutorList.DataBind();
+            //set up a new object of class list item
+            ListItem NewItem = new ListItem(firstName + " " + lastName + " " + email + " " + subject + " " + password);
+            //add new item to list
+            lstTutorList.Items.Add(NewItem);
+            Index++;
 
+        }
+        //return the number of records found
+        return RecordCount;
     }
+
     
 
     //event handler for the add butto

@@ -150,8 +150,8 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         if (Found == true)
         {
             //display the values of the properties in the form
-            txtFirstName.Text = aTutor.tutorName.getFirstName();
-            txtLastName.Text = aTutor.tutorName.getLastName();
+            txtFirstName.Text = aTutor.tutorFirstName;
+            txtLastName.Text = aTutor.tutorLastName;
             txtEmail.Text = aTutor.tutorEmail;
             txtSubject.Text = aTutor.tutorSubject;
             txtAvailibility.Text = aTutor.tutorAvailabe.ToString();
