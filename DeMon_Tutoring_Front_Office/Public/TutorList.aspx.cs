@@ -10,11 +10,17 @@ public partial class Public_TutorList : System.Web.UI.Page
     //this function handles the load event for the page
     protected void Page_Load(object sender, EventArgs e)
     {
+        //clear any existing error messages
+        lblError.Text = "";
         //if this is the first time the page is displayed
         if (IsPostBack == false)
         {
             //update the list box
-            DisplayTutors();
+            //DisplayTutors();
+
+            //populate the list and display the number of records found
+           // lblError.Text = DisplayTutors("") + " records in the database";
+
         }
     }
 
@@ -33,11 +39,7 @@ public partial class Public_TutorList : System.Web.UI.Page
         lstTutorList.DataBind();
 
     }
-
-    protected void lstTutorList_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
+    
 
     //event handler for the add butto
     protected void btnAdd_Click(object sender, EventArgs e)

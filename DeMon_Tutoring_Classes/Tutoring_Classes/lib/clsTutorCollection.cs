@@ -22,37 +22,13 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
         //constructor for the class
         public clsTutorCollection()
         {
-
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
-            //object for the data connection
+            //object for data connection
             clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure 
+            //execute the stored procedure
             DB.Execute("sproc_tblTutor_SelectAll");
-            //get the count of records
-            RecordCount = DB.Count;
-            //while there are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank tutor
-                clsTutor aTutor = new clsTutor();
-                //read in fields from current record
-                aTutor.tutorId = Convert.ToInt32(DB.DataTable.Rows[Index]["tutorId"]);
-                aTutor.tutorName = new Name(Convert.ToString(DB.DataTable.Rows[Index]["firstName"]), Convert.ToString(DB.DataTable.Rows[Index]["lastName"]));
-                aTutor.tutorEmail = Convert.ToString(DB.DataTable.Rows[Index]["emailAddress"]);
-                aTutor.tutorAvailabe = Convert.ToBoolean(DB.DataTable.Rows[Index]["availability"]);
-                aTutor.tutorSubject = Convert.ToString(DB.DataTable.Rows[Index]["subject"]);
-                aTutor.tutorPassword = Convert.ToString(DB.DataTable.Rows[Index]["password"]);
-                aTutor.tutorDateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["dateAdded"]);
-                //add the record to the private data member
-                mTutorList.Add(aTutor);
-                //point to the next record
-                Index++;
-            }
-
-
+            //populate the array list with the data table
+            PopulateArray(DB);
+            
         }
 
         public int Add()
@@ -102,6 +78,51 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
 
             //execute the stored procedure
             DB.Execute("sproc_tblTutor_Update");
+        }
+
+        public void ReportBySubject(string Subject)
+        {
+            //filters the records based on a full or partial subject
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the subject parameter to the database
+            DB.AddParameter("@subject", Subject);
+            //execute the stored procedure
+            DB.Execute("sproc_tblTutor_FilterBySubject");
+            //populate the array list with the data table
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the data table in the parameter DB
+            //var for the index
+            Int32 Index = 0;
+            //var to store the record count
+            Int32 RecordCount;
+            //get the count of records
+            RecordCount = DB.Count;
+            //clear the private array list
+            mTutorList = new List<clsTutor>();
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank tutor
+                clsTutor aTutor = new clsTutor();
+                //read in the fields from the current record
+                aTutor.tutorId = Convert.ToInt32(DB.DataTable.Rows[Index]["tutorId"]);
+                aTutor.tutorName = new Name(Convert.ToString(DB.DataTable.Rows[Index]["firstName"]), Convert.ToString(DB.DataTable.Rows[Index]["lastName"]));
+                aTutor.tutorEmail = Convert.ToString(DB.DataTable.Rows[Index]["emailAddress"]);
+                aTutor.tutorAvailabe = Convert.ToBoolean(DB.DataTable.Rows[Index]["availability"]);
+                aTutor.tutorSubject = Convert.ToString(DB.DataTable.Rows[Index]["subject"]);
+                aTutor.tutorPassword = Convert.ToString(DB.DataTable.Rows[Index]["password"]);
+                aTutor.tutorDateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["dateAdded"]);
+
+                //add the record to the private data member
+                mTutorList.Add(aTutor);
+                //point to the next record
+                Index++;
+            }
         }
     }
 }

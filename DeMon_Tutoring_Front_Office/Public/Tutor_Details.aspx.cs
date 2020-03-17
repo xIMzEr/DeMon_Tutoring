@@ -10,12 +10,13 @@ using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 
 public partial class Public_Tutor_Details : System.Web.UI.Page
 {
-    //variable to store the primary key with page level scope
+    //variable to store the tutor ID
     Int32 tutorId;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         //get the number of the address to be processed
-       /* tutorId = Convert.ToInt32(Session["tutorId"]);
+        tutorId = Convert.ToInt32(Session["tutorId"]);
         if(IsPostBack == false)
         {
             //if this is not a new record
@@ -24,9 +25,12 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
                 //display the current data for the record
                 DisplayTutor();
             }
+            else
+            {
+                //set the date to todays date
+                txtDateAdded.Text = DateTime.Today.Date.ToString("dd/mm/yyyy");
+            }
         }
-        */
-
     }
 
     void DisplayTutor()
@@ -120,13 +124,8 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        txtFirstName.Text = "";
-        txtLastName.Text = "";
-        txtEmail.Text = "";
-        txtSubject.Text = "";
-        txtAvailibility.Text = "";
-        txtDateAdded.Text = "";
-        txtPassword.Text = "";
+        //redirect to the main page
+        Response.Redirect("TutorList.aspx");
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

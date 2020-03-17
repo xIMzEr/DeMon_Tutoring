@@ -199,6 +199,31 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.AreEqual(AllTutors.ThisTutor, TestItem);
         }
 
+        [TestMethod]
+        public void ReportBySubjectMethodOk()
+        {
+            //create an instance of the class we want to create
+            clsTutorCollection AllTutors = new clsTutorCollection();
+            //create an instance of the filtered data
+            clsTutorCollection FilteredTutors = new clsTutorCollection();
+            //apply a blank string (should return all records)
+            FilteredTutors.ReportBySubject("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllTutors.Count, FilteredTutors.Count);
+        }
+
+        [TestMethod]
+        public void ReportBySubject(string Subject)
+        {
+            //create an instance of the filtered data
+            clsTutorCollection FilteredTutors = new clsTutorCollection();
+            //apply an email that doesn't exist
+            FilteredTutors.ReportBySubject("abc");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredTutors.Count);
+        }
+
+
 
     }
 }
