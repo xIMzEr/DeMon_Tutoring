@@ -31,9 +31,11 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
             
         }
 
-        public int Add()
+        public Int32 Add()
         {
             //adds a new record to the database based on the values of mThisTutor
+            //var to store the primary key value of the new record
+            Int32 PrimaryKey;
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
@@ -44,9 +46,10 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
             DB.AddParameter("@subject", mThisTutor.tutorSubject);
             DB.AddParameter("@password", mThisTutor.tutorPassword);
             DB.AddParameter("@DateAdded", mThisTutor.tutorDateAdded);
-
             //ececute the query returning the primary key value
-            return DB.Execute("sproc_tblTutor_Insert");
+            PrimaryKey = DB.Execute("sproc_tblTutor_Insert");
+            //return primary key value of new record
+            return PrimaryKey;
         }
         public void Delete()
         {
