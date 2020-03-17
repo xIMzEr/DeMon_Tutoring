@@ -20,14 +20,13 @@ public partial class Public_TutorList : System.Web.UI.Page
 
     void DisplayTutors()
     {
-        //create an instance of the county collection
+        //create an instance of the tutor collection
         DeMon_Tutoring_Classes.Tutoring_Classes.lib.clsTutorCollection Tutors = new DeMon_Tutoring_Classes.Tutoring_Classes.lib.clsTutorCollection();
         //set the data source to the list of counties in the collection
         lstTutorList.DataSource = Tutors.TutorList;
         //set the name of the primary key
         lstTutorList.DataValueField = "tutorId";
         //set the data field to display
-        lstTutorList.DataTextField = "tutorPassword";
         lstTutorList.DataTextField = "tutorEmail";
 
         //bind the data to the list
@@ -47,6 +46,50 @@ public partial class Public_TutorList : System.Web.UI.Page
         Session["tutorId"] = -1;
         //redirect to the data entry page
         Response.Redirect("Tutor_Details.aspx");
+
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //var to store the primary key value of the record to be deleted
+        Int32 tutorId;
+        //if a record has been selected from the list
+        if (lstTutorList.SelectedIndex != -1)
+        {
+            //get the primary key value of the record to delete
+            tutorId = Convert.ToInt32(lstTutorList.SelectedValue);
+            //store the data in the session object
+            Session["tutorId"] = tutorId;
+            //redirect to the delete page
+            Response.Redirect("DeleteTutor.aspx");
+        }
+        else//if no selected record
+        {
+            //display error
+            lblError.Text = "Please select a record to delete from the list";
+        }
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        //var to store the primary key value of the record to be edited
+        Int32 tutorId;
+        //if a record has been selected from the list
+        if (lstTutorList.SelectedIndex != -1)
+        {
+            //get the primary key value of the record to edited
+            tutorId = Convert.ToInt32(lstTutorList.SelectedValue);
+            //store the data in the session object
+            Session["tutorId"] = tutorId;
+            //redirect to the edit page
+            Response.Redirect("Tutor_Details.aspx");
+
+        }
+        else//if no record has been selected
+        {
+            //display error
+            lblError.Text = "Please select a record to edit from the list";
+        }
 
     }
 }

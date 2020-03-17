@@ -22,7 +22,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
         //constructor for the class
         public clsTutorCollection()
         {
-          
+
             //var for the index
             Int32 Index = 0;
             //var to store the record count
@@ -40,7 +40,7 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
                 clsTutor aTutor = new clsTutor();
                 //read in fields from current record
                 aTutor.tutorId = Convert.ToInt32(DB.DataTable.Rows[Index]["tutorId"]);
-                aTutor.tutorName = new Name(Convert.ToString(DB.DataTable.Rows[Index]["firstName"]), Convert.ToString(DB.DataTable.Rows[0]["lastName"]));
+                aTutor.tutorName = new Name(Convert.ToString(DB.DataTable.Rows[Index]["firstName"]), Convert.ToString(DB.DataTable.Rows[Index]["lastName"]));
                 aTutor.tutorEmail = Convert.ToString(DB.DataTable.Rows[Index]["emailAddress"]);
                 aTutor.tutorAvailabe = Convert.ToBoolean(DB.DataTable.Rows[Index]["availability"]);
                 aTutor.tutorSubject = Convert.ToString(DB.DataTable.Rows[Index]["subject"]);
@@ -51,8 +51,8 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
                 //point to the next record
                 Index++;
             }
-            
-            
+
+
         }
 
         public int Add()
@@ -71,6 +71,37 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
 
             //ececute the query returning the primary key value
             return DB.Execute("sproc_tblTutor_Insert");
+        }
+        public void Delete()
+        {
+            //deletes the record pointed to by ThisTutor
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+
+            //set the parameter for the delete stored procedure
+            DB.AddParameter("@tutorId", mThisTutor.tutorId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblTutor_Delete");
+        }
+
+        public void Update()
+        {
+            //update the existing record based on the values of ThisTutor
+            //connect to the databse
+            clsDataConnection DB = new clsDataConnection();
+
+            //set the parameters for the stored procedure
+            DB.AddParameter("@tutorId", mThisTutor.tutorId);
+            DB.AddParameter("@firstName", mThisTutor.tutorName.getFirstName());
+            DB.AddParameter("@lastName", mThisTutor.tutorName.getLastName());
+            DB.AddParameter("@emailAddress", mThisTutor.tutorEmail);
+            DB.AddParameter("@availability", mThisTutor.tutorAvailabe);
+            DB.AddParameter("@subject", mThisTutor.tutorSubject);
+            DB.AddParameter("@password", mThisTutor.tutorPassword);
+            DB.AddParameter("@DateAdded", mThisTutor.tutorDateAdded);
+
+            //execute the stored procedure
+            DB.Execute("sproc_tblTutor_Update");
         }
     }
 }

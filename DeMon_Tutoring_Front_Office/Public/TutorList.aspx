@@ -18,7 +18,13 @@
         </div>
         <asp:ListBox ID="lstTutorList" runat="server" Height="263px" OnSelectedIndexChanged="lstTutorList_SelectedIndexChanged" Width="433px"></asp:ListBox>
         <br />
+        <br />
         <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
+        <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
+        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
+        <br />
+        <br />
+        <asp:Label ID="lblError" runat="server" Text="[lblError]" Visible="False"></asp:Label>
     </form>
 </body>
 </html>
