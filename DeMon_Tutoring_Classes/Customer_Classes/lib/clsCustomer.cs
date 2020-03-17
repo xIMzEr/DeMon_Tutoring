@@ -25,7 +25,7 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
         private string mEmail { get; set; }
         public string PhoneNumber { get { return mPhoneNumber; } set { mPhoneNumber = value; } }
         private string mPhoneNumber { get; set; }
-        public string Password { get { return mPassword } set { mPassword = value; } }
+        public string Password { get { return mPassword; } set { mPassword = value; } }
         private string mPassword { get; set; }
         public string CardNo { get { return mCardNo; } set { mCardNo = value; } }
         private string mCardNo { get; set; }
