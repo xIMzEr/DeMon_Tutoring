@@ -39,4 +39,14 @@ public partial class Public_TutorList : System.Web.UI.Page
     {
 
     }
+
+    //event handler for the add butto
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        //store -1 into the session object to indicate that this is a new record
+        Session["tutorId"] = -1;
+        //redirect to the data entry page
+        Response.Redirect("Tutor_Details.aspx");
+
+    }
 }

@@ -58,10 +58,19 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
         public int Add()
         {
             //adds a new record to the database based on the values of mThisTutor
-            //set the primary key value of the new record
-            mThisTutor.tutorId = 123;
-            //return the primary key of the new record
-            return mThisTutor.tutorId;
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@firstName", mThisTutor.tutorName.getFirstName());
+            DB.AddParameter("@lastName", mThisTutor.tutorName.getLastName());
+            DB.AddParameter("@emailAddress", mThisTutor.tutorEmail);
+            DB.AddParameter("@availability", mThisTutor.tutorAvailabe);
+            DB.AddParameter("@subject", mThisTutor.tutorSubject);
+            DB.AddParameter("@password", mThisTutor.tutorPassword);
+            DB.AddParameter("@DateAdded", mThisTutor.tutorDateAdded);
+
+            //ececute the query returning the primary key value
+            return DB.Execute("sproc_tblTutor_Insert");
         }
     }
 }

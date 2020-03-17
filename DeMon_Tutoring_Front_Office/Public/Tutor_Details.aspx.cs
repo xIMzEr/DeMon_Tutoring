@@ -47,8 +47,9 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorDateAdded, tutorPassword);
         if (Error == "")
         {
+            
             //capture the name
-            aTutor.tutorName = new Name(tutorFirstName + tutorLastName);
+            aTutor.tutorName = new Name(tutorFirstName, tutorLastName);
             //capture the email
             aTutor.tutorEmail = tutorEmail;
             //capture the subject
@@ -58,10 +59,20 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
             //capture the password
             aTutor.tutorPassword = tutorPassword;
 
+            //create a new instance of the tutor collection
+            clsTutorCollection TutorList = new clsTutorCollection();
+            //set the ThisTutor property
+            TutorList.ThisTutor = aTutor;
+            //add the new record
+            TutorList.Add();
+
+            //redirect back to listpage
+            Response.Redirect("TutorList.aspx");
+
             //store the email in the session object
-            Session["aTutor"] = aTutor;
+            //Session["aTutor"] = aTutor;
             //redirect to the tutor viewer page
-            Response.Write("TutorViewer.aspx"); // maybe response.redirect
+            //Response.Write("TutorViewer.aspx"); // maybe response.redirect
         }
         else
         {
