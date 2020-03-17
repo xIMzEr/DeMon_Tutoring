@@ -28,7 +28,8 @@ public partial class Public_TutorList : System.Web.UI.Page
         lstTutorList.DataValueField = "tutorId";
         //set the data field to display
         lstTutorList.DataTextField = "tutorPassword";
-        //lstTutorList.DataTextField = "tutorEmail";
+        lstTutorList.DataTextField = "tutorEmail";
+
         //bind the data to the list
         lstTutorList.DataBind();
 

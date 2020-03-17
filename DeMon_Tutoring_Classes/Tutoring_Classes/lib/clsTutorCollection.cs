@@ -10,14 +10,19 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
         List<clsTutor> mTutorList = new List<clsTutor>();
         //public property for tutorList
         public List<clsTutor> TutorList { get { return mTutorList; } set { mTutorList = value; } }
+
         //public property for count
         public int Count { get { return mTutorList.Count; } set { /*we shall worry about this later*/} }
-       
-        public clsTutor ThisTutor { get; set; }
+
+        //private data member thisTutor
+        clsTutor mThisTutor = new clsTutor();
+        //public property for ThisTutor
+        public clsTutor ThisTutor { get { return mThisTutor; } set { mThisTutor = value; } }
 
         //constructor for the class
         public clsTutorCollection()
         {
+          
             //var for the index
             Int32 Index = 0;
             //var to store the record count
@@ -34,13 +39,13 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
                 //create a blank tutor
                 clsTutor aTutor = new clsTutor();
                 //read in fields from current record
-                aTutor.tutorId = Convert.ToInt32(DB.DataTable.Rows[0]["tutorId"]);
-                aTutor.tutorName = new Name(Convert.ToString(DB.DataTable.Rows[0]["firstName"]), Convert.ToString(DB.DataTable.Rows[0]["lastName"]));
-                aTutor.tutorEmail = Convert.ToString(DB.DataTable.Rows[0]["emailAddress"]);
-                aTutor.tutorAvailabe = Convert.ToBoolean(DB.DataTable.Rows[0]["availability"]);
-                aTutor.tutorSubject = Convert.ToString(DB.DataTable.Rows[0]["subject"]);
-                aTutor.tutorPassword = Convert.ToString(DB.DataTable.Rows[0]["password"]);
-                aTutor.tutorDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["dateAdded"]);
+                aTutor.tutorId = Convert.ToInt32(DB.DataTable.Rows[Index]["tutorId"]);
+                aTutor.tutorName = new Name(Convert.ToString(DB.DataTable.Rows[Index]["firstName"]), Convert.ToString(DB.DataTable.Rows[0]["lastName"]));
+                aTutor.tutorEmail = Convert.ToString(DB.DataTable.Rows[Index]["emailAddress"]);
+                aTutor.tutorAvailabe = Convert.ToBoolean(DB.DataTable.Rows[Index]["availability"]);
+                aTutor.tutorSubject = Convert.ToString(DB.DataTable.Rows[Index]["subject"]);
+                aTutor.tutorPassword = Convert.ToString(DB.DataTable.Rows[Index]["password"]);
+                aTutor.tutorDateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["dateAdded"]);
                 //add the record to the private data member
                 mTutorList.Add(aTutor);
                 //point to the next record
@@ -48,6 +53,15 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
             }
             
             
+        }
+
+        public int Add()
+        {
+            //adds a new record to the database based on the values of mThisTutor
+            //set the primary key value of the new record
+            mThisTutor.tutorId = 123;
+            //return the primary key of the new record
+            return mThisTutor.tutorId;
         }
     }
 }
