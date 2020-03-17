@@ -1124,6 +1124,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
         public void TutorPasswordExtremeMin()
         {
             //create an instance of the class we want to create
@@ -1140,10 +1141,10 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         }
 
 
-
+       
 
 
 
 
     }
-    }
+}
