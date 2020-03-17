@@ -37,8 +37,8 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            DB.AddParameter("@firstName", mThisTutor.tutorName.getFirstName());
-            DB.AddParameter("@lastName", mThisTutor.tutorName.getLastName());
+            DB.AddParameter("@firstName", mThisTutor.tutorFirstName);
+            DB.AddParameter("@lastName", mThisTutor.tutorLastName);
             DB.AddParameter("@emailAddress", mThisTutor.tutorEmail);
             DB.AddParameter("@availability", mThisTutor.tutorAvailabe);
             DB.AddParameter("@subject", mThisTutor.tutorSubject);
@@ -68,8 +68,8 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
 
             //set the parameters for the stored procedure
             DB.AddParameter("@tutorId", mThisTutor.tutorId);
-            DB.AddParameter("@firstName", mThisTutor.tutorName.getFirstName());
-            DB.AddParameter("@lastName", mThisTutor.tutorName.getLastName());
+            DB.AddParameter("@firstName", mThisTutor.tutorFirstName);
+            DB.AddParameter("@lastName", mThisTutor.tutorLastName);
             DB.AddParameter("@emailAddress", mThisTutor.tutorEmail);
             DB.AddParameter("@availability", mThisTutor.tutorAvailabe);
             DB.AddParameter("@subject", mThisTutor.tutorSubject);
@@ -111,7 +111,8 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib {
                 clsTutor aTutor = new clsTutor();
                 //read in the fields from the current record
                 aTutor.tutorId = Convert.ToInt32(DB.DataTable.Rows[Index]["tutorId"]);
-                aTutor.tutorName = new Name(Convert.ToString(DB.DataTable.Rows[Index]["firstName"]), Convert.ToString(DB.DataTable.Rows[Index]["lastName"]));
+                aTutor.tutorFirstName = Convert.ToString(DB.DataTable.Rows[Index]["firstName"]);
+                aTutor.tutorLastName = Convert.ToString(DB.DataTable.Rows[Index]["lastName"]);
                 aTutor.tutorEmail = Convert.ToString(DB.DataTable.Rows[Index]["emailAddress"]);
                 aTutor.tutorAvailabe = Convert.ToBoolean(DB.DataTable.Rows[Index]["availability"]);
                 aTutor.tutorSubject = Convert.ToString(DB.DataTable.Rows[Index]["subject"]);

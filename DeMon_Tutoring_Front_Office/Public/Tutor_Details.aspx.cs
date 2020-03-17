@@ -33,29 +33,37 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         }
     }
 
+    //this function displays the data for a tutor on the web form
     void DisplayTutor()
     {
         //create an instance of the tutor list
-        clsTutorCollection AllTutors = new clsTutorCollection();
+        clsTutorCollection MyTutors = new clsTutorCollection();
         //find the record to update
-        AllTutors.ThisTutor.Find(tutorId);
+        MyTutors.ThisTutor.Find(tutorId);
 
         //display the data for this record
-        /*txtTutorId.Text = AllTutors.ThisTutor.tutorId.ToString();
-        txtFirstName.Text = AllTutors.ThisTutor.tutorName.getFirstName();
-        txtLastName.Text = AllTutors.ThisTutor.tutorName.getLastName();
-        txtEmail.Text = AllTutors.ThisTutor.tutorEmail;
-        txtPassword.Text = AllTutors.ThisTutor.tutorPassword;
-        txtSubject.Text = AllTutors.ThisTutor.tutorSubject;
-        txtAvailibility.Text = AllTutors.ThisTutor.tutorAvailabe.ToString();
-        txtDateAdded.Text = AllTutors.ThisTutor.tutorDateAdded.ToString();
-        */
+        txtTutorId.Text = MyTutors.ThisTutor.tutorId.ToString();
+        //display first name
+        txtFirstName.Text = MyTutors.ThisTutor.tutorName.getFirstName();
+        //display last name
+        txtLastName.Text = MyTutors.ThisTutor.tutorName.getLastName();
+        //display email
+        txtEmail.Text = MyTutors.ThisTutor.tutorEmail;
+        //display password
+        txtPassword.Text = MyTutors.ThisTutor.tutorPassword;
+        //display subject
+        txtSubject.Text = MyTutors.ThisTutor.tutorSubject;
+        //display availability
+        txtAvailibility.Text = MyTutors.ThisTutor.tutorAvailabe.ToString();
+        //display date added
+        txtDateAdded.Text = MyTutors.ThisTutor.tutorDateAdded.ToString();
+        
     }
 
 
     protected void btnRegister_Click(object sender, EventArgs e)
     {
-        //create instance of tutor
+        /*//create instance of tutor
         clsTutor aTutor = new clsTutor();
         //capture the tutor first name
         string tutorFirstName = txtFirstName.Text;
@@ -69,35 +77,21 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         string tutorDateAdded = txtDateAdded.Text;
         //capture the password
         string tutorPassword = txtPassword.Text;
+        */
+        clsTutorCollection AllTutors = new clsTutorCollection();
         //variable to store error messages
         string Error = "";
         //validate the data
-        Error = aTutor.Valid(tutorFirstName, tutorLastName, tutorEmail, tutorSubject, tutorDateAdded, tutorPassword);
+        Error = AllTutors.ThisTutor.Valid(txtEmail.Text, txt);
         if (Error == "")
         {
-            //capture the tutor ID
-            aTutor.tutorId = tutorId;
-            //capture the name
-            aTutor.tutorName = new Name(tutorFirstName, tutorLastName);
-            //capture the email
-            aTutor.tutorEmail = tutorEmail;
-            //capture the subject
-            aTutor.tutorSubject = tutorSubject;
-            //capture the date added
-            aTutor.tutorDateAdded = Convert.ToDateTime(tutorDateAdded);
-            //capture the password
-            aTutor.tutorPassword = tutorPassword;
-
-            //create a new instance of the tutor collection
-            clsTutorCollection AllTutors = new clsTutorCollection();
-
             //if this is a new record i.e. tutorId = -1 then add the data
             if (tutorId == -1)
             {
-                //set the ThisTutor property
-                AllTutors.ThisTutor = aTutor;
-                //add the new record
-                AllTutors.Add();
+                AllTutors.ThisTutor.tutorName = new Name(txtFirstName.Text, txtLastName.Text);
+                AllTutors.ThisTutor.tutorEmail = txtEmail.Text;
+                AllTutors.ThisTutor.tutorSubject = txtSubject.Text;
+                AllTutors
             }
             //otherwise it must be an update
             else
