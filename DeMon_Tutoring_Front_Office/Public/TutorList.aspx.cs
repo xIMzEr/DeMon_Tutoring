@@ -16,59 +16,13 @@ public partial class Public_TutorList : System.Web.UI.Page
         //if this is the first time the page is displayed
         if (IsPostBack == false)
         {
-            //update the list box
-            //DisplayTutors();
-
             //populate the list and display the number of records found
             lblError.Text = DisplayTutors("") + " records in the database";
 
         }
     }
 
-    Int32 DisplayTutors(string SubjectFilter)
-    {
-        //this function accepts one parameter, populates the list box with data from the middle layer class
-        //returns a single value, the number of records found
-
-        //create an instance of the tutor collection
-        clsTutorCollection AllTutors = new clsTutorCollection();
-        //var to store the count of records
-        Int32 RecordCount;
-        string firstName;
-        string lastName;
-        string email;
-        string subject;
-        string password;
-        //var to store the index
-        Int32 Index = 0;
-        //clear the list of existing items
-        lstTutorList.Items.Clear();
-        //call the filter by subject method
-        AllTutors.ReportBySubject(SubjectFilter);
-        //get the count of records found
-        RecordCount = AllTutors.Count;
-        //loop through each record found using the index to point to each record in the data table
-        while (Index < RecordCount)
-        {
-            firstName = Convert.ToString(AllTutors.TutorList[Index].tutorFirstName);
-            lastName = Convert.ToString(AllTutors.TutorList[Index].tutorLastName);
-            email = Convert.ToString(AllTutors.TutorList[Index].tutorEmail);
-            subject = Convert.ToString(AllTutors.TutorList[Index].tutorSubject);
-            password = Convert.ToString(AllTutors.TutorList[Index].tutorPassword);
-
-            //set up a new object of class list item
-            ListItem NewItem = new ListItem(firstName + " " + lastName + " " + email + " " + subject + " " + password);
-            //add new item to list
-            lstTutorList.Items.Add(NewItem);
-            Index++;
-
-        }
-        //return the number of records found
-        return RecordCount;
-    }
-
-    
-
+   
     //event handler for the add butto
     protected void btnAdd_Click(object sender, EventArgs e)
     {
@@ -122,4 +76,87 @@ public partial class Public_TutorList : System.Web.UI.Page
         }
 
     }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //create instance of the address collection
+        //lsTutorCollection Tutors = new clsTutorCollection();
+        //Tutors.ReportBySubject(txtFilter.Text);
+        //stTutorList.DataSource = Tutors.TutorList;
+
+        //set name of primary key
+        //lstTutorList.DataValueField = "tutorId";
+        //set name of field to show
+        //lstTutorList.DataTextField = "tutorSubject";
+        //bind the data to the list
+        // lstTutorList.DataBind();
+        Int32 RecordCount;
+        RecordCount = DisplayTutors(txtFilter.Text);
+        lblError.Text = RecordCount + " records found";
+    }
+    protected void btnDisplayAll_Click(object sender, EventArgs e)
+    {
+        Int32 RecordCount;
+        RecordCount = DisplayTutors("");
+        lblError.Text = RecordCount + " records in the database";
+        txtFilter.Text = "";
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        clsTutorCollection Tutors = new clsTutorCollection();
+        Tutors.ReportBySubject("");
+        //clear existing filter
+        txtFilter.Text = "";
+        lstTutorList.DataSource = Tutors.TutorList;
+        //set name of primary key
+        lstTutorList.DataValueField = "tutorId";
+        //set name of field to show
+        lstTutorList.DataTextField = "tutorSubject";
+        lstTutorList.DataBind();
+    }
+
+    Int32 DisplayTutors(string SubjectFilter)
+    {
+        //this function accepts one parameter, populates the list box with data from the middle layer class
+        //returns a single value, the number of records found
+
+        //create an instance of the tutor collection
+        clsTutorCollection AllTutors = new clsTutorCollection();
+        //var to store the count of records
+        Int32 RecordCount;
+        string firstName;
+        string lastName;
+        string email;
+        string subject;
+        string password;
+        //var to store the index
+        Int32 Index = 0;
+        //clear the list of existing items
+        lstTutorList.Items.Clear();
+        //call the filter by subject method
+        AllTutors.ReportBySubject(SubjectFilter);
+        //get the count of records found
+        RecordCount = AllTutors.Count;
+        //loop through each record found using the index to point to each record in the data table
+        while (Index < RecordCount)
+        {
+            firstName = Convert.ToString(AllTutors.TutorList[Index].tutorFirstName);
+            lastName = Convert.ToString(AllTutors.TutorList[Index].tutorLastName);
+            email = Convert.ToString(AllTutors.TutorList[Index].tutorEmail);
+            subject = Convert.ToString(AllTutors.TutorList[Index].tutorSubject);
+            password = Convert.ToString(AllTutors.TutorList[Index].tutorPassword);
+
+            //set up a new object of class list item
+            ListItem NewItem = new ListItem(firstName + " " + lastName + " " + email + " " + subject + " " + password);
+            //add new item to list
+            lstTutorList.Items.Add(NewItem);
+            Index++;
+
+        }
+        //return the number of records found
+        return RecordCount;
+    }
+
+   
 }
