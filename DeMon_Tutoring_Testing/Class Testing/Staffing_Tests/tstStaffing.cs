@@ -5,15 +5,15 @@ using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
 {
     [TestClass]
-    public class tstStaffing
+    public class TstStaffing
     {
             //Test Data
-            string staffFN = "Eugene";
-            string staffLN = "Zuccerberg";
-            string staffEmail = "eugenefrisbee@gmail.com";
-            string staffNumber = "07974133370";
-            DateTime DOBConv = Convert.ToDateTime("09/08/1995");
-            string staffDOB = "09/08/1995";
+            readonly string staffFN = "Eugene";
+            readonly string staffLN = "Zuccerberg";
+            readonly string staffEmail = "eugenefrisbee@gmail.com";
+            readonly string staffNumber = "07974133370";
+            readonly DateTime DOBConv = Convert.ToDateTime("09/08/1995");
+            readonly string staffDOB = "09/08/1995";
       
         [TestMethod]
         public void AssertNotNull()
@@ -543,6 +543,355 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             string staffDOBTest = "this is not a date";
             //Invoke the method
             Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOBTest);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffLastNameMinLessOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to fail the method
+            string LastName = "";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, LastName, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffLastNameMin()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string LastName = "E";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, LastName, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffLastNameMinPlusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string LastName = "Eu";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, LastName, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffLastNameMaxMinusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string LastName = "Aaaaaaaaaaaaaa";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, LastName, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffLastNameMax()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string LastName = "Aaaaaaaaaaaaaaa";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, LastName, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffLastNameMaxPlusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string LastName = "AaaaaaaaaaaaaaaX";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, LastName, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffLastNameMid()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string LastName = "Aaaaaaaa";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, LastName, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffLastNameExtremeMax()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string LastName = "";
+            LastName = LastName.PadRight(500, 'a');
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, LastName, staffEmail, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffNumberMinMinusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Number = "";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, Number, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffNumberMin()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Number = "0";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, Number, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffNumberMinPlusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Number = "01";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, Number, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffNumberMaxMinusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Number = "0138653910";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, Number, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffNumberMax()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Number = "01386539102";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, Number, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffNumberMaxPlusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Number = "013865391025";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, Number, staffDOB);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffNumberExtremeMax()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Number = "01386539102";
+            Number = Number.PadRight(489, '0');
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, staffEmail, Number, staffDOB);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffEmailMinMinusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Email = "t@";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, Email, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffEmailMin()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Email = "t@g";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, Email, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffEmailMinPlusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Email = "t@gm";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, Email, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void StaffEmailMaxMinusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Email = "thomasbarnes123456@gmail.com";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, Email, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffEmailMax()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Email = "thomasbarnes1234567@gmail.com";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, Email, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffEmailMaxPlusOne()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Email = "thomasbarnes123456789@gmail.com";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, Email, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffEmailMid()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Email = "thoma@gmail.com";
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, Email, staffNumber, staffDOB);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffEmailExtremeMax()
+        {
+            //Create an instance of staffing
+            Staffing aStaff = new Staffing();
+            //string variable to store any error message
+            String Error = "";
+            //Test data to pass the method
+            string Email = "thomasbarnes1234567@gmail.com";
+            Email = Email.PadRight(470, 'a');
+            //Invoke the method
+            Error = aStaff.Valid(staffFN, staffLN, Email, staffNumber, staffDOB);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }

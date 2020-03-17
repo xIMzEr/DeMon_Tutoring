@@ -27,6 +27,9 @@
             <br />
             <asp:Button ID="OkButton" runat="server" OnClick="OkButton_Click" Text="Ok" BackColor="#33CCFF" />
             <asp:Button ID="CancelButton" runat="server" Text="Cancel" BackColor="#FF3300" OnClick="CancelButton_Click" />
+            <br />
+            <br />
+            <asp:Label ID="txtError" runat="server" Font-Bold="True" Font-Italic="False" Font-Size="XX-Large" ForeColor="Red" Text="Label" Visible="False"></asp:Label>
         </div>
     </form>
 </body>

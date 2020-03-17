@@ -123,6 +123,38 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
                 //Record the error
                 Error += "The first name must be less than 16 characters : ";
             }
+            //Last name boundary limits
+            if (staffLN.Length == 0)
+            {
+                //Record the erorr
+                Error = Error + "The last Name may not be blank : ";
+            }
+            //If the last name is greater than 15 characters
+            if (staffLN.Length > 15)
+            {
+                //Record the error
+                Error += "The last name must be less than 16 characters : ";
+            }
+            //StaffNumber boundaries
+            if (staffNumber.Length > 11)
+            {
+                //Record the error
+                Error += "The staff number cannot be more than 11 characters : "; 
+            }
+            //StaffEmail boundaries
+            if (staffEmail.Length < 3)
+            {
+                //Record the erorr
+                Error = Error + "The staff email may not be smaller than 3 chars : ";
+            }
+            //If the last name is greater than 15 characters
+            if (staffEmail.Length > 30)
+            {
+                //Record the error
+                Error += "The email name must be less than 31 characters : ";
+            }
+
+            //Dob boundaries
             try
             {
                 DateTime dOBTemp = Convert.ToDateTime(staffDOB);
