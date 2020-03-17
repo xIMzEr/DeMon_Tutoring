@@ -23,9 +23,13 @@ public partial class _Default : System.Web.UI.Page
             //create an instance of the county collection
             DeMon_Tutoring_Classes.Tutoring_Classes.lib.clsTutorCollection Tutors = new DeMon_Tutoring_Classes.Tutoring_Classes.lib.clsTutorCollection();
             //set the data source to the list of counties in the collection
-            //lstTutorList.DataSource = Tutors.TutorList;
+            lstTutors.DataSource = Tutors.TutorList;
             //set the name of the primary key
-          //  lstTutorList.DataValueField = "TutorId";
+            lstTutors.DataValueField = "tutorId";
+            //set the data field to display
+            lstTutors.DataTextField = "firstName";
+            //bind the data to the list
+            lstTutors.DataBind();
         
         }
     }
