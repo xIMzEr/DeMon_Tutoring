@@ -34,7 +34,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //set its properties
             TestItem.tutorAvailabe = true;
             TestItem.tutorId = 1;
-            TestItem.tutorName = new Name("some", "some");
+            TestItem.tutorFirstName = "first";
+            TestItem.tutorLastName = "last";
             TestItem.tutorEmail = "some@some.co.uk";
             TestItem.tutorSubject = "Chemistry";
             TestItem.tutorPassword = "12345678";
@@ -60,7 +61,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //set the properties of the test object
             TestTutor.tutorAvailabe = true;
             TestTutor.tutorId = 1;
-            TestTutor.tutorName = new Name("some", "some");
+            TestTutor.tutorFirstName = "first";
+            TestTutor.tutorLastName = "last";
             TestTutor.tutorEmail = "some@some.co.uk";
             TestTutor.tutorSubject = "Chemistry";
             TestTutor.tutorPassword = "12345678";
@@ -87,7 +89,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //set the properties of the test object
             TestItem.tutorAvailabe = true;
             TestItem.tutorId = 1;
-            TestItem.tutorName = new Name("some", "some");
+            TestItem.tutorFirstName = "first";
+            TestItem.tutorLastName = "last";
             TestItem.tutorEmail = "some@some.co.uk";
             TestItem.tutorSubject = "Chemistry";
             TestItem.tutorPassword = "12345678";
@@ -116,7 +119,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //set the properties of the test object
             TestItem.tutorAvailabe = true;
             TestItem.tutorId = 1;
-            TestItem.tutorName = new Name("some", "some");
+            TestItem.tutorFirstName = "first";
+            TestItem.tutorLastName = "last";
             TestItem.tutorEmail = "some@some.co.uk";
             TestItem.tutorSubject = "Chemistry";
             TestItem.tutorPassword = "12345678";
@@ -148,7 +152,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //set the properties of the test object
             TestItem.tutorAvailabe = true;
             TestItem.tutorId = 1;
-            TestItem.tutorName = new Name("some", "some");
+            TestItem.tutorFirstName = "first";
+            TestItem.tutorLastName = "last";
             TestItem.tutorEmail = "some@some.co.uk";
             TestItem.tutorSubject = "Chemistry";
             TestItem.tutorPassword = "12345678";
@@ -183,7 +188,8 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //set the properties of the test object
             TestItem.tutorAvailabe = true;
             TestItem.tutorId = 1;
-            TestItem.tutorName = new Name("some", "some");
+            TestItem.tutorFirstName = "first";
+            TestItem.tutorLastName = "last";
             TestItem.tutorEmail = "some@some.co.uk";
             TestItem.tutorSubject = "Chemistry";
             TestItem.tutorPassword = "12345678";

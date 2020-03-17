@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DeMon_Tutoring_Classes;
 using DeMon_Tutoring_Classes.Tutoring_Classes.lib;
-using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 
 public partial class Public_Tutor_Details : System.Web.UI.Page
 {
@@ -25,7 +24,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
                 //display the current data for the record
                 DisplayTutor();
             }
-            else
+            else//this is a new record
             {
                 //set the date to todays date
                 txtDateAdded.Text = DateTime.Today.Date.ToString("dd/mm/yyyy");
@@ -44,9 +43,9 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         //display the data for this record
         txtTutorId.Text = MyTutors.ThisTutor.tutorId.ToString();
         //display first name
-        txtFirstName.Text = MyTutors.ThisTutor.tutorName.getFirstName();
+        txtFirstName.Text = MyTutors.ThisTutor.tutorFirstName;
         //display last name
-        txtLastName.Text = MyTutors.ThisTutor.tutorName.getLastName();
+        txtLastName.Text = MyTutors.ThisTutor.tutorLastName;
         //display email
         txtEmail.Text = MyTutors.ThisTutor.tutorEmail;
         //display password
@@ -56,7 +55,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         //display availability
         txtAvailibility.Text = MyTutors.ThisTutor.tutorAvailabe.ToString();
         //display date added
-        txtDateAdded.Text = MyTutors.ThisTutor.tutorDateAdded.ToString();
+        txtDateAdded.Text = MyTutors.ThisTutor.tutorDateAdded.ToString("dd/mm/yyyy");
         
     }
 
@@ -82,25 +81,37 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         //variable to store error messages
         string Error = "";
         //validate the data
-        Error = AllTutors.ThisTutor.Valid(txtEmail.Text, txt);
+        Error = AllTutors.ThisTutor.Valid(txtFirstName.Text, txtLastName.Text ,txtEmail.Text, txtSubject.Text, txtDateAdded.Text, txtPassword.Text);
         if (Error == "")
         {
             //if this is a new record i.e. tutorId = -1 then add the data
             if (tutorId == -1)
             {
-                AllTutors.ThisTutor.tutorName = new Name(txtFirstName.Text, txtLastName.Text);
+                //set all properties
+                AllTutors.ThisTutor.tutorFirstName = txtFirstName.Text;
+                AllTutors.ThisTutor.tutorLastName = txtLastName.Text;
                 AllTutors.ThisTutor.tutorEmail = txtEmail.Text;
                 AllTutors.ThisTutor.tutorSubject = txtSubject.Text;
-                AllTutors
+                AllTutors.ThisTutor.tutorDateAdded = Convert.ToDateTime(txtDateAdded.Text);
+                AllTutors.ThisTutor.tutorPassword = txtPassword.Text;
+                AllTutors.ThisTutor.tutorAvailabe = Convert.ToBoolean(txtAvailibility.Text);
+                //invoke the add method
+                AllTutors.Add();
             }
             //otherwise it must be an update
             else
             {
-                //find the record to update
+                //find the record to be updated
                 AllTutors.ThisTutor.Find(tutorId);
-                //set the ThisTutor property
-                AllTutors.ThisTutor = aTutor;
-                //update the record
+                //set all the properties
+                AllTutors.ThisTutor.tutorFirstName = txtFirstName.Text;
+                AllTutors.ThisTutor.tutorLastName = txtLastName.Text;
+                AllTutors.ThisTutor.tutorEmail = txtEmail.Text;
+                AllTutors.ThisTutor.tutorSubject = txtSubject.Text;
+                AllTutors.ThisTutor.tutorDateAdded = Convert.ToDateTime(txtDateAdded.Text);
+                AllTutors.ThisTutor.tutorPassword = txtPassword.Text;
+                AllTutors.ThisTutor.tutorAvailabe = Convert.ToBoolean(txtAvailibility.Text);
+                //update the record with new data
                 AllTutors.Update();
             }
          
