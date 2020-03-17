@@ -43,7 +43,7 @@
             <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" ForeColor="#CC0000" />
             <br />
             <br />
-            <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lblError" runat="server" Text="Label" Visible="False"></asp:Label>
             <br />
             <br />
             <br />
