@@ -50,8 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class Testing\Customer_Tests\tstCustomer.cs" />
-    <Compile Include="Class Testing\Staffing_Tests\TstStaffing.cs" />
-    <Compile Include="Class Testing\Staffing_Tests\TstStaffingCollection.cs" />
+
+    <Compile Include="Class Testing\Staffing_Tests\tstStaffing.cs" />
+    <Compile Include="Class Testing\Tutor_Tests\TstTutorCollection.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Class Testing\Tutor_Tests\TstTutor.cs" />
   </ItemGroup>

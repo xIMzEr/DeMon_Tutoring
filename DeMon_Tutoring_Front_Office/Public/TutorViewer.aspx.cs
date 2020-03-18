@@ -19,10 +19,12 @@ public partial class Public_TutorViewer : System.Web.UI.Page
         Response.Write(aTutor.tutorId);
 
         //Display what text is in each field
-        lblFirstName.Text = aTutor.tutorName.getFirstName();
-        lblLastName.Text = aTutor.tutorName.getLastName();
+        lblFirstName.Text = aTutor.tutorFirstName;
+        lblLastName.Text = aTutor.tutorLastName;
         lblEmail.Text = aTutor.tutorEmail;
         lblSubject.Text = aTutor.tutorSubject;
         lblPassword.Text = aTutor.tutorPassword;
+        lblDateAdded.Text = Convert.ToString(aTutor.tutorDateAdded);
+        
     }
 }

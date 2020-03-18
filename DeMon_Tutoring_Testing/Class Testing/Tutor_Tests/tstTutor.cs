@@ -48,11 +48,11 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             //create instance of the class we want to create
             clsTutor aTutor = new clsTutor();
             //create some test data to assign to tutor
-            Name TestData = new Name("Bob, Bob");
+            String TestData = "Bob";
             //assign the data to the tutor
-            aTutor.tutorName = TestData;
+            aTutor.tutorFirstName = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aTutor.tutorName, TestData);
+            Assert.AreEqual(aTutor.tutorFirstName, TestData);
         }
 
 
@@ -179,7 +179,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Found = aTutor.Find(tutorId);
 
             //check the property
-            if (aTutor.tutorDateAdded != Convert.ToDateTime("13/03/2020"))
+            if (aTutor.tutorDateAdded != Convert.ToDateTime("17/03/2020"))
             {
                 Ok = false;
             }
@@ -188,7 +188,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         }
 
         [TestMethod]
-        public void TestNameAddedFound()
+        public void TestFirstNameAddedFound()
         {
             //create an instance of the class we want to create
             clsTutor aTutor = new clsTutor();
@@ -203,7 +203,30 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Found = aTutor.Find(tutorId);
 
             //get full name from class and compare with what should be the result
-            if (aTutor.tutorName.getFullName() != "Bob Bob")
+            if (aTutor.tutorFirstName != "Bob")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void TestLastNameAddedFound()
+        {
+            //create an instance of the class we want to create
+            clsTutor aTutor = new clsTutor();
+
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //create some test data to assign to use with the method
+            Int32 tutorId = 1;
+            //invoke the method
+            Found = aTutor.Find(tutorId);
+
+            //get full name from class and compare with what should be the result
+            if (aTutor.tutorLastName != "Bob")
             {
                 Ok = false;
             }
@@ -1124,6 +1147,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
         public void TutorPasswordExtremeMin()
         {
             //create an instance of the class we want to create
@@ -1140,10 +1164,10 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Tutor_Tests
         }
 
 
-
+       
 
 
 
 
     }
-    }
+}
