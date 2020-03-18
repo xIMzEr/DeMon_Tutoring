@@ -11,17 +11,20 @@ public partial class Public_TutorViewer : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //Create a new instance of tutor
-        clsTutor tutor = new clsTutor();
-
+        clsTutor aTutor = new clsTutor();
         //Get the data from the session object
-        tutor = (clsTutor)Session["tutor"];
-
-        Response.Write("<b> LOGIN SUCCESSFUL </b>");
+        aTutor = (clsTutor)Session["aTutor"];
+        //display the tutor ID for this entry
+        //Response.Write("<b> LOGIN SUCCESSFUL </b>");
+        Response.Write(aTutor.tutorId);
 
         //Display what text is in each field
-        lblFirstName.Text = tutor.tutorName.getFirstName();
-        lblLastName.Text = tutor.tutorName.getLastName();
-        lblEmail.Text = tutor.tutorEmail;
-        lblSubject.Text = tutor.tutorSubject;
+        lblFirstName.Text = aTutor.tutorFirstName;
+        lblLastName.Text = aTutor.tutorLastName;
+        lblEmail.Text = aTutor.tutorEmail;
+        lblSubject.Text = aTutor.tutorSubject;
+        lblPassword.Text = aTutor.tutorPassword;
+        lblDateAdded.Text = Convert.ToString(aTutor.tutorDateAdded);
+        
     }
 }

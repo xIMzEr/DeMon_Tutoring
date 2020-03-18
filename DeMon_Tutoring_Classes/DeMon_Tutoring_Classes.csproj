@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tutoring_Classes\lib\clsTutorCollection.cs" />
     <Compile Include="Customer_Classes\lib\ObjStatus.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="Customer_Classes\lib\ClsCustomer.cs" />
+    <Compile Include="Staffing_Classes\lib\StaffingCollection.cs" />
     <Compile Include="Tutoring_Classes\lib\clsTutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Staffing_Classes\lib\Name.cs" />

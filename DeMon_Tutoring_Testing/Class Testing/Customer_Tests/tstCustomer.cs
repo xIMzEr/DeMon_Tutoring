@@ -20,15 +20,20 @@ namespace DeMon_Tutoring_Testing
 
 
 
+
+
         [TestMethod]
         public void InstanceOK()
         {
             //create instance of the class we want to create
             ClsCustomer aCustomer = new ClsCustomer();
+
             //test to see that it now exist
             Assert.IsNotNull(aCustomer);
+
+           
         }
-      
+
 
         [TestMethod]
         public void CustomerNameOk()
