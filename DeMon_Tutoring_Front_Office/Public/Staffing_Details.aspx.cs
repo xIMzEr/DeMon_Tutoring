@@ -23,29 +23,39 @@ public partial class Public_Staffing_Details : System.Web.UI.Page
     protected void OkButton_Click(object sender, EventArgs e)
     {
 
-
-
         //Create a new instance of staff
         Staffing staff = new Staffing();
-        //Capture the Staff name
-        staff.staffName = new Name(txtFirstName.Text, txtLastName.Text);
-        //Capture the email
-        staff.staffEmail = txtEmail.Text;
-        //Capture the staff
-        staff.staffNumber = txtNumber.Text;
-        //Capture the staff DOB
-        staff.staffDOB = Convert.ToDateTime(txtDOB.Text) ;
-        //store the email in the session object
-        Session["staff"] = staff;
-        //redirect to the aTutor page
-        Response.Redirect("staffingViewer.aspx");
+        //String to store any error messages
+        String Error = "";
+        //Validate the data
+        Error = staff.Valid(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtNumber.Text, txtDOB.Text);
+        if(Error == "")
+        {
+            //Capture the Staff name
+            staff.staffName = new Name(txtFirstName.Text, txtLastName.Text);
+            //Capture the email
+            staff.staffEmail = txtEmail.Text;
+            //Capture the staff
+            staff.staffNumber = txtNumber.Text;
+            //Capture the staff DOB
+            staff.staffDOB = Convert.ToDateTime(txtDOB.Text);
+
+            //Create the session object
+            Session["staff"] = staff;
+            //redirect to the aTutor page
+            Response.Redirect("staffingViewer.aspx");
+        }
+        else
+        {
+            txtError.Visible = true;
+            //display the error message
+            txtError.Text = "Error! " + Error;
+        }
+
+
+
     }
 
-    public int RandomNumber(int min, int max)
-    {
-        Random random = new Random();
-        return random.Next(min, max);
-    }
 
     protected void CancelButton_Click(object sender, EventArgs e)
     {

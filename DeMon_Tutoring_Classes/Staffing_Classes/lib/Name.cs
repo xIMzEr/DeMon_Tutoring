@@ -36,7 +36,7 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
         //Returns a name object as a string
         public string getFullName()
         {
-                return this.firstName + this.lastName;
+                return this.firstName + " " + this.lastName;
         }
 
         /*Name seperator seperates a string of a full name into a first name and last name and then assigns those
