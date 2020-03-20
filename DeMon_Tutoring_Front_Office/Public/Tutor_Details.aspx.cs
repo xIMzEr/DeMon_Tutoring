@@ -23,6 +23,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
             {
                 //display the current data for the record
                 DisplayTutor();
+                txtDateAdded.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
             }
             else//this is a new record
             {

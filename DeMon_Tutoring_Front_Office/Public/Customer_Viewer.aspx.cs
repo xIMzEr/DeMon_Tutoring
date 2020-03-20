@@ -21,12 +21,12 @@ public partial class Public_Default : System.Web.UI.Page
 
         txtFirstName.Text = customer.CustomerName.getFirstName();
         txtLastName.Text = customer.CustomerName.getLastName();
-        txtDateOfBirth.Text = customer.DateOfBirth;
+        txtDateOfBirth.Text = Convert.ToString(customer.DateOfBirth);
         txtEmail.Text = customer.Email;
         txtPhoneNumber.Text = customer.PhoneNumber;
         txtPassword.Text = customer.Password;
         txtCardNo.Text = customer.CardNo;
-        txtCardDate.Text = customer.CardDate;
+        txtCardDate.Text = Convert.ToString(customer.CardDate);
 
         rdbYes.Text = customer.StudentStatus;
         rdbNo.Text = customer.StudentStatus;

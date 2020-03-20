@@ -15,6 +15,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="lblTitle" runat="server" ForeColor="#CC0000" Text="Tutor List Form" BackColor="#999999" BorderColor="Black" BorderStyle="Inset" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" Font-Underline="False" Height="30px" style="text-align: center; font-size: large" Width="272px"></asp:Label>
+            <br />
         </div>
         <asp:ListBox ID="lstTutorList" runat="server" Height="263px"  Width="433px"></asp:ListBox>
         <br />

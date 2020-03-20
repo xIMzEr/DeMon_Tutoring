@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <div style="height: 521px; width: 318px">
             <h1>
-            <asp:Label ID="lblTitle" runat="server" ForeColor="#990000" Text="Tutor Sign Up Form" BackColor="#999999" BorderColor="Black" BorderStyle="Inset" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" Font-Underline="False" Height="30px" style="text-align: center; font-size: large" Width="272px"></asp:Label>
+            <asp:Label ID="lblTitle" runat="server" ForeColor="#CC0000" Text="Tutor Sign Up Form" BackColor="#999999" BorderColor="Black" BorderStyle="Inset" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" Font-Underline="False" Height="30px" style="text-align: center; font-size: large" Width="272px"></asp:Label>
             </h1>
             <strong>Tutor ID</strong><br />
             <asp:TextBox ID="txtTutorId" runat="server" ></asp:TextBox>

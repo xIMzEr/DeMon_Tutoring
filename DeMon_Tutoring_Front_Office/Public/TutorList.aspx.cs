@@ -23,7 +23,7 @@ public partial class Public_TutorList : System.Web.UI.Page
     }
 
    
-    //event handler for the add butto
+    //event handler for the add button
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         //store -1 into the session object to indicate that this is a new record
