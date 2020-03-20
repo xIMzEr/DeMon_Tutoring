@@ -20,12 +20,20 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         }
 
         //tutorName private member variable
-        private Name mtutorName;
+        private String mtutorFirstName;
         //tutorName public property
-        public Name tutorName
+        public String tutorFirstName
         {
-            get { return mtutorName; }
-            set { mtutorName = value; }
+            get { return mtutorFirstName; }
+            set { mtutorFirstName = value; }
+        }
+        //tutorName private member variable
+        private String mtutorLastName;
+        //tutorName public property
+        public String tutorLastName
+        {
+            get { return mtutorLastName; }
+            set { mtutorLastName = value; }
         }
 
         //tutorEmail private member variable
@@ -78,10 +86,11 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
 
 
         //Constructors
-        public clsTutor(int id, Name name, String email, String subject, String password, Boolean available, DateTime date)
+        public clsTutor(int id, String fn, String ln, String email, String subject, String password, Boolean available, DateTime date)
         {
             tutorId = id;
-            tutorName = name;
+            tutorFirstName = fn;
+            tutorLastName = ln;
             tutorEmail = email;
             tutorAvailabe = available;
             tutorSubject = subject;
@@ -92,7 +101,8 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         public clsTutor()
         {
             tutorId = 1;
-            tutorName = null;
+            tutorFirstName = null;
+            tutorLastName = null;
             tutorEmail = "";
             tutorAvailabe = true;
             tutorSubject = "";
@@ -116,7 +126,8 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             {
                 //copy data from the database to the private data members in this class
                 mtutorId = Convert.ToInt32(DB.DataTable.Rows[0]["tutorId"]);
-                mtutorName = new Name(Convert.ToString(DB.DataTable.Rows[0]["firstName"]), Convert.ToString(DB.DataTable.Rows[0]["lastName"]));
+                mtutorFirstName = Convert.ToString(DB.DataTable.Rows[0]["firstName"]);
+                mtutorLastName = Convert.ToString(DB.DataTable.Rows[0]["lastName"]);
                 mtutorEmail = Convert.ToString(DB.DataTable.Rows[0]["emailAddress"]);
                 mtutorAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["availability"]);
                 mtutorSubject = Convert.ToString(DB.DataTable.Rows[0]["subject"]);
@@ -141,7 +152,6 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
         //the function returns a string containing any error messages
         //if no erros are found then a blank string is returned
         {
-
             //create a string variable to store the rror
             String Error = "";
             //create a temporary variable to store date values
@@ -242,14 +252,12 @@ namespace DeMon_Tutoring_Classes.Tutoring_Classes.lib
             //return any error messages
             return Error;
         }
-
-
-
-
+        
         //To string method
         public string toString()
         {
-            return "Tutor ID: " + this.tutorId + ", Tutor Name: " + this.tutorName +
+            return "Tutor ID: " + this.tutorId + ", Tutor First Name: " + this.tutorFirstName +
+                "Tutor Last Name" + this.tutorLastName +
                 ", Tutor Email: " + this.tutorEmail +
                 ", Tutor Subject: " + this.tutorSubject +
                 ", Tutor Availability: " + this.tutorAvailabe +
