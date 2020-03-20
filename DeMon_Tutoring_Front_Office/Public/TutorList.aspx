@@ -7,9 +7,10 @@
     <title></title>
     <style type="text/css">
         #form1 {
-            height: 493px;
-            width: 470px;
+            height: 492px;
+            width: 575px;
         }
+        .auto-style1 {}
     </style>
 </head>
 <body>
@@ -18,7 +19,7 @@
             <asp:Label ID="lblTitle" runat="server" ForeColor="#CC0000" Text="Tutor List Form" BackColor="#999999" BorderColor="Black" BorderStyle="Inset" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" Font-Underline="False" Height="30px" style="text-align: center; font-size: large" Width="272px"></asp:Label>
             <br />
         </div>
-        <asp:ListBox ID="lstTutorList" runat="server" Height="263px"  Width="433px"></asp:ListBox>
+        <asp:ListBox ID="lstTutorList" runat="server" Height="228px"  Width="567px" CssClass="auto-style1"></asp:ListBox>
         <br />
         <br />
         <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />

@@ -10,6 +10,7 @@ public partial class Public_DeleteTutor : System.Web.UI.Page
 {
     //var to store the primary key value of the record to be deleted
     Int32 tutorId;
+
     //event handler for the load event
     protected void Page_Load(object sender, EventArgs e)
     {

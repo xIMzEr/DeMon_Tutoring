@@ -16,6 +16,8 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
     {
         //get the number of the address to be processed
         tutorId = Convert.ToInt32(Session["tutorId"]);
+
+        //if this website hasn't been viewed before
         if(IsPostBack == false)
         {
             //if this is not a new record
@@ -23,6 +25,7 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
             {
                 //display the current data for the record
                 DisplayTutor();
+                //set dateAdded box to today's date
                 txtDateAdded.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
             }
             else//this is a new record
@@ -64,12 +67,13 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
 
     protected void btnRegister_Click(object sender, EventArgs e)
     {
-        
+        //create new instance of tutor collection
         clsTutorCollection AllTutors = new clsTutorCollection();
         //variable to store error messages
         string Error = "";
         //validate the data
         Error = AllTutors.ThisTutor.Valid(txtFirstName.Text, txtLastName.Text ,txtEmail.Text, txtSubject.Text, txtDateAdded.Text, txtPassword.Text);
+        //if there are no errors
         if (Error == "")
         {
             //if this is a new record i.e. tutorId = -1 then add the data
@@ -109,10 +113,10 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         else//there are errors
         {
             //display the error message
-            lblError.Text = Error;
-        }
-
-        
+            lblError.Text = "[" + Error + "]";
+            //set label to visible
+            lblError.Visible = true;
+        } 
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
