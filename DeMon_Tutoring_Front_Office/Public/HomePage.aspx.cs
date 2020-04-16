@@ -19,4 +19,16 @@ public partial class Public_FrontPage : System.Web.UI.Page
         //redirect to the data entry page
         Response.Redirect("Tutor_Details.aspx");
     }
+
+    protected void btnTutorSignIn_Click(object sender, EventArgs e)
+    {
+        //redirect to the data entry page
+        Response.Redirect("TutorSignIn.aspx");
+    }
+
+    protected void btnViewAllRecords_Click(object sender, EventArgs e)
+    {
+        //redirect to the data entry page
+        Response.Redirect("TutorList.aspx");
+    }
 }

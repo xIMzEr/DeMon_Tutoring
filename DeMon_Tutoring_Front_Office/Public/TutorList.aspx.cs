@@ -134,14 +134,23 @@ public partial class Public_TutorList : System.Web.UI.Page
             tutorId = Convert.ToString(AllTutors.TutorList[Index].tutorId);
 
             //set up a new object of class list item
-            ListItem NewItem = new ListItem("ID:" + tutorId +"~Name: " + firstName + " " + lastName + "|Email: " + email + "|Subject: " + subject, tutorId );
+            ListItem NewItem = new ListItem("ID: " + tutorId +" ~ Name: " + firstName + " " + lastName + " | Email: " + email + " | Subject: " + subject, tutorId );
             //add new item to list
             lstTutorList.Items.Add(NewItem);
+            //increment index to  next item
             Index++;
 
         }
         //return the number of records found
         return RecordCount;
+    }
+
+
+    protected void btnHome_Click(object sender, EventArgs e)
+    {
+        //redirect to the delete page
+        Response.Redirect("HomePage.aspx");
+
     }
 
    
