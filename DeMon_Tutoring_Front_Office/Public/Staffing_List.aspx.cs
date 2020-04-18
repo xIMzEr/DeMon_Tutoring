@@ -60,4 +60,16 @@ public partial class Public_Staffing_List : System.Web.UI.Page
             lblError.Text = "Please select a record to delete from the list";
         }
     }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Int32 StaffID;
+
+        if(lstStaffingList.SelectedIndex != -1)
+        {
+            StaffID = Convert.ToInt32(lstStaffingList.SelectedValue);
+            Session["staff"] = StaffID;
+            Response.Redirect("Staffing_Details.aspx");
+        }
+    }
 }

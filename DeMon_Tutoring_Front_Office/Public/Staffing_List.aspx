@@ -12,6 +12,9 @@
             <asp:ListBox ID="lstStaffingList" runat="server" Height="190px" Width="398px"></asp:ListBox>
             <br />
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
+            &nbsp;
+            <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
+&nbsp;
             <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
             <br />
             <br />

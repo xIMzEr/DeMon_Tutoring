@@ -86,7 +86,23 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             //set the paramaters for the stored procedure
             DB.AddParameter("@staffID", mThisStaff.staffID);
             //execute the stored procedure
-            DB.Execute("sproc_TblStaffing_Delete");
+            DB.Execute("[dbo].sproc_TblStaffing_Delete");
+        }
+
+        public void Update()
+        {
+            //updates an existing record to the database
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@FirstName", mThisStaff.staffName.getFirstName());
+            DB.AddParameter("@LastName", mThisStaff.staffName.getLastName());
+            DB.AddParameter("@StaffNumber", mThisStaff.staffNumber);
+            DB.AddParameter("@StaffEmail", mThisStaff.staffEmail);
+            DB.AddParameter("@StaffDob", mThisStaff.staffDOB);
+            DB.AddParameter("@StaffValid", mThisStaff.staffValid);
+            //execute the query 
+            DB.Execute("sproc_TblStaffing_Update");
         }
     }
 }

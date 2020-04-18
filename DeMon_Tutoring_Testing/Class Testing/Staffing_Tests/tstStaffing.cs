@@ -990,5 +990,43 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Test to see that the two values are the same
             Assert.IsFalse(Found);
         }
+
+        [TestMethod]
+
+        public void UpdateMethodOk()
+        {
+            //Create an instance of the collections class
+            StaffingCollection aStaffCollection = new StaffingCollection();
+            //create an instance of test data
+            Staffing TestItem = new Staffing();
+            //Primary key storage
+            Int32 primaryKey = 0;
+            //Initiate properties of test data
+            TestItem.staffName = new Name("Thomas", "Barnes");
+            TestItem.staffNumber = "01706844505";
+            TestItem.staffEmail = "testEM@gmail.com";
+            TestItem.staffDOB = Convert.ToDateTime("08/09/1990");
+            TestItem.staffValid = true;
+            //Set test data into collections
+            aStaffCollection.ThisStaff = TestItem;
+            //Add the record
+            primaryKey = aStaffCollection.Add();
+            //Set the primary key of the test data
+            TestItem.staffID = primaryKey;
+            //Modify the test data
+            TestItem.staffName = new Name("Update", "Worked");
+            TestItem.staffNumber = "0111222222";
+            TestItem.staffEmail = "thisisupdated@gmail.com";
+            TestItem.staffDOB = Convert.ToDateTime("01/01/1990");
+            TestItem.staffValid = false;
+            //set the record based on the new data
+            aStaffCollection.ThisStaff = TestItem;
+            //Update the record
+            aStaffCollection.Update();
+            //Find the deleted record
+            aStaffCollection.ThisStaff.Find(primaryKey);
+            //Test to see that the two values are the same
+            Assert.AreEqual(aStaffCollection.ThisStaff, TestItem);
+        }
     }
 }
