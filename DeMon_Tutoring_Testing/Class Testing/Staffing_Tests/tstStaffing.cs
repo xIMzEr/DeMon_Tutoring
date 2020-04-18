@@ -14,6 +14,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             readonly string staffNumber = "07974133370";
             readonly DateTime DOBConv = Convert.ToDateTime("09/08/1995");
             readonly string staffDOB = "09/08/1995";
+            readonly bool staffValid = true;
       
         [TestMethod]
         public void AssertNotNull()
@@ -75,6 +76,19 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             s2.staffNumber = Test;
             //test to see that the two values are the same
             Assert.AreEqual(Test, s2.staffNumber);
+        }
+
+        [TestMethod]
+        public void TestValid()
+        {
+            //create instance of the class we want to create
+            Staffing s2 = new Staffing();
+            //create some test data to assign to staff
+            bool Test = true;
+            //assign the data to the Staff
+            s2.staffValid = Test;
+            //test to see that the two values are the same
+            Assert.AreEqual(Test, s2.staffValid);
         }
 
         [TestMethod]
@@ -207,6 +221,28 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //test to see if the result is correct
             Assert.IsTrue(OK);
         }
+        [TestMethod]
+        public void TestStaffValidFound()
+        {
+            //Create an instance of Staffing
+            Staffing staffT = new Staffing();
+            //Boolean varibable to store the result of the validation
+            Boolean Found = false;
+            //Bool to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //Create some test data to use with the method
+            Int32 StaffID = 14;
+            //Invoke the method
+            Found = staffT.Find(StaffID);
+
+            //Check the stafDOB value against what should be found
+            if (staffT.staffValid != true)
+            {
+                OK = false;
+            }
+            //test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
 
         [TestMethod]
         public void ValidMethodOK()
@@ -216,6 +252,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //string variable to store any error message
             String Error = "";
             //invoke the method
+            //We ignore staffValid as it only can contain a boolean value
             Error = aStaff.Valid(staffFN, staffLN, staffEmail, staffNumber, staffDOB);
             //Test to see if the result is correct
             Assert.AreEqual(Error, "");
@@ -894,6 +931,64 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             Error = aStaff.Valid(staffFN, staffLN, Email, staffNumber, staffDOB);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AddMethodOK(){
+            //Create an instance of the collections class
+            StaffingCollection aStaffCollection = new StaffingCollection();
+            //create an instance of test data
+            Staffing TestItem = new Staffing();
+            //Primary key storage
+            Int32 primaryKey = 0;
+            //Initiate properties of test data
+            TestItem.staffName = new Name("Thomas", "Barnes");
+            TestItem.staffNumber = "01706844505";
+            TestItem.staffEmail = "testEM@gmail.com";
+            TestItem.staffDOB = Convert.ToDateTime("08/09/1990");
+            TestItem.staffValid = true;
+            //Set test data into collections
+            aStaffCollection.ThisStaff = TestItem;
+            //Add the record
+            primaryKey = aStaffCollection.Add();
+            //Set the primary key of the test data
+            TestItem.staffID = primaryKey;
+            //Find the record
+            aStaffCollection.ThisStaff.Find(primaryKey);
+            //Test to see that the two values are the same
+            Assert.AreEqual(aStaffCollection.ThisStaff, TestItem);
+        }
+
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //Create an instance of the collections class
+            StaffingCollection aStaffCollection = new StaffingCollection();
+            //create an instance of test data
+            Staffing TestItem = new Staffing();
+            //Primary key storage
+            Int32 primaryKey = 0;
+            //Initiate properties of test data
+            TestItem.staffName = new Name("Thomas", "Barnes");
+            TestItem.staffNumber = "01706844505";
+            TestItem.staffEmail = "testEM@gmail.com";
+            TestItem.staffDOB = Convert.ToDateTime("08/09/1990");
+            TestItem.staffValid = true;
+            //Set test data into collections
+            aStaffCollection.ThisStaff = TestItem;
+            //Add the record
+            primaryKey = aStaffCollection.Add();
+            //Set the primary key of the test data
+            TestItem.staffID = primaryKey;
+            //Find the record
+            aStaffCollection.ThisStaff.Find(primaryKey);
+            //delete the record
+            aStaffCollection.Delete();
+            //Find the deleted record
+            Boolean Found = aStaffCollection.ThisStaff.Find(primaryKey);
+            //Test to see that the two values are the same
+            Assert.IsFalse(Found);
         }
     }
 }

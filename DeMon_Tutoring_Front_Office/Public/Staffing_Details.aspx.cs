@@ -13,7 +13,7 @@ public partial class Public_Staffing_Details : System.Web.UI.Page
         //Create a new instance of staff
         Staffing staff = new Staffing();
         //get the data from the session object
-        staff = (Staffing)Session["staff"];
+        //staff = (Staffing)Session["staff"];
         //Display the email for this staff
        
         //Response.Write(staff.getEmail());
@@ -39,11 +39,16 @@ public partial class Public_Staffing_Details : System.Web.UI.Page
             staff.staffNumber = txtNumber.Text;
             //Capture the staff DOB
             staff.staffDOB = Convert.ToDateTime(txtDOB.Text);
-
-            //Create the session object
-            Session["staff"] = staff;
+            //Capture the staff Validity
+            staff.staffValid = StaffValid.Checked;
+            //Create a new instance of the staffing collection
+            StaffingCollection staffList = new StaffingCollection();
+            //Set the thisStaff property
+            staffList.ThisStaff = staff;
+            //Adds the new record
+            staffList.Add();
             //redirect to the aTutor page
-            Response.Redirect("staffingViewer.aspx");
+            Response.Redirect("Staffing_List.aspx");
         }
         else
         {
