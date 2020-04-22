@@ -24,6 +24,8 @@
             Staff DOB<br />
             <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
             <br />
+            Staff Valid(Tick if True)<br />
+            <asp:CheckBox ID="StaffValid" runat="server" />
             <br />
             <asp:Button ID="OkButton" runat="server" OnClick="OkButton_Click" Text="Ok" BackColor="#33CCFF" />
             <asp:Button ID="CancelButton" runat="server" Text="Cancel" BackColor="#FF3300" OnClick="CancelButton_Click" />

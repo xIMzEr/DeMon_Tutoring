@@ -23,5 +23,6 @@ public partial class Public_StaffingViewer : System.Web.UI.Page
         lblEmail.Text = staff.staffEmail;
         lblNumber.Text = staff.staffNumber;
         lblDOB.Text = staff.staffDOB.ToString() ;
+        lblValid.Text = staff.staffValid.ToString();
     }
 }

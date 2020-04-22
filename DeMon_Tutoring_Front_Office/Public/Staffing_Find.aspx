@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Staffing_Find.aspx.cs" Inherits="Private_Staffing_Find" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Staffing_Find.aspx.cs" Inherits="Public_Staffing_Find" %>
 
 <!DOCTYPE html>
 
