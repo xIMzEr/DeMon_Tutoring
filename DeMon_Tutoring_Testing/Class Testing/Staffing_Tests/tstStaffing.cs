@@ -1028,5 +1028,59 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             //Test to see that the two values are the same
             Assert.AreEqual(aStaffCollection.ThisStaff, TestItem);
         }
+
+        [TestMethod]
+        public void ReportByEmailMethodOK()
+        {
+            StaffingCollection allStaff = new StaffingCollection();
+
+            StaffingCollection filteredStaff = new StaffingCollection();
+            //Apply an email that doesn't exist
+            filteredStaff.ReportByEmail("");
+
+            Assert.AreEqual(allStaff.Count, filteredStaff.Count);
+        }
+
+        [TestMethod]
+        public void ReportByEmailNoneFound()
+        {
+            StaffingCollection allStaff = new StaffingCollection();
+
+            StaffingCollection filteredStaff = new StaffingCollection();
+            //Apply an email that doesn't exist
+            filteredStaff.ReportByEmail("xxx xxx");
+
+            Assert.AreEqual(0, filteredStaff.Count);
+        }
+        [TestMethod]
+        public void ReportByEmailTestDataFound()
+        {
+            StaffingCollection fStaffingCollection = new StaffingCollection();
+            //var to store the outcomes
+            Boolean OK = true;
+
+            fStaffingCollection.ReportByEmail("yyy yyy");
+
+            if(fStaffingCollection.Count == 2)
+            {
+                //check that the first record ID is 31
+                if(fStaffingCollection.StaffList[0].staffID != 31)
+                {
+                    OK = false;
+                }
+                //check that the second record ID is 34
+                if (fStaffingCollection.StaffList[1].staffID != 34)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are nbo records
+            Assert.IsTrue(OK);
+
+        }
     }
 }

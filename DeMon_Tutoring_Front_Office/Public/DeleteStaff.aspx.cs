@@ -14,7 +14,7 @@ public partial class Public_DeleteStaff : System.Web.UI.Page
     //Event handler
     protected void Page_Load(object sender, EventArgs e)
     {
-        //get the number of the address to be deleted from the sesion object
+        //get the ID of the address to be deleted from the sesion object
         StaffID = Convert.ToInt32(Session["staff"]);
     }
 

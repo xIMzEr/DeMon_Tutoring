@@ -72,4 +72,33 @@ public partial class Public_Staffing_List : System.Web.UI.Page
             Response.Redirect("Staffing_Details.aspx");
         }
     }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        StaffingCollection Staff = new StaffingCollection();
+        Staff.ReportByEmail(txtEmailFilter.Text);
+        lstStaffingList.DataSource = Staff.StaffList;
+
+        //Set the name of the primary key
+        lstStaffingList.DataValueField = "StaffID";
+        //set the name of the field to display
+        lstStaffingList.DataValueField = "StaffEmail";
+        //bind the data to the list
+        lstStaffingList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        StaffingCollection Staff = new StaffingCollection();
+        Staff.ReportByEmail("");
+        //clear any existing filter
+        txtEmailFilter.Text = "";
+        lstStaffingList.DataSource = Staff.StaffList;
+        //Set the name of the primary key
+        lstStaffingList.DataValueField = "StaffID";
+        //set the name of the field to display
+        lstStaffingList.DataValueField = "StaffEmail";
+        //bind the data to the list
+        lstStaffingList.DataBind();
+    }
 }
