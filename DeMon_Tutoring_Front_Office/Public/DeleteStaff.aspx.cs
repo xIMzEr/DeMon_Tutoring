@@ -20,9 +20,9 @@ public partial class Public_DeleteStaff : System.Web.UI.Page
 
     protected void btnY_Click(object sender, EventArgs e)
     {
-        StaffingCollection staffingCollection = new StaffingCollection();
-        staffingCollection.ThisStaff.Find(StaffID);
-        staffingCollection.Delete();
+        StaffingCollection aStaffingCollection = new StaffingCollection();
+        aStaffingCollection.ThisStaff.Find(StaffID);
+        aStaffingCollection.Delete();
         Response.Redirect("Staffing_List.aspx");
     }
 }

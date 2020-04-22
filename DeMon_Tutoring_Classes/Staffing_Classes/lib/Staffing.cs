@@ -76,7 +76,7 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             //Create a new instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //Add the parameter for the staffID to search for
-            DB.AddParameter("staffID", sID);
+            DB.AddParameter("@StaffID", sID);
             //Execute the stored procedure
             DB.Execute("sproc_TblStaffing_FilterByStaffID");
             //If one record is found (Only one or zero instances can exist)

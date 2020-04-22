@@ -15,7 +15,7 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
         public Int32 Count { get { return mStaffList.Count; }
             set { /*Worry about later */} }
 
-        private Staffing mThisStaff;
+        private Staffing mThisStaff = new Staffing();
         public Staffing ThisStaff {
             get
             {
@@ -43,26 +43,6 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             DB.Execute("sproc_TblStaffing_SelectAll");
             //populate the array list with the data table
             PopulateArray(DB);
-
-            /**    //get the count of records
-      RecordCount = DB.Count;
-//While there are record to process
-      while(Index < RecordCount)
-      {
-          //Create a blank list of staff
-          Staffing AStaff = new Staffing();
-          //Read in the feilds from the curerent record
-          AStaff.staffID = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffID"]);
-          AStaff.staffName = new Name(Convert.ToString(DB.DataTable.Rows[Index]["FirstName"]), Convert.ToString(DB.DataTable.Rows[Index]["LastName"]));
-          AStaff.staffNumber = Convert.ToString(DB.DataTable.Rows[Index]["StaffNumber"]);
-          AStaff.staffEmail = Convert.ToString(DB.DataTable.Rows[Index]["StaffEmail"]);
-          AStaff.staffDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["StaffDob"]);
-          AStaff.staffValid = Convert.ToBoolean(DB.DataTable.Rows[Index]["StaffValid"]);
-          //Adds the record to the private data member list
-          mStaffList.Add(AStaff);
-          //Point at the next record
-          Index++; 
-      }**/
         }
 
         public int Add()
