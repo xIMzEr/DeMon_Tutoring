@@ -12,27 +12,47 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
         // Customer Fields
         // public Boolean Active { get; set; }
         // private Boolean active { get; set; }
+        private Int32 mCustomerID;
         public int CustomerID
         { get { return mCustomerID; } set { mCustomerID = value; } }
-        private Int32 mCustomerID { get; set; }
-        public Boolean Customer { get { return mCustomer; } set { mCustomer = value; } }
-        private Boolean mCustomer { get; set; }
-        public Name CustomerName { get { return mCustomerName; } set { mCustomerName = value; } }
-        private Name mCustomerName { get; set; }
-        public DateTime DateOfBirth { get { return mDateOfBirth; } set { mDateOfBirth = value; } }
-        private DateTime mDateOfBirth { get; set; }
-        public string Email { get { return mEmail; } set { mEmail = value; } }
-        private string mEmail { get; set; }
-        public string PhoneNumber { get { return mPhoneNumber; } set { mPhoneNumber = value; } }
-        private string mPhoneNumber { get; set; }
-        public string Password { get { return mPassword; } set { mPassword = value; } }
-        private string mPassword { get; set; }
-        public string CardNo { get { return mCardNo; } set { mCardNo = value; } }
-        private string mCardNo { get; set; }
-        public DateTime CardDate { get { return mCardDate; } set { mCardDate = value; } }
-        private DateTime mCardDate { get; set; }
-        public string StudentStatus { get { return mStudentSatus; } set { mStudentSatus = value; } }
-        private string mStudentSatus { get; set; }
+
+        private Boolean mCustomer;
+        public Boolean Customer
+        { get { return mCustomer; } set { mCustomer = value; } }
+
+        private Name mCustomerName;
+        public Name CustomerName
+        { get { return mCustomerName; } set { mCustomerName = value; } }
+
+        private DateTime mDateOfBirth;
+        public DateTime DateOfBirth
+        { get { return mDateOfBirth; } set { mDateOfBirth = value; } }
+
+        private string mEmail;
+        public string Email
+        { get { return mEmail; } set { mEmail = value; } }
+  
+        private string mPhoneNumber;
+        public string PhoneNumber
+        { get { return mPhoneNumber; } set { mPhoneNumber = value; } }
+
+        private string mPassword;
+        public string Password
+        { get { return mPassword; } set { mPassword = value; } }
+
+        private string mCardNo;
+        public string CardNo
+        { get { return mCardNo; } set { mCardNo = value; } }
+        
+        private DateTime mCardDate;
+        public DateTime CardDate
+        { get { return mCardDate; } set { mCardDate = value; } }
+
+        private string mStudentSatus;
+        public string StudentStatus
+        { get { return mStudentSatus; } set { mStudentSatus = value; } }
+   
+
 
         //Customer Constructors
         public ClsCustomer(int cID, Name cName, DateTime cDob, string cEmail, string cNumber, string cPword, string cCardNo, DateTime cCardDate, string cStudentStat)
@@ -51,7 +71,7 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
 
         public ClsCustomer()
         {
-            CustomerID = 0;
+            CustomerID = 1;
             CustomerName = null;
             DateOfBirth = DateTime.Today;
             Email = " ";
@@ -73,7 +93,7 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
         }
 
         //the Find method to find a customer in the database
-        public bool Find (Int32 CustomerID)
+        public Boolean Find (int CustomerID)
         {
             //creating an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
@@ -85,8 +105,8 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
             if (DB.Count == 1)
             {
                 //copies all data from database to the private data memebers in this class
-                mCustomerID = 728;
-                mCustomerName = new Name(Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]));
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]); 
+                mCustomerName = new Name(Convert.ToString(DB.DataTable.Rows[0]["FirstName"]), Convert.ToString(DB.DataTable.Rows[0]["LastName"]));
                 mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
                 mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
                 mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);

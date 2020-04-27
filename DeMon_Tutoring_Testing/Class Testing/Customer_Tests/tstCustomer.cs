@@ -9,14 +9,14 @@ namespace DeMon_Tutoring_Testing
     {
 
         //test data for the validation method
-        string cFirstName = "John";
-        string cLastName = "Smith";
-        string cDateOfBirth = DateTime.Now.Date.AddYears(16).ToString();
-        string cEmail = "JohnS@Gmail.co.uk";
-        string cPhoneNumber = "07345673882";
-        string cPassword = "youcantseethis63";
-        string cCardNo = "0544044304450444";
-        string cCardDate = DateTime.Now.Date.ToString();
+       readonly string cFirstName = "John";
+       readonly string cLastName = "Smith";
+       readonly DateTime cDateOfBirth = Convert.ToDateTime("28/10/1998");
+       readonly string cEmail = "JohnS@Gmail.co.uk";
+       readonly string cPhoneNumber = "07345673882";
+       readonly string cPassword = "youcantseethis63";
+       readonly string cCardNo = "0544044304450444";
+       readonly DateTime cCardDate = Convert.ToDateTime("10/20/2020");
 
 
 
@@ -147,15 +147,15 @@ namespace DeMon_Tutoring_Testing
             //boolean variable to store result of method
             Boolean Found = false;
             //create test data 
-            int cID = 3456;
+            Int32 CustomerID = 1;
             //invoke method
-            Found = aCustomer.Find(cID);
+            Found = aCustomer.Find(CustomerID);
             //test to see if result is correct
             Assert.IsTrue(Found);
         }
 
         [TestMethod]
-        public void TestIdNotFound()
+        public void CustomerNotFound()
         {
             //Creates an instance of customer 
             ClsCustomer aCustomer = new ClsCustomer();
@@ -164,11 +164,11 @@ namespace DeMon_Tutoring_Testing
             //boolean variable to record if data is OK (assumes that it is)
             Boolean Ok = true;
             //creates some test data to assign to use with the method
-            int cID = 728;
+            Int32 cID = 1;
             //invoke the method
             Found = aCustomer.Find(cID);
-            //checl the customer id number 
-            if(aCustomer.CustomerID != 728)
+            //check the customer id number 
+            if(aCustomer.CustomerID != 1)
             {
                 Ok = false;
             }
@@ -177,7 +177,163 @@ namespace DeMon_Tutoring_Testing
         }
 
         [TestMethod]
-        public void ValidMethod()
+        public void CustomerNameFound()
+        {
+            //create new customer and new name 
+            Name cName = new Name("John", "Smith");
+            ClsCustomer aCustomer = new ClsCustomer();
+            //boolean variable to store result method
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //creates some test data to assign to use with the method
+            Int32 cID = 1;
+            //invoke the method
+            Found = aCustomer.Find(cID);
+            //check the customer name
+            if (aCustomer.CustomerName.getFullName() != cName.getFullName())
+            {
+                Ok = false;
+            }
+            //test to check result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void CustomerDOBFound()
+        {
+            //create new customer 
+            ClsCustomer aCustomer = new ClsCustomer();
+            //boolean variable to store result method
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //creates some test data to assign to use with the method
+            Int32 cID = 1;
+            //invoke the method
+            Found = aCustomer.Find(cID);
+            //check the customer name
+            if (aCustomer.DateOfBirth != Convert.ToDateTime("28/10/1998"))
+            {
+                Ok = false;
+            }
+            //test to check result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void CustomerEmailFound()
+        {
+            //create new customer 
+            ClsCustomer aCustomer = new ClsCustomer();
+            //boolean variable to store result method
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //creates some test data to assign to use with the method
+            Int32 cID = 1;
+            //invoke the method
+            Found = aCustomer.Find(cID);
+            //check the customer name
+            if (aCustomer.Email != "JohnS@Gmail.co.uk")
+            {
+                Ok = false;
+            }
+            //test to check result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void CustomerPhoneNumberFound()
+        {
+            //create new customer 
+            ClsCustomer aCustomer = new ClsCustomer();
+            //boolean variable to store result method
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //creates some test data to assign to use with the method
+            Int32 cID = 1;
+            //invoke the method
+            Found = aCustomer.Find(cID);
+            //check the customer name
+            if (aCustomer.PhoneNumber != "07345673882")
+            {
+                Ok = false;
+            }
+            //test to check result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void CustomerPasswordFound()
+        {
+            //create new customer 
+            ClsCustomer aCustomer = new ClsCustomer();
+            //boolean variable to store result method
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //creates some test data to assign to use with the method
+            Int32 cID = 1;
+            //invoke the method
+            Found = aCustomer.Find(cID);
+            //check the customer name
+            if (aCustomer.Password != "youcantseethis63")
+            {
+                Ok = false;
+            }
+            //test to check result is correct
+            Assert.IsTrue(Ok);
+        }
+
+
+        [TestMethod]
+        public void CustomerCardNoFound()
+        {
+            //create new customer 
+            ClsCustomer aCustomer = new ClsCustomer();
+            //boolean variable to store result method
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //creates some test data to assign to use with the method
+            Int32 cID = 1;
+            //invoke the method
+            Found = aCustomer.Find(cID);
+            //check the customer name
+            if (aCustomer.CardNo != "0544044304450444")
+            {
+                Ok = false;
+            }
+            //test to check result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void CustomerCardDateFound()
+        {
+            //create new customer 
+            ClsCustomer aCustomer = new ClsCustomer();
+            //boolean variable to store result method
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assumes that it is)
+            Boolean Ok = true;
+            //creates some test data to assign to use with the method
+            Int32 cID = 1;
+            //invoke the method
+            Found = aCustomer.Find(cID);
+            //check the customer name
+            if (aCustomer.CardDate != Convert.ToDateTime("10/20/2020"))
+            {
+                Ok = false;
+            }
+            //test to check result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void ValidMethodOk()
         {
             //creates an instamce of customer
             ClsCustomer aCustomer = new ClsCustomer();
