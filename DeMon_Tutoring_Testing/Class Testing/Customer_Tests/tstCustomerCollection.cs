@@ -218,7 +218,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Customer_Tests
             Assert.AreEqual(0, FilteredEmails.Count);
         }
 
-        [TestMethod]
+       /* [TestMethod]
         public void ReportByEmailTestDataFound()
         {
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
@@ -245,7 +245,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Customer_Tests
                 OK = false;
             }
             Assert.IsTrue(OK);
-        }
+        }*/
 
     }
 }
