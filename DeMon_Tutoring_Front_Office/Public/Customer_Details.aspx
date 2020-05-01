@@ -49,7 +49,7 @@
             <br />
             <br />
             <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" Width="48px" />
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
             <br />
             <asp:Label ID="lblError" runat="server" Text="[]" ></asp:Label>
         </div>

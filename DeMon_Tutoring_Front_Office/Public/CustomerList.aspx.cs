@@ -25,7 +25,7 @@ public partial class Public_Customer_List : System.Web.UI.Page
 
         lstCustomerList.DataValueField = "CustomerID";
 
-        lstCustomerList.DataTextField = "Email";
+        lstCustomerList.DataTextField = "CustomerID";
 
         lstCustomerList.DataBind();
 
@@ -72,5 +72,37 @@ public partial class Public_Customer_List : System.Web.UI.Page
         {
             lblError.Text = "Please select a record to delete";
         }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        clsCustomerCollection cIDs = new clsCustomerCollection();
+
+        cIDs.ReportByEmail(txtFilter.Text);
+        lstCustomerList.DataSource = cIDs.CustomerList;
+
+        lstCustomerList.DataValueField = "CustomerID";
+
+        lstCustomerList.DataTextField = "Email";
+
+        lstCustomerList.DataBind();
+
+    }
+
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        clsCustomerCollection cIDs = new clsCustomerCollection();
+        cIDs.ReportByEmail("");
+
+        txtFilter.Text = "";
+        lstCustomerList.DataSource = cIDs.CustomerList;
+
+        lstCustomerList.DataValueField = "CustomerID";
+
+        lstCustomerList.DataTextField = "Email";
+
+        lstCustomerList.DataBind();
+
     }
 }

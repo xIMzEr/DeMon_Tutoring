@@ -131,4 +131,9 @@ public partial class Public_Default : System.Web.UI.Page
             txtCardDate.Text = aCustomer.CardDate.ToString();
         }
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomerList.aspx");
+    }
 }
