@@ -1,6 +1,7 @@
 ﻿using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
         // public Boolean Active { get; set; }
         // private Boolean active { get; set; }
         private Int32 mCustomerID;
-        public int CustomerID
+        public Int32 CustomerID
         { get { return mCustomerID; } set { mCustomerID = value; } }
 
         private Boolean mCustomer;
@@ -48,14 +49,9 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
         public DateTime CardDate
         { get { return mCardDate; } set { mCardDate = value; } }
 
-        private string mStudentSatus;
-        public string StudentStatus
-        { get { return mStudentSatus; } set { mStudentSatus = value; } }
-   
-
 
         //Customer Constructors
-        public ClsCustomer(int cID, Name cName, DateTime cDob, string cEmail, string cNumber, string cPword, string cCardNo, DateTime cCardDate, string cStudentStat)
+        public ClsCustomer(int cID, Name cName, DateTime cDob, string cEmail, string cNumber, string cPword, string cCardNo, DateTime cCardDate)
         {
             CustomerID = cID;
             CustomerName = cName;
@@ -65,7 +61,6 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
             Password = cPword;
             CardNo = cCardNo;
             CardDate = cCardDate;
-            StudentStatus = cStudentStat;
 
         }
 
@@ -78,23 +73,23 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
             PhoneNumber = " ";
             Password = " ";
             CardNo = " ";
-            CardDate = DateTime.Today;
-            StudentStatus = " ";
+            CardDate = DateTime.Today;        
         }
 
+        //methods
 
         //ToString Method
         public string toString()
         {
             return "CustomerID: " + this.CustomerID + ", CustomerName: " + this.CustomerName +
                 ", DateOfBirth: " + this.DateOfBirth + ", Email: " + this.Email + ", PhoneNumber: " + this.PhoneNumber +
-                ", Password: " + this.Password + ", CardNo: " + this.CardNo + ", CardDate: " + this.CardDate +
-                ", StudentStatus: " + this.StudentStatus;
+                ", Password: " + this.Password + ", CardNo: " + this.CardNo + ", CardDate: " + this.CardDate;
         }
 
         //the Find method to find a customer in the database
-        public Boolean Find (int CustomerID)
+        public bool Find (int CustomerID)
         {
+            bool Found = false;
             //creating an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //adding a parameter for the customer id to search for
@@ -105,7 +100,7 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
             if (DB.Count == 1)
             {
                 //copies all data from database to the private data memebers in this class
-                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]); 
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]); 
                 mCustomerName = new Name(Convert.ToString(DB.DataTable.Rows[0]["FirstName"]), Convert.ToString(DB.DataTable.Rows[0]["LastName"]));
                 mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
                 mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
@@ -113,18 +108,12 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
                 mPassword = Convert.ToString(DB.DataTable.Rows[0]["Password"]);
                 mCardNo = Convert.ToString(DB.DataTable.Rows[0]["CardNo"]);
                 mCardDate = Convert.ToDateTime(DB.DataTable.Rows[0]["CardDate"]);
-                mStudentSatus = Convert.ToString(DB.DataTable.Rows[0]["StudentStatus"]);
 
                 //returns all info on the customer
-                return true;
+                Found = true;
 
             }
-            //if no record found 
-            else
-            {
-                //return false, meaning no one is there
-                return false;
-            }
+            return Found;
         }
 
         public string Valid(string cFirstName, string cLastName, string cDateOfBirth, string cEmail, string cPhoneNumber, string cPassword, string cCardNo, string cCardDate)
@@ -133,6 +122,9 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
             String Error = "";
             //create a temporary variable to strore data values
             DateTime DateTemp;
+            DateTime DateTemp2;
+
+
             //if the first name is empty
             if (cFirstName.Length == 0)
             {
@@ -140,7 +132,7 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
                 Error = Error + "First name cannot be blank";
             }
             //if first name is more than 25 characters
-            if (cFirstName.Length < 25)
+            if (cFirstName.Length > 25)
             {
                 //recrd the error
                 Error = Error + "First name cannot be more than 25 characters";
@@ -153,26 +145,42 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
                 Error = Error + "Last name cannot be blank ";
             }
             //if the last name is more than 25 characters 
-            if (cLastName.Length < 25)
+            if (cLastName.Length > 25)
             {
                 //record the error
                 Error = Error + "Last name cannot be more than 25 characters";
             }
             //if the date of birth is less that 16 years
-            DateTemp = Convert.ToDateTime(cDateOfBirth);
-            if (DateTemp < DateTime.Now.Date.AddYears(-16))
+      
+            try
             {
-                //record the error
-                Error = Error + "Cannot be under 16 years old";
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(cDateOfBirth);
+                //check to see if date is in the past
+                if (DateTemp > DateTime.Now.Date.AddYears(-16))
+                {
+                    //record the error
+                    Error = Error + "Cannot be under 16 years old";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "date of birth cannot be in the future : ";
+                }
             }
-            //if the email is blank
-            if (cEmail.Length == 0)
+            catch
             {
                 //record the error
-                Error = Error + "Email cannot be blank";
+                Error = Error + "This date of birth is not valid: ";
+            }
+            //if email is less than 5 it will throw error
+            if (cEmail.Length < 5)
+            {
+                //record the error
+                Error = Error + "Email cannot be less than 5 characters";
             }
             //if the email is more than 50 characters 
-            if (cEmail.Length < 50)
+            if (cEmail.Length > 50)
             {
                 //record the error
                 Error = Error + "Email cannot be more than 50 characters";
@@ -190,29 +198,38 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
                 Error = Error + "Password cannot be blank";
             }
             //if password is greater than 25
-            if (cPassword.Length < 25)
+            if (cPassword.Length > 25)
             {
                 //records the error
-                Error = Error + "Password cannot be than 25 characters";
+                Error = Error + "Password cannot be more than 25 characters";
             }
             if (cCardNo.Length != 16)
             {
                 //record the error
                 Error = Error + "Card number must be 16 digits";
             }
-            //if the card date is more than 5 years in the future
-            DateTemp = Convert.ToDateTime(cCardDate);
-            if (DateTemp > DateTime.Now.Date.AddYears(+5))
+
+            try
             {
-                //record the error
-                Error = Error + "Invalid card date";
+                //if the card date is more than 5 years in the future
+                DateTemp2 = Convert.ToDateTime(cCardDate);
+                if (DateTemp2 > DateTime.Now.Date.AddYears(+5))
+                {
+                    //record the error
+                    Error = Error + "Invalid card date";
+                }
+                //if the card date if in the past it has expired
+                DateTemp2 = Convert.ToDateTime(cCardDate);
+                if (DateTemp2 < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "This card has expired";
+                }
             }
-            //if the card date if in the past it has expired
-            DateTemp = Convert.ToDateTime(cCardDate);
-            if (DateTemp < DateTime.Now.Date)
+            catch
             {
                 //record the error
-                Error = Error + "This card has expired";
+                Error = Error + "The date is not a valid date: ";
             }
             return Error;
         }
