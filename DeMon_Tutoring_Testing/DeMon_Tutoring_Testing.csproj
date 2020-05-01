@@ -49,8 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class Testing\Customer_Tests\tstCustomerCollection.cs" />
-    <Compile Include="Class Testing\Customer_Tests\tstCustomer.cs" />
+    <Compile Include="Class Testing\Customer_Tests\TstCustomerCollection.cs" />
+    <Compile Include="Class Testing\Customer_Tests\TstCustomer.cs" />
     <Compile Include="Class Testing\Staffing_Tests\tstStaffing.cs" />
     <Compile Include="Class Testing\Tutor_Tests\TstTutorCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

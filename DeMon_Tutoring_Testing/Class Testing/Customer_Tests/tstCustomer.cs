@@ -5,7 +5,7 @@ using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 namespace DeMon_Tutoring_Testing
 {
     [TestClass]
-    public class tstCustomer
+    public class TstCustomer
     {
 
         //test data for the validation method

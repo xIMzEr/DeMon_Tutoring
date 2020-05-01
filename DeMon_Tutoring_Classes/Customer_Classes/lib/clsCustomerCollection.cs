@@ -19,33 +19,11 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
 
         public clsCustomerCollection()
         {
-            Int32 Index = 0;
-
-            Int32 RecordCount = 0;
-
             clsDataConnection DB = new clsDataConnection();
 
             DB.Execute("sproc_tblCustomer_SelectAll");
 
-            RecordCount = DB.Count;
-
-            while (Index < RecordCount)
-            {
-                ClsCustomer aCustomer = new ClsCustomer();
-
-                aCustomer.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
-                aCustomer.CustomerName = new Name(Convert.ToString(DB.DataTable.Rows[Index]["FirstName"]), Convert.ToString(DB.DataTable.Rows[Index]["LastName"]));
-                aCustomer.DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfBirth"]);
-                aCustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
-                aCustomer.PhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["PhoneNumber"]);
-                aCustomer.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
-                aCustomer.CardNo = Convert.ToString(DB.DataTable.Rows[Index]["CardNo"]);
-                aCustomer.CardDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["CardDate"]);
-
-                mCustomerList.Add(aCustomer);
-
-                Index++;
-            }
+            PopulateArray(DB);
         }
 
         public int Add()
@@ -90,5 +68,46 @@ namespace DeMon_Tutoring_Classes.Customer_Classes.lib
 
             DB.Execute("sproc_tblCustomer_Update");
         }
+
+        public void ReportByEmail(string Email)
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@Email", Email);
+
+            DB.Execute("sproc_tblCustomer_FilterByEmail");
+
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+
+            Int32 RecordCount = 0;
+
+            RecordCount = DB.Count;
+
+            mCustomerList = new List<ClsCustomer>();
+
+            while (Index < RecordCount)
+            {
+                ClsCustomer aCustomer = new ClsCustomer();
+
+                aCustomer.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
+                aCustomer.CustomerName = new Name(Convert.ToString(DB.DataTable.Rows[Index]["FirstName"]), Convert.ToString(DB.DataTable.Rows[Index]["LastName"]));
+                aCustomer.DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfBirth"]);
+                aCustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
+                aCustomer.PhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["PhoneNumber"]);
+                aCustomer.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
+                aCustomer.CardNo = Convert.ToString(DB.DataTable.Rows[Index]["CardNo"]);
+                aCustomer.CardDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["CardDate"]);
+
+                mCustomerList.Add(aCustomer);
+
+                Index++;
+            }
+        }
+
     }
 }

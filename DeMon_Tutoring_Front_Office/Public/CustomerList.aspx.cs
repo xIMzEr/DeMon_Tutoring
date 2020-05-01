@@ -25,7 +25,7 @@ public partial class Public_Customer_List : System.Web.UI.Page
 
         lstCustomerList.DataValueField = "CustomerID";
 
-        lstCustomerList.DataTextField = "PhoneNumber";
+        lstCustomerList.DataTextField = "Email";
 
         lstCustomerList.DataBind();
 
@@ -56,7 +56,7 @@ public partial class Public_Customer_List : System.Web.UI.Page
         }
     }
 
-    protected void btnUpdate_Click(object Sender, EventArgs e)
+    protected void btnEdit_Click(object Sender, EventArgs e)
     {
         Int32 CustomerID;
 

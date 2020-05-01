@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 namespace DeMon_Tutoring_Testing.Class_Testing.Customer_Tests
 {
     [TestClass]
-    public class tstCustomerCollection
+    public class TstCustomerCollection
     {
         [TestMethod]
-        public void instanceOK()
+        public void InstanceOK()
         {
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
 
@@ -21,7 +21,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Customer_Tests
         }
 
         [TestMethod]
-        public void addressListOK()
+        public void AddressListOK()
         {
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
 
@@ -97,7 +97,7 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Customer_Tests
         }
 
         [TestMethod]
-        public void addMethodOK()
+        public void AddMethodOK()
         {
 
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
@@ -206,5 +206,46 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Customer_Tests
 
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
+
+        [TestMethod]
+        public void ReportyByEmailMethodOK()
+        {
+
+            clsCustomerCollection FilteredEmails = new clsCustomerCollection();
+
+            FilteredEmails.ReportByEmail("xxxxxxxx");
+
+            Assert.AreEqual(0, FilteredEmails.Count);
+        }
+
+        [TestMethod]
+        public void ReportByEmailTestDataFound()
+        {
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+
+            Boolean OK = true;
+
+            FilteredCustomers.ReportByEmail("dude@123.Yahoo.co.uk");
+
+            if(FilteredCustomers.Count == 2)
+            {
+
+                if (FilteredCustomers.CustomerList[0].CustomerID != 4)
+                {
+                    OK = false;
+                }
+
+                if (FilteredCustomers.CustomerList[1].CustomerID != 5)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
     }
 }

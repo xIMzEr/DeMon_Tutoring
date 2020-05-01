@@ -10,7 +10,6 @@ using DeMon_Tutoring_Classes.Staffing_Classes.lib;
 
 public partial class Public_Default : System.Web.UI.Page
 {
-
     Int32 CustomerID;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -101,7 +100,7 @@ public partial class Public_Default : System.Web.UI.Page
 
                 CustomerList.Update();
             }
-            Response.Redirect("CustomerList");
+            Response.Redirect("CustomerList.aspx");
         }
         else
         {
