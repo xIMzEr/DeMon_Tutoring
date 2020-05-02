@@ -31,4 +31,17 @@ public partial class Public_FrontPage : System.Web.UI.Page
         //redirect to the data entry page
         Response.Redirect("TutorList.aspx");
     }
+
+    protected void btnStudentSignUp_Click(object sender, EventArgs e)
+    {
+        Session["CustomerID"] = -1;
+        //redirect to the data entry page
+        Response.Redirect("Customer_Details.aspx");
+    }
+
+    protected void btnStudentRecords_Click(object sender, EventArgs e)
+    {
+        //redirect to the data entry page
+        Response.Redirect("CustomerList.aspx");
+    }
 }

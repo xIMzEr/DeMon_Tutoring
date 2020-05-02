@@ -23,11 +23,13 @@ public partial class Public_Customer_List : System.Web.UI.Page
 
         lstCustomerList.DataSource = customers.CustomerList;
 
-        lstCustomerList.DataValueField = "CustomerID";
+         lstCustomerList.DataValueField = "CustomerID";
 
-        lstCustomerList.DataTextField = "CustomerID";
+         lstCustomerList.DataTextField = "CustomerID";
 
-        lstCustomerList.DataBind();
+
+
+         lstCustomerList.DataBind();
 
     }
 

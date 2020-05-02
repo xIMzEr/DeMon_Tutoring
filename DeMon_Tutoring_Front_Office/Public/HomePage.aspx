@@ -12,7 +12,7 @@
             width: 789px;
         }
         .auto-style2 {
-            height: 253px;
+            height: 351px;
             width: 804px;
         }
         .auto-style3 {
@@ -36,6 +36,12 @@
             <asp:Button ID="btnTutorSignUp" runat="server" Font-Bold="True" OnClick="btnTutorSignUp_Click" Text="Sign Up" Height="40px" Width="100px" CssClass="auto-style5" />
             <asp:Button ID="btnTutorSignIn" runat="server" Text="Sign In" Height="40px" OnClick="btnTutorSignIn_Click" Width="100px" CssClass="auto-style4" />
             <asp:Button ID="btnViewAllRecords" runat="server" CssClass="auto-style3" Height="40px" OnClick="btnViewAllRecords_Click" Text="View All Records" Width="165px" />
+            <br />
+            <br />
+            <br />
+            <h2>Student Sign Up</h2>
+          <asp:Button ID="btnStudentSignUp" runat="server" Font-Bold="True" OnClick="btnStudentSignUp_Click" Text="Sign Up" Height="40px" Width="100px" CssClass="auto-style5" />
+             <asp:Button ID="btnStudentRecords" runat="server" Font-Bold="True" OnClick="btnStudentRecords_Click" Text="Student Records" Height="40px" Width="164px" CssClass="auto-style5" />
         </div>
     </form>
 </body>
