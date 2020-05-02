@@ -37,15 +37,20 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
         private DateTime mStaffDOB;
         public DateTime staffDOB {
             get { return mStaffDOB; } set { mStaffDOB = value; } }
+
+        //private member variable of staffValid
+        private bool mStaffValid;
+        public bool staffValid { get { return mStaffValid; } set { mStaffValid = value; } }
      
         //Constructors
-        public Staffing(int sID, Name sName, string sEmail, string sNum, DateTime sDOB)
+        public Staffing(int sID, Name sName, string sEmail, string sNum, DateTime sDOB, bool sValid)
         {
             staffID = sID;
             staffName = sName;
             staffEmail = sEmail;
             staffNumber = sNum;
             staffDOB = sDOB;
+            staffValid = sValid;
         }
 
        public Staffing()
@@ -55,13 +60,14 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             staffEmail = " ";
             staffNumber = " ";
             staffDOB = DateTime.Now.Date;
+            staffValid = false;
         }
 
         //Methods
         public string toString()
         {
             return "Staff ID: " + this.staffID + ", Staff Name: " + this.staffName +
-                ", Staff Email: " + this.staffEmail + ", Staff Number: " + this.staffNumber + ", Staff DOB: " + this.staffDOB;
+                ", Staff Email: " + this.staffEmail + ", Staff Number: " + this.staffNumber + ", Staff DOB: " + this.staffDOB + ", Staff Valid: " + this.staffValid;
         }
 
 
@@ -70,7 +76,7 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
             //Create a new instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //Add the parameter for the staffID to search for
-            DB.AddParameter("staffID", sID);
+            DB.AddParameter("@StaffID", sID);
             //Execute the stored procedure
             DB.Execute("sproc_TblStaffing_FilterByStaffID");
             //If one record is found (Only one or zero instances can exist)
@@ -82,6 +88,7 @@ namespace DeMon_Tutoring_Classes.Staffing_Classes.lib
                 mStaffNumber = Convert.ToString(DB.DataTable.Rows[0]["StaffNumber"]);
                 mStaffEmail = Convert.ToString(DB.DataTable.Rows[0]["StaffEmail"]);
                 mStaffDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffDob"]);
+                mStaffValid = Convert.ToBoolean(DB.DataTable.Rows[0]["StaffValid"]);
                 //return that everything went ok
                 return true;
             }

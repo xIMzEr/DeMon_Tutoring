@@ -23,7 +23,7 @@ public partial class Public_TutorList : System.Web.UI.Page
     }
 
    
-    //event handler for the add butto
+    //event handler for the add button
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         //store -1 into the session object to indicate that this is a new record
@@ -79,16 +79,22 @@ public partial class Public_TutorList : System.Web.UI.Page
 
     protected void btnApply_Click(object sender, EventArgs e)
     {
-        
+        //variable to store record count
         Int32 RecordCount;
+        //set variable to number of records with the filter criteria
         RecordCount = DisplayTutors(txtFilter.Text);
+        //display outcome in error label
         lblError.Text = RecordCount + " records found";
     }
     protected void btnDisplayAll_Click(object sender, EventArgs e)
     {
+        //variable to store record count
         Int32 RecordCount;
+        //set variable to number of records in the database
         RecordCount = DisplayTutors("");
+        //set text label to number of records found
         lblError.Text = RecordCount + " records in the database";
+        //reset filter text box
         txtFilter.Text = "";
     }
 
@@ -128,14 +134,23 @@ public partial class Public_TutorList : System.Web.UI.Page
             tutorId = Convert.ToString(AllTutors.TutorList[Index].tutorId);
 
             //set up a new object of class list item
-            ListItem NewItem = new ListItem(firstName + " " + lastName + " | " + email + " | " + subject + " | " + password, tutorId );
+            ListItem NewItem = new ListItem("ID: " + tutorId +" ~ Name: " + firstName + " " + lastName + " | Email: " + email + " | Subject: " + subject, tutorId );
             //add new item to list
             lstTutorList.Items.Add(NewItem);
+            //increment index to  next item
             Index++;
 
         }
         //return the number of records found
         return RecordCount;
+    }
+
+
+    protected void btnHome_Click(object sender, EventArgs e)
+    {
+        //redirect to the delete page
+        Response.Redirect("HomePage.aspx");
+
     }
 
    

@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="height: 192px">
+        <div style="height: 230px">
             <asp:Label ID="lblFirstName" runat="server" Text="Label"></asp:Label>
             <br />
             <br />
@@ -22,6 +22,9 @@
             <br />
             <br />
             <asp:Label ID="lblDOB" runat="server" BorderStyle="Dotted" Text="Label" Width="449px"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="lblValid" runat="server" Text="Label"></asp:Label>
         </div>
     </form>
 </body>

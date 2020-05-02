@@ -10,11 +10,14 @@ public partial class Public_DeleteTutor : System.Web.UI.Page
 {
     //var to store the primary key value of the record to be deleted
     Int32 tutorId;
+    Int32 deleteType;
+
     //event handler for the load event
     protected void Page_Load(object sender, EventArgs e)
     {
         //get the ID of the tutor to be deleted from the session object
         tutorId = Convert.ToInt32(Session["tutorId"]);
+        deleteType = Convert.ToInt32(Session["deleteType"]);
     }
 
     protected void btnYes_Click(object sender, EventArgs e)
@@ -26,12 +29,26 @@ public partial class Public_DeleteTutor : System.Web.UI.Page
         //delete this record
         AllTutors.Delete();
         //redirect back to the main page
-        Response.Redirect("TutorList.aspx");
+        if (deleteType == 1)
+        {
+            Response.Redirect("TutorSignIn.aspx");
+        }
+        else
+        {
+            Response.Redirect("TutorList.aspx");
+        }
     }
 
     protected void btnNo_Click(object sender, EventArgs e)
     {
         //redirect back to the main page
-        Response.Redirect("TutorList.aspx");
+        if (deleteType == 1)
+        {
+            Response.Redirect("TutorPersonalDetails.aspx");
+        }
+        else
+        {
+            Response.Redirect("TutorList.aspx");
+        }
     }
 }

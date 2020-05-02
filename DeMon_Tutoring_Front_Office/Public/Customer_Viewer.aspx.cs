@@ -17,7 +17,6 @@ public partial class Public_Default : System.Web.UI.Page
         //get data from session object
         customer = (ClsCustomer)Session["customer"];
 
-
         Response.Write("<b> LOGIN SUCCESSFUL </b>");
 
         lblFirstName.Text = customer.CustomerName.getFirstName();
