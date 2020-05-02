@@ -136,4 +136,10 @@ public partial class Public_Default : System.Web.UI.Page
     {
         Response.Redirect("CustomerList.aspx");
     }
+
+    protected void btnHome_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("HomePage.aspx");
+    }
+
 }
