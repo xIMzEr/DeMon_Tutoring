@@ -55,7 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Staffing_Classes\tests\" />
-    <Folder Include="Tutoring_Classes\test\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
