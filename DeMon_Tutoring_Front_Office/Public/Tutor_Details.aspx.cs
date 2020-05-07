@@ -173,4 +173,18 @@ public partial class Public_Tutor_Details : System.Web.UI.Page
         Response.Redirect("HomePage.aspx");
 
     }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //clear all fields
+        txtTutorId.Text = "";
+        txtFirstName.Text = "";
+        txtLastName.Text = "";
+        txtEmail.Text = "";
+        txtSubject.Text = "";
+        chkAvailable.Checked = true;
+        txtPassword.Text = "";
+        //set the date to todays date
+        txtDateAdded.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
+    }
 }
