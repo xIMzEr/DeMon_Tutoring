@@ -39,6 +39,7 @@
             margin-left: 90px;
             margin-bottom: 23px;
         }
+        .auto-style10 {}
     </style>
 </head>
 <body class="auto-style9">
@@ -95,6 +96,7 @@
             <br />
             <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" ForeColor="#009900" CssClass="auto-style1" Height="30px" Width="100px" />
             <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" ForeColor="#CC0000" CssClass="auto-style2" Height="30px" Width="70px" />
+            <asp:Button ID="btnClear" runat="server" CssClass="auto-style10" Font-Bold="True" Height="30px" OnClick="btnClear_Click" Text="Clear" Width="70px" />
             <br />
             <br />
             <asp:Label ID="lblError" runat="server" Text="[lblError]" ForeColor="Red" Visible="False"></asp:Label>
