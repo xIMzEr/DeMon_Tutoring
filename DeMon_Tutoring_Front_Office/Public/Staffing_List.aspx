@@ -17,7 +17,7 @@
     <form id="form1" runat="server">
         <div>
             <span class="auto-style1">Staff List</span><br />
-            <asp:ListBox ID="lstStaffingList" runat="server" Height="190px" Width="398px" OnSelectedIndexChanged="lstStaffingList_SelectedIndexChanged"></asp:ListBox>
+            <asp:ListBox ID="lstStaffingList" runat="server" Height="190px" Width="398px"></asp:ListBox>
             <br />
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
             &nbsp;
