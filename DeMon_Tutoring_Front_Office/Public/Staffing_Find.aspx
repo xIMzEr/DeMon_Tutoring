@@ -30,6 +30,9 @@
             <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
             <br />
             <br />
+            <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Back" />
+            <br />
+            <br />
         </div>
     </form>
 </body>

@@ -1064,12 +1064,12 @@ namespace DeMon_Tutoring_Testing.Class_Testing.Staffing_Tests
             if(fStaffingCollection.Count == 2)
             {
                 //check that the first record ID is 31
-                if(fStaffingCollection.StaffList[0].staffID != 31)
+                if(fStaffingCollection.StaffList[0].staffID != 54)
                 {
                     OK = false;
                 }
                 //check that the second record ID is 34
-                if (fStaffingCollection.StaffList[1].staffID != 34)
+                if (fStaffingCollection.StaffList[1].staffID != 55)
                 {
                     OK = false;
                 }

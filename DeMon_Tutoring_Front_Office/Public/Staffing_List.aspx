@@ -34,6 +34,9 @@
             <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
             <br />
             <br />
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find Staff Details" />
+            <br />
+            <br />
             <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
         </div>
     </form>

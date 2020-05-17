@@ -101,4 +101,9 @@ public partial class Public_Staffing_List : System.Web.UI.Page
         //bind the data to the list
         lstStaffingList.DataBind();
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Staffing_Find.aspx");
+    }
 }

@@ -51,4 +51,9 @@ public partial class Public_Staffing_Find : System.Web.UI.Page
         txtNumber.Text = "";
         txtDOB.Text = "";
     }
+
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Staffing_List.aspx");
+    }
 }
