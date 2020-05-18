@@ -42,6 +42,12 @@
             <h2>Student Sign Up</h2>
           <asp:Button ID="btnStudentSignUp" runat="server" Font-Bold="True" OnClick="btnStudentSignUp_Click" Text="Sign Up" Height="40px" Width="100px" CssClass="auto-style5" />
              <asp:Button ID="btnStudentRecords" runat="server" Font-Bold="True" OnClick="btnStudentRecords_Click" Text="Student Records" Height="40px" Width="164px" CssClass="auto-style5" />
+            <br />
+            <br />
+            <br />
+            <h2>Order</h2>
+          <asp:Button ID="btnOrder" runat="server" Font-Bold="True" OnClick="btnOrder_Click" Text="Sign Up" Height="40px" Width="100px" CssClass="auto-style5" />
+             
         </div>
     </form>
 </body>

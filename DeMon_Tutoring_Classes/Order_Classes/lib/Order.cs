@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeMon_Tutoring_Classes.Order_Classes.Lib
+
+namespace DeMon_Tutoring_Classes.Order_Classes.lib
 {
     public class Order
     {
@@ -96,6 +97,33 @@ namespace DeMon_Tutoring_Classes.Order_Classes.Lib
             }
         }
 
+        public string Validation(string ordNum, DateTime ordDate)
+        {
+            //string to store the error
+            string Error = "";
+
+            if (ordNum.length == 0)
+            {
+                //record the error
+                Error = Error + "The order number cannot be blank: ";
+            }
+
+
+            //order date boundaries
+
+            try
+            {
+                if (ordDate < DateTime.Now.Date)
+                {
+                    Error += "The Order date is set for a date before todays date";
+
+                }
+            }
+            catch
+            {
+                Error += "The date is not valid";
+            }
+        }
        
     }
 }

@@ -44,4 +44,9 @@ public partial class Public_FrontPage : System.Web.UI.Page
         //redirect to the data entry page
         Response.Redirect("CustomerList.aspx");
     }
+    protected void btnOrder_Click(object sender, EventArgs e)
+    {
+        //redirect to the data entry page
+        Response.Redirect("OrderPage.aspx");
+    }
 }
