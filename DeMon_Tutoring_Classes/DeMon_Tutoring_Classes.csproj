@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer_Classes\lib\clsCustomerCollection.cs" />
+    <Compile Include="Order_Classes\lib\Order.cs" />
+    <Compile Include="Order_Classes\lib\OrderCollection.cs" />
     <Compile Include="Tutoring_Classes\lib\clsTutorCollection.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="Customer_Classes\lib\ClsCustomer.cs" />
@@ -58,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="Order_Classes\Order_Classes - Shortcut.lnk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

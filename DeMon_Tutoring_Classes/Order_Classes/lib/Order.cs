@@ -47,7 +47,7 @@ namespace DeMon_Tutoring_Classes.Order_Classes.lib
          public Order (int oID, int oOrderNum, DateTime oOrderDate, Boolean oPaymentComplete)
         {
             OrderID = oID;
-            OrderNumber = oOrderNumber;
+            OrderNumber = oOrderNum;
             OrderDate = oOrderDate;
             PaymentComplete = oPaymentComplete;
         }
@@ -77,15 +77,15 @@ namespace DeMon_Tutoring_Classes.Order_Classes.lib
             DB.AddParameter("OrderID", oID);
 
             //execute the stored procedure for find
-            DB.execute("sproc_TblOrder_FindOrderID");
+            DB.Execute("sproc_TblOrder_FindOrderID");
 
             //if a record is found then
-            if (DB.count == 1)
+            if (DB.Count == 1)
             {//Copy the data from the database to the private data members
-                oOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
-                oOrderNumber = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNumber"]);
-                oOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
-                oPaymentComplete = Convert.ToBoolean(DB.DataTable.Rows[0]["Payment Complete:"]);
+                mOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
+                mOrderNumber = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNumber"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mPaymentComplete = Convert.ToBoolean(DB.DataTable.Rows[0]["Payment Complete:"]);
                 //return that everything went ok
                 return true;
             }
@@ -97,12 +97,12 @@ namespace DeMon_Tutoring_Classes.Order_Classes.lib
             }
         }
 
-        public string Validation(string ordNum, DateTime ordDate)
+        public string Valid(string ordNum, DateTime ordDate)
         {
             //string to store the error
             string Error = "";
 
-            if (ordNum.length == 0)
+            if (ordNum.Length == 0)
             {
                 //record the error
                 Error = Error + "The order number cannot be blank: ";
@@ -123,6 +123,7 @@ namespace DeMon_Tutoring_Classes.Order_Classes.lib
             {
                 Error += "The date is not valid";
             }
+            return Error;
         }
        
     }

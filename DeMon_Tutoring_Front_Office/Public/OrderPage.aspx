@@ -11,17 +11,12 @@
             <asp:TextBox ID="txtOrderNumber" runat="server" Text=""></asp:TextBox>
              <br />
             Order Date <br />
-            <asp:Label ID="txtOrderDate" runat="server" Text=""></asp:Label>
+            <asp:TextBox ID="txtOrderDate" runat="server" Text=""></asp:TextBox>
              <br />
             Payment complete ? 
             <br />
-            <asp:Label ID="txtPaymentComplete" runat="server" Text=""></asp:Label>
+            <asp:CheckBox  ID="txtPaymentComplete" runat="server" Text=""></asp:CheckBox>
              <br />
-            CustomerID
-            <asp:Label ID="txtCustomerID" runat="server" Text=""></asp:Label>
-             <br />
-            Staff ID
-            <asp:Label ID="txtStaffID" runat="server" Text=""></asp:Label>
              <br />
         </div>
     </form>

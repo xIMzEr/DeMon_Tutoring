@@ -8,7 +8,7 @@ namespace DeMon_Tutoring_Classes.Order_Classes.lib
     public class OrderCollection
     {
         private List<Order> oOrderList = new List<Order>();
-        public List<OrderCollection> OrderList
+        public List<Order> OrderList
         {
             get { return oOrderList; }
             set { oOrderList = value; }
@@ -29,7 +29,7 @@ namespace DeMon_Tutoring_Classes.Order_Classes.lib
         }
 
         //Constructor for the class
-        public StaffingCollection()
+        public OrderCollection()
         {
             //Var for the index
             Int32 Index = 0;
@@ -49,9 +49,9 @@ namespace DeMon_Tutoring_Classes.Order_Classes.lib
             //connect to the db
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            DB.AddParameter("@OrderNumber", oThisOrder.OrderNumber.getOrderNumber());
-            DB.AddParameter("@OrderDate", oThisOrder.OrderDate.getOrderDate());
-            DB.AddParameter("@PaymentComplete", oThisOrder.PaymentComplete.getPaymentComplere);
+            DB.AddParameter("@OrderNumber", oThisOrder.OrderNumber);
+            DB.AddParameter("@OrderDate", oThisOrder.OrderDate);
+            DB.AddParameter("@PaymentComplete", oThisOrder.PaymentComplete);
           
             //execute the query returning the primary key value
             return DB.Execute("sproc_TblOrder_Insert");
@@ -76,14 +76,14 @@ namespace DeMon_Tutoring_Classes.Order_Classes.lib
                 clsDataConnection DB = new clsDataConnection();
                 //set the parameters for the stored procedure
                 DB.AddParameter("@OrderID", oThisOrder.OrderID);
-                DB.AddParameter("@CustomerID", oThisOrder.CustomerID);
-                DB.AddParameter("@OrderNumber", oThisOrder.OrderNumber.getOrderNumber());
-                DB.AddParameter("@OrderDate", oThisOrder.OrderDate.getOrderDate());
-                DB.AddParameter("@PaymentComplete", oThisOrder.PaymentComplete.getPaymentComplete);
-                DB.AddParameter("@staffID", oThisOrder.staffID);
+             
+                DB.AddParameter("@OrderNumber", oThisOrder.OrderNumber);
+                DB.AddParameter("@OrderDate", oThisOrder.OrderDate);
+                DB.AddParameter("@PaymentComplete", oThisOrder.PaymentComplete);
+                
 
                 //execute the query returning the primary key value
-                return DB.Execute("sproc_TblOrder_Update");
+                 DB.Execute("sproc_TblOrder_Update");
             }
         }
 
@@ -105,13 +105,13 @@ namespace DeMon_Tutoring_Classes.Order_Classes.lib
                 Order aOrder = new Order();
                 //Read in the fields from the current record
                 aOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
-                aOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
-                aOrder.OrderNumber = Convert.ToString(DB.DataTable.Rows[Index]["OrderNumber"]);
+ 
+                aOrder.OrderNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNumber"]);
              
                 aOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
                 aOrder.PaymentComplete = Convert.ToBoolean(DB.DataTable.Rows[Index]["PaymentComplete"]);
                 //add the staff to the private data member
-                mStaffList.Add(aStaff);
+                oOrderList.Add(aOrder);
                 //point to the next record
                 Index++;
             }

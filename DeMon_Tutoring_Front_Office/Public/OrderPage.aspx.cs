@@ -27,12 +27,12 @@ public partial class Public_orderAdd : System.Web.UI.Page
 
     void DisplayAddress()
     {
-        OrderCollection oOrderCollection = new OrderCollection();
-        orderCollection.ThisStaff.Find(OrderID);
+        OrderCollection orderCollection = new OrderCollection();
+        orderCollection.ThisOrder.find(OrderID);
         //display the data
-        txtOrderNumber.Text = orderCollection.ThisOrder.OrderNumber.getOrderNumber();
+        txtOrderNumber.Text = orderCollection.ThisOrder.OrderNumber();
         txtOrderDate.Text = orderCollection.ThisOrder.OrderDate.ToString();
-        PaymentComplete.Checked = orderCollection.ThisOrder.PaymentComplete;
+        txtPaymentComplete.Checked = orderCollection.ThisOrder.PaymentComplete;
     }
 
     protected void OkButton_Click(object sender, EventArgs e)
@@ -49,12 +49,12 @@ public partial class Public_orderAdd : System.Web.UI.Page
             //capture the order ID
             order.OrderID = OrderID;
             //Capture the order number
-            order.OrderNumber = txtOrderNumber.Text
-     
+            order.OrderNumber = txtOrderNumber.Text;
+
+
             order.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
-            //Capture the staff Validity
-            order.OrderValid = OrderValid.Checked;
-            //Create a new instance of the staffing collection
+           
+            //Create a new instance of the order collection
             OrderCollection OrderList = new OrderCollection();
 
             if (OrderID == -1)
@@ -64,7 +64,7 @@ public partial class Public_orderAdd : System.Web.UI.Page
             }
             else
             {
-                OrderList.ThisOrder.Find(OrderID);
+                OrderList.ThisOrder.find(OrderID);
                 OrderList.ThisOrder = order;
                 OrderList.Update();
             }
